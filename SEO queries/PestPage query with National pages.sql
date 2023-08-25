@@ -1,4 +1,4 @@
-SELECT *, p.accountID = 45370514 as National, p.accountID = 326599935 as NationalGA4,
+SELECT *, p.accountID = 45370514 as National, p.accountID = 326599935 as NationalGA4, sum(users),
 CASE
    when p.pagePath like '%albany-ny%' then 'Albany'
    when p.pagePath like '%baltimore-md%' then 'Baltimore'
@@ -32,8 +32,9 @@ CASE
    Else 'National'
    End as 'Branch'
 FROM dwh_googleanalyticsdb.page as p
-WHERE (accountID = 45370514 or accountID = 326599935)
-and date like '%2023%'
+WHERE 
+(accountID = 45370514 or accountID = 326599935)
+and year(date)='2023'
 and (
    pagePath like '%/ants/' or
    pagePath like '%/bed-bugs/' or
@@ -93,7 +94,7 @@ and (
      pagePath like '%virginia-beach%'  
    )
 )
-or
+/*or
 (
    pagePath like '/ants/' or
    pagePath like '/bed-bugs/' or
@@ -121,7 +122,7 @@ or
    pagePath like '/ticks/' or
    pagePath like '/wasps/' or
    pagePath like '/yellow-jackets/'
-)
+)*/
  group by 
    pagePath
 order by
