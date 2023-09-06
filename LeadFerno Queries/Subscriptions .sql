@@ -1,0 +1,1 @@
+select customerID, subscriptionID,dateAdded,
