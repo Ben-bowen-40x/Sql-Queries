@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">Year</Data></Cell>
+			<Cell><Data ss:Type="String">Month</Data></Cell>
+			<Cell><Data ss:Type="String">Branch</Data></Cell>
+			<Cell><Data ss:Type="String">Spend</Data></Cell>
+			<Cell><Data ss:Type="String">callLeads</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Albany</Data></Cell>
+			<Cell><Data ss:Type="Number">698.36</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Baton Rouge</Data></Cell>
+			<Cell><Data ss:Type="Number">523.72</Data></Cell>
+			<Cell><Data ss:Type="Number">8</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Bloomington</Data></Cell>
+			<Cell><Data ss:Type="Number">33.54</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Boston</Data></Cell>
+			<Cell><Data ss:Type="Number">1321.91</Data></Cell>
+			<Cell><Data ss:Type="Number">12</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Buffalo</Data></Cell>
+			<Cell><Data ss:Type="Number">7070.53</Data></Cell>
+			<Cell><Data ss:Type="Number">81</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Central NJ</Data></Cell>
+			<Cell><Data ss:Type="Number">161.06</Data></Cell>
+			<Cell><Data ss:Type="Number">4</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Chicago</Data></Cell>
+			<Cell><Data ss:Type="Number">1873.03</Data></Cell>
+			<Cell><Data ss:Type="Number">8</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Corpus Christi</Data></Cell>
+			<Cell><Data ss:Type="Number">1832.38</Data></Cell>
+			<Cell><Data ss:Type="Number">29</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">CT</Data></Cell>
+			<Cell><Data ss:Type="Number">3000.8</Data></Cell>
+			<Cell><Data ss:Type="Number">39</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Dallas Fort Worth</Data></Cell>
+			<Cell><Data ss:Type="Number">54.23</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Harrisburg</Data></Cell>
+			<Cell><Data ss:Type="Number">7126.54</Data></Cell>
+			<Cell><Data ss:Type="Number">75</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Hudson Valley</Data></Cell>
+			<Cell><Data ss:Type="Number">140</Data></Cell>
+			<Cell><Data ss:Type="Number">0</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Lexington</Data></Cell>
+			<Cell><Data ss:Type="Number">1527.32</Data></Cell>
+			<Cell><Data ss:Type="Number">13</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Long Island</Data></Cell>
+			<Cell><Data ss:Type="Number">1663.95</Data></Cell>
+			<Cell><Data ss:Type="Number">81</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Lubbock</Data></Cell>
+			<Cell><Data ss:Type="Number">2152.83</Data></Cell>
+			<Cell><Data ss:Type="Number">42</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Manchester</Data></Cell>
+			<Cell><Data ss:Type="Number">858.47</Data></Cell>
+			<Cell><Data ss:Type="Number">6</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">McAllen</Data></Cell>
+			<Cell><Data ss:Type="Number">1290.52</Data></Cell>
+			<Cell><Data ss:Type="Number">12</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Midland</Data></Cell>
+			<Cell><Data ss:Type="Number">1853.74</Data></Cell>
+			<Cell><Data ss:Type="Number">26</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">North Shore</Data></Cell>
+			<Cell><Data ss:Type="Number">370.35</Data></Cell>
+			<Cell><Data ss:Type="Number">4</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Northern VA</Data></Cell>
+			<Cell><Data ss:Type="Number">74.65</Data></Cell>
+			<Cell><Data ss:Type="Number">1</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Orlando</Data></Cell>
+			<Cell><Data ss:Type="Number">363</Data></Cell>
+			<Cell><Data ss:Type="Number">3</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Pittsburgh</Data></Cell>
+			<Cell><Data ss:Type="Number">730.75</Data></Cell>
+			<Cell><Data ss:Type="Number">12</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Rhode Island</Data></Cell>
+			<Cell><Data ss:Type="Number">3554.48</Data></Cell>
+			<Cell><Data ss:Type="Number">49</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Syracuse</Data></Cell>
+			<Cell><Data ss:Type="Number">0</Data></Cell>
+			<Cell><Data ss:Type="Number">2</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="Number">2023</Data></Cell>
+			<Cell><Data ss:Type="Number">9</Data></Cell>
+			<Cell><Data ss:Type="String">Virginia Beach</Data></Cell>
+			<Cell><Data ss:Type="Number">1783.81</Data></Cell>
+			<Cell><Data ss:Type="Number">10</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>

@@ -1,6 +1,7 @@
 Select 
-	Month(s.dbDate) as Month, 
-	#year(s.dbDate) as Year,
+	d.officeID,
+	year(s.dbDate) as Year,
+	Month(s.dbDate) as Month,
 case
 	when s.customerID = "4313995931" then "Albany"
    when s.customerID = "8588818494" then "Baton Rouge"
@@ -30,22 +31,10 @@ case
    when s.customerID = "7263307645" then "Syracuse"
    when s.customerID = "1567026297" then "Virginia Beach"
 else "Google Ads" end as Branch,
-   Round(sum(s.cost), 2) as Spend,
-   l.leads
-
+   Round(sum(s.cost), 2) as Spend
 from dwh_googleadsdb.campaign_stats as s
-left join dwh_googleadsdb.campaign_def as d on s.customerID = d.customerID #campaign_def has office id, but campaign_stats does no
-left join 
-(
-   Select 
-   
-   Count(if(c.sale_billable="billable" and c.source like "%LSA%", true, false)) as Leads
-   from dwh_ctmdb.calls as c
-   where year(c.called_at) = "2023" and month(c.called_at) = "09"
-) as l on d.officeID = l.officeID
-WHERE year(s.dbDate) = "2023" and month(s.dbDate) = "09"
+left join dwh_googleadsdb.campaign_def as d on s.customerID = d.customerID #campaign_def has office id, but campaign_stats does not
+WHERE year(s.dbDate)="2023" and month(s.dbDate)="09"
 	and s.customerID != '6850114974' #eliminate Google Ads from results*/
-group by 
-	Branch
-Order by
-	Branch asc
+group by d.customerID
+Order by d.officeID asc;
