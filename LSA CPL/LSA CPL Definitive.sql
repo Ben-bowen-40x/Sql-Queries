@@ -37,52 +37,16 @@ else "Google Ads" end as Branch,
    Round(sum(s.cost), 2) as Spend
 from dwh_googleadsdb.campaign_stats as s
 left join dwh_googleadsdb.campaign_def as d on s.customerID = d.customerID #campaign_def has office id, but campaign_stats does not
-WHERE year(s.dbDate)=2023 and month(s.dbDate)=08
+WHERE year(s.dbDate)=2023 and month(s.dbDate)=09
 	and s.customerID != '6850114974' #eliminate Google Ads from results*/
 group by d.customerID
 Order by d.officeID asc
 ),
 #;
-
 /*Create temporary table */LSA_Billable
 as (
-Select o.branchName, #c.called_at,
-case
-	when c.officeID is null then 0
-	when c.officeID=1 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=2 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=3 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=4 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=5 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=6 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=7 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=8 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=9 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=10 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=11 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=12 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=13 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=14 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=15 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=16 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=17 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=18 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=19 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=20 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=21 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=22 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=23 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=24 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=25 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=26 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=27 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=28 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=29 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=30 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=31 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) 
-	when c.officeID=32 then sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0))
-	else sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0))
-end as Leads,
+Select o.branchName,
+sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) as Leads,
 case 
    when c.officeID=16  then "Albany"
    when c.officeID=4  then "Baton Rouge"
@@ -116,14 +80,14 @@ case
 end as "Branch"
 from dwh_ctmdb.calls as c
 left join dwh_reportsdb.office as o on o.officeID=c.officeID
-where year(c.called_at)=2023 and month(c.called_at)=08
+where year(c.called_at)=2023 and month(c.called_at)=09
 group by c.officeID
-order by c.officeID asc
+
 )
 #;
 
 Select s.Year, s.Month, s.officeID, b.branchName, b.Branch, b.Leads, s.Spend
 from LSA_Billable b
 left join LSA_Spend s on b.Branch=s.Branch
-order by b.branchName asc
+order by b.Branch asc
 ;
