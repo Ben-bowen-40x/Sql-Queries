@@ -1,5 +1,6 @@
 with 
-/*Create temporary table */ LSA_Spend
+#Create temporary table
+LSA_Spend
 as(
 Select 
 	d.officeID,
@@ -37,15 +38,14 @@ else "Google Ads" end as Branch,
    Round(sum(s.cost), 2) as Spend
 from dwh_googleadsdb.campaign_stats as s
 left join dwh_googleadsdb.campaign_def as d on s.customerID = d.customerID #campaign_def has office id, but campaign_stats does not
-WHERE year(s.dbDate)=2023 and month(s.dbDate)=09
+WHERE year(s.dbDate)=2023 and month(s.dbDate)=10
 	and s.customerID != '6850114974' #eliminate Google Ads from results*/
 group by d.customerID
-Order by d.officeID asc
 ),
-#;
-/*Create temporary table */LSA_Billable
+#;Create temporary table
+LSA_Billable
 as (
-Select o.branchName,
+Select o.branchName, year(c.called_at) as Year, month(c.called_at) as Month,
 sum(if(c.sale_billable="billable" and c.source like "%LSA%", 1, 0)) as Leads,
 case 
    when c.officeID=16  then "Albany"
@@ -80,14 +80,14 @@ case
 end as "Branch"
 from dwh_ctmdb.calls as c
 left join dwh_reportsdb.office as o on o.officeID=c.officeID
-where year(c.called_at)=2023 and month(c.called_at)=09
+where year(c.called_at)=2023 and month(c.called_at)=10
 group by c.officeID
-
 )
 #;
 
-Select s.Year, s.Month, s.officeID, b.branchName, b.Branch, b.Leads, s.Spend
+Select b.Year, b.Month, b.Branch, sum(b.Leads) as Leads, if(s.Spend is null, 0, s.Spend) as Spend
 from LSA_Billable b
 left join LSA_Spend s on b.Branch=s.Branch
+group by b.Branch
 order by b.Branch asc
 ;
