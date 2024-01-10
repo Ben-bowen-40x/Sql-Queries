@@ -36,7 +36,7 @@ case
    when location like '%service-plans%' then 'Service Plans'
    when location like '%ant%' and location not like '%carpenter-ant%' then 'Ants'
    when location like '%bed-bug%' then 'Bed Bugs'
-   when location like '%bee%' then 'Bees'
+   when location like '%bee%' and location not like '%carpenter-bee%' then 'Bees'
    when location like '%beetle%' then 'Beetles'
    when location like '%boxelder-bug%' then 'Boxelder Bugs'
    when location like '%carpenter-ant%' then 'Carpenter Ants'
