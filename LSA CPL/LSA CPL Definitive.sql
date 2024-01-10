@@ -38,7 +38,7 @@ else "Google Ads" end as Branch,
    Round(sum(s.cost), 2) as Spend
 from dwh_googleadsdb.campaign_stats as s
 left join dwh_googleadsdb.campaign_def as d on s.customerID = d.customerID #campaign_def has office id, but campaign_stats does not
-WHERE year(s.dbDate)=2023 and month(s.dbDate)=10
+WHERE year(s.dbDate)=2023 and month(s.dbDate) = 11
 	and s.customerID != '6850114974' #eliminate Google Ads from results*/
 group by d.customerID
 ),
@@ -80,7 +80,7 @@ case
 end as "Branch"
 from dwh_ctmdb.calls as c
 left join dwh_reportsdb.office as o on o.officeID=c.officeID
-where year(c.called_at)=2023 and month(c.called_at)=10
+where year(c.called_at) = 2023 and month(c.called_at) = 11
 group by c.officeID
 )
 #;
