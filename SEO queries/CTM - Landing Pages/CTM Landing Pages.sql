@@ -36,7 +36,7 @@ case
    when location like '%service-plans%' then 'Service Plans'
    when location like '%ant%' and location not like '%carpenter-ant%' then 'Ants'
    when location like '%bed-bug%' then 'Bed Bugs'
-   when location like '%bee%' and location not like '%carpenter-bee%' then 'Bees'
+   when location like '%bee%' and location not like '%carpenter-bee%' and location not like '%beetle%' then 'Bees'
    when location like '%beetle%' then 'Beetles'
    when location like '%boxelder-bug%' then 'Boxelder Bugs'
    when location like '%carpenter-ant%' then 'Carpenter Ants'
@@ -90,7 +90,7 @@ case
    when location like '%bloomington%' then 'Bloomington'
    when location like '%boston%' then 'Boston'
    when location like '%buffalo%' then 'Buffalo'
-   when location like '%central-nj%' then 'Central NJ'
+   when location like '%central-nj%' or location like '%jersey%' then 'Central NJ'
    when location like '%chicago%' then 'Chicago'
    when location like '%corpus-christi%' then 'Corpus Christi'
    when location like '%connecticut%' then 'Connecticut'
@@ -121,4 +121,4 @@ end as branchFilter
 
 from dwh_ctmdb.calls
 where year(dateContacted) >= 2021
-group by location, source, dateContacted
+group by location, source, dateContacted, sale_billable
