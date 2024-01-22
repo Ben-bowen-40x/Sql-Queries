@@ -1,0 +1,20 @@
+In this connection, we are taking all the billable calls from a specific time period. From dwh_ctmdb.calls, we have everything we need to determine the following details about all the billable calls we have for that time period:
+1. Branch
+2. Source (e.g. elocal or Google Ads, etc)
+3. Month
+4. Year 
+5. The number of calls grouped by each above category
+
+We are connecting this to dwh_reportsdb.subscription my means of a join on subscription and customer, where customer is joined with the above data through the primary phone number.
+We are then adding an additional category of Service Type to the above count groups.
+
+This second connection is more tenuous for the following reasons:
+1. We don't know whether a call resulted in a subscription 
+	(i.e. The call may be incorrectly ascribed to one subscription rather than another)
+2. We don't know whether a subscription resulted from a call 
+	(i.e. A subscription may be the result of outbound efforts rather than an inbound call)
+3. We don't know whether a single call resulted in several subscriptions, thus leaving at least one service type null
+
+
+4000 duplicates because of service type
+[end]
