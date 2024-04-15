@@ -1,3 +1,3 @@
-select call_id, tracking_number, location as landingPage, note, dateContacted, audio
+select dateContacted, called_at_denver, call_id, tracking_number, location as landingPage, note,  audio
 from dwh_ctmdb.calls
-where location like '%draw-a-snail-with-the-sketchin-tech%'
+where location like '%/blog/draw-a-snow-bug-with-the-sketchin-tech/%'
