@@ -1,0 +1,1871 @@
+"Phone Number","Date of Message","Message Contents","Message Source","IM Lead","Potential Sales Lead","Customer ID","Subscription is Active","Customer record start date","Customer unix cxl date","Subscription Id","Completed Initial","Contract Value","Subscription Start Date","Subscription unix cxl date","Service Type",Sale,"Corn Id"
+3014915400,"2026-04-21 16:43:00","{
+  ""id"": 4169669981,
+  ""sid"": ""log-call-no-answer-eed19134f165ecb0"",
+  ""account_id"": 441826,
+  ""name"": ""Renee Minella"",
+  ""cnam"": ""Renee Minella"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""reneeminella@gmail.com"",
+  ""street"": null,
+  ""city"": ""Hagerstown"",
+  ""state"": ""MD"",
+  ""country"": null,
+  ""postal_code"": ""21721"",
+  ""called_at"": ""2026-04-21 10:43 AM -06:00"",
+  ""unix_time"": 1776789826,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7767904E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1776789826000,
+    ""lte"": 1776789826000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""3014915400"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(301) 491-5400"",
+  ""caller_number_complete"": ""\u002B13014915400"",
+  ""caller_number_bare"": ""3014915400"",
+  ""caller_number"": ""\u002B13014915400"",
+  ""caller_number_split"": [
+    ""1"",
+    ""301"",
+    ""491"",
+    ""5400""
+  ],
+  ""contact_number"": ""\u002B13014915400"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-21T10:43:47Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Tuesday"",
+  ""month"": ""April"",
+  ""hour"": ""10AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4169669981"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 39.6413,
+  ""longitude"": -77.7226,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-aa093f34eefe023a"",
+    ""customer_number_to_dial"": ""\u002B13014915400"",
+    ""name"": ""Renee Minella"",
+    ""email"": ""reneeminella@gmail.com"",
+    ""trackback_id"": ""trackback-441826.1776789826.5933468"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -77.7226,
+    ""lat"": 39.6413
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,1539782,,"2026-04-21 17:41:48",,,,,,,,0,4169669981
+3153998725,"2026-04-18 12:27:00","{
+  ""id"": 4163734619,
+  ""sid"": ""log-call-no-answer-de5458a9d8cd8792"",
+  ""account_id"": 441826,
+  ""name"": ""Nicole Morgante wallis"",
+  ""cnam"": ""Nicole Morgante wallis"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""morgantn@upstate.edu"",
+  ""street"": null,
+  ""city"": ""Syracuse"",
+  ""state"": ""NY"",
+  ""country"": null,
+  ""postal_code"": ""13031"",
+  ""called_at"": ""2026-04-18 06:27 AM -06:00"",
+  ""unix_time"": 1776515270,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7765158E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1776515270000,
+    ""lte"": 1776515270000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""3153998725"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(315) 399-8725"",
+  ""caller_number_complete"": ""\u002B13153998725"",
+  ""caller_number_bare"": ""3153998725"",
+  ""caller_number"": ""\u002B13153998725"",
+  ""caller_number_split"": [
+    ""1"",
+    ""315"",
+    ""399"",
+    ""8725""
+  ],
+  ""contact_number"": ""\u002B13153998725"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-18T06:27:51Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Saturday"",
+  ""month"": ""April"",
+  ""hour"": ""06AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4163734619"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 43.0465,
+  ""longitude"": -76.1508,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-6512cab03ee581a2"",
+    ""customer_number_to_dial"": ""\u002B13153998725"",
+    ""name"": ""Nicole Morgante wallis"",
+    ""email"": ""morgantn@upstate.edu"",
+    ""trackback_id"": ""trackback-441826.1776515270.295273"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -76.1508,
+    ""lat"": 43.0465
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4163734619
+4123521441,"2026-04-12 03:39:00","{
+  ""id"": 4148169485,
+  ""sid"": ""log-call-no-answer-852d9f3dba1d0666"",
+  ""account_id"": 441826,
+  ""name"": ""Lindsay Wheat"",
+  ""cnam"": ""Lindsay Wheat"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""lindsayawheat@yahoo.com"",
+  ""street"": null,
+  ""city"": ""Pittsburgh Zone 1"",
+  ""state"": ""PA"",
+  ""country"": null,
+  ""postal_code"": ""15122"",
+  ""called_at"": ""2026-04-11 09:39 PM -06:00"",
+  ""unix_time"": 1775965169,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7759658E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1775965169000,
+    ""lte"": 1775965169000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""4123521441"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(412) 352-1441"",
+  ""caller_number_complete"": ""\u002B14123521441"",
+  ""caller_number_bare"": ""4123521441"",
+  ""caller_number"": ""\u002B14123521441"",
+  ""caller_number_split"": [
+    ""1"",
+    ""412"",
+    ""352"",
+    ""1441""
+  ],
+  ""contact_number"": ""\u002B14123521441"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-11T21:39:30Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Saturday"",
+  ""month"": ""April"",
+  ""hour"": ""09PM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4148169485"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 40.4377,
+  ""longitude"": -80.0034,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-8a6d7499d0b6157b"",
+    ""customer_number_to_dial"": ""\u002B14123521441"",
+    ""name"": ""Lindsay Wheat"",
+    ""email"": ""lindsayawheat@yahoo.com"",
+    ""trackback_id"": ""trackback-441826.1775965169.5831468"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""Yes"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Technician"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -80.0034,
+    ""lat"": 40.4377
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: Yes | Label: Referral Source, Id: referral_source, Value: Technician | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,1264897,1,"2024-05-20 23:39:20",,1382750,1,785.00,"2024-05-20 23:45:56",,"Fox Home Protection Plan",0,4148169485
+4124438253,"2026-05-25 21:27:00","{
+  ""id"": 4242099683,
+  ""sid"": ""log-call-no-answer-a19bd9138f51665b"",
+  ""account_id"": 441826,
+  ""name"": ""Joley Stegena"",
+  ""cnam"": ""Joley Stegena"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""Joleystegena@gmail.com"",
+  ""street"": null,
+  ""city"": ""Pittsburgh Zone 1"",
+  ""state"": ""PA"",
+  ""country"": null,
+  ""postal_code"": ""15122"",
+  ""called_at"": ""2026-05-25 03:27 PM -06:00"",
+  ""unix_time"": 1779744425,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.779745E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1779744425000,
+    ""lte"": 1779744425000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""4124438253"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(412) 443-8253"",
+  ""caller_number_complete"": ""\u002B14124438253"",
+  ""caller_number_bare"": ""4124438253"",
+  ""caller_number"": ""\u002B14124438253"",
+  ""caller_number_split"": [
+    ""1"",
+    ""412"",
+    ""443"",
+    ""8253""
+  ],
+  ""contact_number"": ""\u002B14124438253"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-05-25T15:27:06Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Monday"",
+  ""month"": ""May"",
+  ""hour"": ""03PM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4242099683"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 40.4377,
+  ""longitude"": -80.0034,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-f6cd83a53e1cc2ab"",
+    ""customer_number_to_dial"": ""\u002B14124438253"",
+    ""name"": ""Joley Stegena"",
+    ""email"": ""Joleystegena@gmail.com"",
+    ""trackback_id"": ""trackback-441826.1779744425.3933666"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -80.0034,
+    ""lat"": 40.4377
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4242099683
+4436168277,"2026-05-19 11:18:00","{
+  ""id"": 4229572601,
+  ""sid"": ""log-call-no-answer-33e394880908ab75"",
+  ""account_id"": 441826,
+  ""name"": ""Chantal D"",
+  ""cnam"": ""Chantal D"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""channy200404@yahoo.com"",
+  ""street"": null,
+  ""city"": ""Bel Air"",
+  ""state"": ""MD"",
+  ""country"": null,
+  ""postal_code"": ""21014"",
+  ""called_at"": ""2026-05-19 05:18 AM -06:00"",
+  ""unix_time"": 1779189516,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7791901E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1779189516000,
+    ""lte"": 1779189516000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""4436168277"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(443) 616-8277"",
+  ""caller_number_complete"": ""\u002B14436168277"",
+  ""caller_number_bare"": ""4436168277"",
+  ""caller_number"": ""\u002B14436168277"",
+  ""caller_number_split"": [
+    ""1"",
+    ""443"",
+    ""616"",
+    ""8277""
+  ],
+  ""contact_number"": ""\u002B14436168277"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-05-19T05:18:37Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Tuesday"",
+  ""month"": ""May"",
+  ""hour"": ""05AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4229572601"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 39.5345,
+  ""longitude"": -76.3486,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-3683fa6904bd948c"",
+    ""customer_number_to_dial"": ""\u002B14436168277"",
+    ""name"": ""Chantal D"",
+    ""email"": ""channy200404@yahoo.com"",
+    ""trackback_id"": ""trackback-441826.1779189516.5744092"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -76.3486,
+    ""lat"": 39.5345
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4229572601
+5188101241,"2026-04-03 19:14:00","{
+  ""id"": 4130602784,
+  ""sid"": ""log-call-no-answer-a6b3e20e649dbed6"",
+  ""account_id"": 441826,
+  ""name"": ""Shelby Herrington"",
+  ""cnam"": ""Shelby Herrington"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""cocksshelby@gmail.com"",
+  ""street"": null,
+  ""city"": ""Albany"",
+  ""state"": ""NY"",
+  ""country"": null,
+  ""postal_code"": ""12033"",
+  ""called_at"": ""2026-04-03 01:14 PM -06:00"",
+  ""unix_time"": 1775243649,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7752443E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1775243649000,
+    ""lte"": 1775243649000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""5188101241"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(518) 810-1241"",
+  ""caller_number_complete"": ""\u002B15188101241"",
+  ""caller_number_bare"": ""5188101241"",
+  ""caller_number"": ""\u002B15188101241"",
+  ""caller_number_split"": [
+    ""1"",
+    ""518"",
+    ""810"",
+    ""1241""
+  ],
+  ""contact_number"": ""\u002B15188101241"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-03T13:14:11Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Friday"",
+  ""month"": ""April"",
+  ""hour"": ""01PM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4130602784"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 42.6575,
+  ""longitude"": -73.769,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-62bea4f4fe279402"",
+    ""customer_number_to_dial"": ""\u002B15188101241"",
+    ""name"": ""Shelby Herrington"",
+    ""email"": ""cocksshelby@gmail.com"",
+    ""trackback_id"": ""trackback-441826.1775243649.6957335"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Truck"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -73.769,
+    ""lat"": 42.6575
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Truck | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4130602784
+5188923672,"2026-04-28 13:10:00","{
+  ""id"": 4184733935,
+  ""sid"": ""log-call-no-answer-4c222de9e8ee66b7"",
+  ""account_id"": 441826,
+  ""name"": ""Jen Towne"",
+  ""cnam"": ""Jen Towne"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""jennifer.towne@wbgames.com"",
+  ""street"": null,
+  ""city"": ""Troy"",
+  ""state"": ""NY"",
+  ""country"": null,
+  ""postal_code"": ""12018"",
+  ""called_at"": ""2026-04-28 07:10 AM -06:00"",
+  ""unix_time"": 1777381851,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7773824E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1777381851000,
+    ""lte"": 1777381851000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""5188923672"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(518) 892-3672"",
+  ""caller_number_complete"": ""\u002B15188923672"",
+  ""caller_number_bare"": ""5188923672"",
+  ""caller_number"": ""\u002B15188923672"",
+  ""caller_number_split"": [
+    ""1"",
+    ""518"",
+    ""892"",
+    ""3672""
+  ],
+  ""contact_number"": ""\u002B15188923672"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-28T07:10:52Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Tuesday"",
+  ""month"": ""April"",
+  ""hour"": ""07AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4184733935"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 42.7317,
+  ""longitude"": -73.6891,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-4b77f0b247468d0b"",
+    ""customer_number_to_dial"": ""\u002B15188923672"",
+    ""name"": ""Jen Towne"",
+    ""email"": ""jennifer.towne@wbgames.com"",
+    ""trackback_id"": ""trackback-441826.1777381851.5175927"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Commercial"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -73.6891,
+    ""lat"": 42.7317
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Commercial | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4184733935
+6023176232,"2026-05-07 15:50:00","{
+  ""id"": 4205874074,
+  ""sid"": ""log-call-no-answer-ef30f1493e4178be"",
+  ""account_id"": 441826,
+  ""name"": ""Jackie Berg"",
+  ""cnam"": ""Jackie Berg"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""jackie@craftsignco.com"",
+  ""street"": null,
+  ""city"": ""Phoenix"",
+  ""state"": ""AZ"",
+  ""country"": null,
+  ""postal_code"": ""85001"",
+  ""called_at"": ""2026-05-07 09:50 AM -06:00"",
+  ""unix_time"": 1778169015,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7781696E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1778169015000,
+    ""lte"": 1778169015000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""6023176232"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(602) 317-6232"",
+  ""caller_number_complete"": ""\u002B16023176232"",
+  ""caller_number_bare"": ""6023176232"",
+  ""caller_number"": ""\u002B16023176232"",
+  ""caller_number_split"": [
+    ""1"",
+    ""602"",
+    ""317"",
+    ""6232""
+  ],
+  ""contact_number"": ""\u002B16023176232"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-05-07T09:50:16Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Thursday"",
+  ""month"": ""May"",
+  ""hour"": ""09AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4205874074"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 33.4484,
+  ""longitude"": -112.074,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-bc620efb1d766f99"",
+    ""customer_number_to_dial"": ""\u002B16023176232"",
+    ""name"": ""Jackie Berg"",
+    ""email"": ""jackie@craftsignco.com"",
+    ""trackback_id"": ""trackback-441826.1778169015.302519"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Google"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -112.074,
+    ""lat"": 33.4484
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Google | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4205874074
+6035664057,"2026-05-07 15:59:00","{
+  ""id"": 4205909528,
+  ""sid"": ""log-call-no-answer-f33ead9fd5ed3dbb"",
+  ""account_id"": 441826,
+  ""name"": ""Terry Burris"",
+  ""cnam"": ""Terry Burris"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""mutter@comcast.net"",
+  ""street"": null,
+  ""city"": ""Nashua"",
+  ""state"": ""NH"",
+  ""country"": null,
+  ""postal_code"": ""03051"",
+  ""called_at"": ""2026-05-07 09:59 AM -06:00"",
+  ""unix_time"": 1778169562,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7781701E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1778169562000,
+    ""lte"": 1778169562000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""6035664057"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(603) 566-4057"",
+  ""caller_number_complete"": ""\u002B16035664057"",
+  ""caller_number_bare"": ""6035664057"",
+  ""caller_number"": ""\u002B16035664057"",
+  ""caller_number_split"": [
+    ""1"",
+    ""603"",
+    ""566"",
+    ""4057""
+  ],
+  ""contact_number"": ""\u002B16035664057"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-05-07T09:59:23Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Thursday"",
+  ""month"": ""May"",
+  ""hour"": ""09AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4205909528"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 42.7617,
+  ""longitude"": -71.4648,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-48ee6f35977f4cd4"",
+    ""customer_number_to_dial"": ""\u002B16035664057"",
+    ""name"": ""Terry Burris"",
+    ""email"": ""mutter@comcast.net"",
+    ""trackback_id"": ""trackback-441826.1778169562.253087"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Fox Customer"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": ""Linda Harpet"",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -71.4648,
+    ""lat"": 42.7617
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Fox Customer | Label: Referred By, Id: referred_by, Value: Linda Harpet | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4205909528
+7089757561,"2026-05-16 01:17:00","{
+  ""id"": 4224923018,
+  ""sid"": ""log-call-no-answer-d7073eed46478fd3"",
+  ""account_id"": 441826,
+  ""name"": ""Ken Beutin"",
+  ""cnam"": ""Ken Beutin"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""didaconstruction@sbcglobal.net"",
+  ""street"": null,
+  ""city"": ""Northbrook"",
+  ""state"": ""IL"",
+  ""country"": null,
+  ""postal_code"": ""60062"",
+  ""called_at"": ""2026-05-15 07:17 PM -06:00"",
+  ""unix_time"": 1778894260,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7788948E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1778894260000,
+    ""lte"": 1778894260000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""7089757561"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(708) 975-7561"",
+  ""caller_number_complete"": ""\u002B17089757561"",
+  ""caller_number_bare"": ""7089757561"",
+  ""caller_number"": ""\u002B17089757561"",
+  ""caller_number_split"": [
+    ""1"",
+    ""708"",
+    ""975"",
+    ""7561""
+  ],
+  ""contact_number"": ""\u002B17089757561"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-05-15T19:17:41Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Friday"",
+  ""month"": ""May"",
+  ""hour"": ""07PM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4224923018"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 42.1284,
+  ""longitude"": -87.8301,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-d4b7cecd7ec492eb"",
+    ""customer_number_to_dial"": ""\u002B17089757561"",
+    ""name"": ""Ken Beutin"",
+    ""email"": ""didaconstruction@sbcglobal.net"",
+    ""trackback_id"": ""trackback-441826.1778894260.870721"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Social media"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": """",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -87.8301,
+    ""lat"": 42.1284
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Social media | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4224923018
+7327634104,"2026-04-14 14:24:00","{
+  ""id"": 4152469616,
+  ""sid"": ""log-call-no-answer-6246a02e9b3ecc43"",
+  ""account_id"": 441826,
+  ""name"": ""Tara Mele"",
+  ""cnam"": ""Tara Mele"",
+  ""search"": """",
+  ""referrer"": """",
+  ""visitor_sid"": """",
+  ""location"": """",
+  ""source"": ""Sandbox"",
+  ""source_id"": 1814974,
+  ""source_sid"": ""TSOF6FC2D2594D22C5288F2F91D669A9D5B9BE7FEE3C6EF44F4A9EA1A63913ECD83"",
+  ""tgid"": 5681974,
+  ""likelihood"": null,
+  ""duration"": 0,
+  ""direction"": ""form"",
+  ""talk_time"": 0,
+  ""ring_time"": 0,
+  ""hold_time"": 0,
+  ""wait_time"": 0,
+  ""parent_id"": null,
+  ""email"": ""Innerfreedom03@hotmail.com"",
+  ""street"": null,
+  ""city"": ""New Brunswick"",
+  ""state"": ""NJ"",
+  ""country"": null,
+  ""postal_code"": ""08816"",
+  ""called_at"": ""2026-04-14 08:24 AM -06:00"",
+  ""unix_time"": 1776176687,
+  ""tracking_number_id"": 3476065,
+  ""tracking_number_sid"": ""TPNC3C4B23C348AEC2EE54EFD301979CD2EFFBA32881B159867D3F4ED59E6F0B56367EFF2993536685F"",
+  ""tracking_number"": ""\u002B14352541043"",
+  ""tracking_label"": ""Testing Number"",
+  ""dial_status"": ""no-answer"",
+  ""is_new_caller"": true,
+  ""indexed_at"": 1.7761773E+09,
+  ""agent_insights"": false,
+  ""duration_period"": {
+    ""gte"": 1776176687000,
+    ""lte"": 1776176687000
+  },
+  ""inbound_rate_center"": {
+    ""country"": ""US"",
+    ""prefix"": ""1"",
+    ""tollfree"": false
+  },
+  ""business_number"": null,
+  ""business_label"": null,
+  ""receiving_number_id"": null,
+  ""receiving_number_sid"": null,
+  ""billed_amount"": 0,
+  ""billed_at"": ""0001-01-01T00:00:00"",
+  ""excluded"": false,
+  ""redacted"": false,
+  ""tracking_number_format"": ""(435) 254-1043"",
+  ""business_number_format"": null,
+  ""alternative_number"": ""7327634104"",
+  ""tracking_number_bare"": ""4352541043"",
+  ""caller_number_format"": ""(732) 763-4104"",
+  ""caller_number_complete"": ""\u002B17327634104"",
+  ""caller_number_bare"": ""7327634104"",
+  ""caller_number"": ""\u002B17327634104"",
+  ""caller_number_split"": [
+    ""1"",
+    ""732"",
+    ""763"",
+    ""4104""
+  ],
+  ""contact_number"": ""\u002B17327634104"",
+  ""visitor"": false,
+  ""call_path"": [
+    {
+      ""route_name"": ""_OnHangup_CallSync"",
+      ""route_id"": ""640990"",
+      ""route_type"": ""RoutingRule"",
+      ""started_at"": ""2026-04-14T08:24:48Z""
+    }
+  ],
+  ""left_talk_time"": 0,
+  ""right_talk_time"": 0,
+  ""transfers"": [],
+  ""call_status"": ""completed"",
+  ""status"": ""completed"",
+  ""spotted"": [],
+  ""salesforce"": {},
+  ""audio"": null,
+  ""is_s3_link"": false,
+  ""callbacks"": [],
+  ""emails"": [],
+  ""day"": ""Tuesday"",
+  ""month"": ""April"",
+  ""hour"": ""08AM"",
+  ""paid"": {
+    ""source"": null,
+    ""medium"": null
+  },
+  ""ga"": {
+    ""cid"": ""441826.4152469616"",
+    ""ga4"": []
+  },
+  ""tag_list"": [],
+  ""latitude"": 40.4847,
+  ""longitude"": -74.4516,
+  ""extended_lookup_on"": true,
+  ""form"": {
+    ""number_to_call"": ""log-call-no-answer-a93ab10560115ff7"",
+    ""customer_number_to_dial"": ""\u002B17327634104"",
+    ""name"": ""Tara Mele"",
+    ""email"": ""Innerfreedom03@hotmail.com"",
+    ""trackback_id"": ""trackback-441826.1776176687.6328611"",
+    ""form_id"": 213071,
+    ""form_name"": ""Website Contact Form"",
+    ""custom"": [
+      {
+        ""label"": ""Customer Type"",
+        ""value"": ""Residential"",
+        ""id"": ""customer_type""
+      },
+      {
+        ""label"": ""Current Customer"",
+        ""value"": ""No"",
+        ""id"": ""current_customer""
+      },
+      {
+        ""label"": ""Referral Source"",
+        ""value"": ""Social media"",
+        ""id"": ""referral_source""
+      },
+      {
+        ""label"": ""Referred By"",
+        ""value"": ""Yelp"",
+        ""id"": ""referred_by""
+      },
+      {
+        ""label"": ""UTM Source"",
+        ""value"": ""yelp"",
+        ""id"": ""utm_source""
+      },
+      {
+        ""label"": ""UTM Medium"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_medium""
+      },
+      {
+        ""label"": ""UTM Campaign"",
+        ""value"": ""cpc"",
+        ""id"": ""utm_campaign""
+      },
+      {
+        ""label"": ""UTM Term"",
+        ""value"": """",
+        ""id"": ""utm_term""
+      },
+      {
+        ""label"": ""UTM Content"",
+        ""value"": """",
+        ""id"": ""utm_content""
+      }
+    ]
+  },
+  ""legs"": [],
+  ""touchpoints"": null,
+  ""last_touch"": null,
+  ""geo"": {
+    ""lon"": -74.4516,
+    ""lat"": 40.4847
+  },
+  ""timestamp"": ""0001-01-01T00:00:00""
+}","Label: Customer Type, Id: customer_type, Value: Residential | Label: Current Customer, Id: current_customer, Value: No | Label: Referral Source, Id: referral_source, Value: Social media | Label: Referred By, Id: referred_by, Value: Yelp | Label: UTM Source, Id: utm_source, Value: yelp | Label: UTM Medium, Id: utm_medium, Value: cpc | Label: UTM Campaign, Id: utm_campaign, Value: cpc",0,1,,,,,,,,,,,0,4152469616

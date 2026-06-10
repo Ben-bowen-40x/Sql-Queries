@@ -1,0 +1,1804 @@
+Year,MonthNum,Month,"Branch Name",Cancels,"Contract Value"
+2022,1,January,"Albany - NY",17,11972.52
+2022,1,January,"Baton Rouge - LA",16,8918.80
+2022,1,January,"Bloomington - IL",9,4754.89
+2022,1,January,"Boston - MA",44,31434.80
+2022,1,January,"Buffalo - NY",40,27217.00
+2022,1,January,"Chicago North - IL",24,13895.20
+2022,1,January,"Chicago South - IL",62,38022.05
+2022,1,January,"Corpus Christi - TX",34,22035.39
+2022,1,January,"Dallas Fort Worth Northwest - TX",3,1305.00
+2022,1,January,"DC West - DC",5,3138.00
+2022,1,January,"Harrisburg - PA",31,22229.00
+2022,1,January,"Hartford - CT",155,100124.46
+2022,1,January,"Lafayette - LA",4,1447.00
+2022,1,January,"Lexington - KY",64,33484.80
+2022,1,January,"Long Island - NY",78,54542.58
+2022,1,January,"Lubbock - TX",20,11124.12
+2022,1,January,"Manchester - NH",9,7888.00
+2022,1,January,"McAllen - TX",61,32500.79
+2022,1,January,"Midland - TX",84,54846.98
+2022,1,January,"New Jersey Central - NJ",3,2029.00
+2022,1,January,"Newport News - VA",57,31050.24
+2022,1,January,"Northshore - LA",5,2347.75
+2022,1,January,"Orchard Park - NY",58,40097.00
+2022,1,January,"Orlando West - FL",8,7808.00
+2022,1,January,"Oxford - CT",115,87392.11
+2022,1,January,"Pittsburgh - PA",5,2371.00
+2022,1,January,"Providence - RI",82,64323.65
+2022,1,January,"Rochester - NY",43,30145.92
+2022,1,January,"Syracuse - NY",35,25542.10
+2022,1,January,"Virginia Beach - VA",47,28044.00
+2022,1,January,"Westchester - NY",63,50277.37
+2022,2,February,"Albany - NY",10,7456.84
+2022,2,February,"Baton Rouge - LA",25,13274.29
+2022,2,February,"Bloomington - IL",7,4679.00
+2022,2,February,"Boston - MA",35,28241.50
+2022,2,February,"Buffalo - NY",33,22262.00
+2022,2,February,"Chicago North - IL",26,15591.80
+2022,2,February,"Chicago South - IL",63,38184.35
+2022,2,February,"Corpus Christi - TX",168,92829.48
+2022,2,February,"Dallas Fort Worth Northwest - TX",4,2856.84
+2022,2,February,"DC West - DC",1,325.00
+2022,2,February,"Harrisburg - PA",16,10465.00
+2022,2,February,"Hartford - CT",58,38149.06
+2022,2,February,"Lafayette - LA",8,3926.96
+2022,2,February,"Lexington - KY",59,50933.90
+2022,2,February,"Long Island - NY",98,75160.36
+2022,2,February,"Lubbock - TX",26,13142.10
+2022,2,February,"Manchester - NH",12,10306.00
+2022,2,February,"McAllen - TX",82,45768.96
+2022,2,February,"Midland - TX",99,68784.40
+2022,2,February,"New Jersey Central - NJ",2,855.00
+2022,2,February,"Newport News - VA",42,25698.00
+2022,2,February,"Northshore - LA",4,2500.00
+2022,2,February,"Orchard Park - NY",59,39554.89
+2022,2,February,"Orlando West - FL",11,4130.00
+2022,2,February,"Oxford - CT",149,112257.26
+2022,2,February,"Pittsburgh - PA",3,925.00
+2022,2,February,"Providence - RI",70,53230.02
+2022,2,February,"Rochester - NY",63,41670.35
+2022,2,February,"Syracuse - NY",37,28218.00
+2022,2,February,"Virginia Beach - VA",95,60181.50
+2022,2,February,"Westchester - NY",31,24002.44
+2022,3,March,"Albany - NY",16,10572.52
+2022,3,March,"Baton Rouge - LA",27,14526.00
+2022,3,March,"Bloomington - IL",6,3834.00
+2022,3,March,"Boston - MA",33,24474.00
+2022,3,March,"Buffalo - NY",59,38261.00
+2022,3,March,"Chicago North - IL",20,11374.08
+2022,3,March,"Chicago South - IL",53,35492.20
+2022,3,March,"Corpus Christi - TX",63,35584.43
+2022,3,March,"Dallas Fort Worth Northwest - TX",1,250.00
+2022,3,March,"DC West - DC",4,2042.00
+2022,3,March,"Harrisburg - PA",22,16506.00
+2022,3,March,"Hartford - CT",46,40586.92
+2022,3,March,"Lafayette - LA",6,2851.00
+2022,3,March,"Lexington - KY",49,29722.29
+2022,3,March,"Long Island - NY",46,34747.20
+2022,3,March,"Lubbock - TX",20,9950.35
+2022,3,March,"Manchester - NH",12,11018.00
+2022,3,March,"McAllen - TX",93,47355.74
+2022,3,March,"Midland - TX",83,48940.80
+2022,3,March,"New Jersey Central - NJ",7,5269.00
+2022,3,March,"Newport News - VA",49,30249.00
+2022,3,March,"Northshore - LA",3,2548.08
+2022,3,March,"Orchard Park - NY",69,50317.73
+2022,3,March,"Orlando West - FL",12,8377.27
+2022,3,March,"Oxford - CT",256,182161.80
+2022,3,March,"Pittsburgh - PA",4,3535.00
+2022,3,March,"Providence - RI",407,248242.78
+2022,3,March,"Rochester - NY",99,63313.46
+2022,3,March,"Syracuse - NY",26,15982.00
+2022,3,March,"Virginia Beach - VA",50,33891.00
+2022,3,March,"Westchester - NY",47,33040.66
+2022,4,April,"Albany - NY",24,16095.43
+2022,4,April,"Baton Rouge - LA",20,11876.58
+2022,4,April,"Bloomington - IL",12,3379.00
+2022,4,April,"Boston - MA",31,22651.80
+2022,4,April,"Buffalo - NY",57,37521.44
+2022,4,April,"Chicago North - IL",20,11731.70
+2022,4,April,"Chicago South - IL",56,33017.80
+2022,4,April,"Corpus Christi - TX",35,21033.75
+2022,4,April,"Dallas Fort Worth Northwest - TX",1,700.00
+2022,4,April,"DC West - DC",4,2309.00
+2022,4,April,"Harrisburg - PA",23,15867.00
+2022,4,April,"Hartford - CT",56,44144.61
+2022,4,April,"Lafayette - LA",7,2618.00
+2022,4,April,"Lexington - KY",81,42929.14
+2022,4,April,"Long Island - NY",71,49401.71
+2022,4,April,"Lubbock - TX",34,18099.41
+2022,4,April,"Manchester - NH",15,13140.50
+2022,4,April,"McAllen - TX",53,29600.16
+2022,4,April,"Midland - TX",72,49194.01
+2022,4,April,"New Jersey Central - NJ",8,6329.00
+2022,4,April,"Newport News - VA",33,22294.67
+2022,4,April,"Northshore - LA",4,1625.00
+2022,4,April,"Orchard Park - NY",73,53411.50
+2022,4,April,"Orlando West - FL",8,3010.00
+2022,4,April,"Oxford - CT",76,58804.19
+2022,4,April,"Pittsburgh - PA",4,1032.00
+2022,4,April,"Providence - RI",111,77643.44
+2022,4,April,"Rochester - NY",131,75070.80
+2022,4,April,"Syracuse - NY",26,16035.60
+2022,4,April,"Virginia Beach - VA",141,56749.80
+2022,4,April,"Westchester - NY",45,36075.80
+2022,5,May,"Albany - NY",25,17950.13
+2022,5,May,"Baton Rouge - LA",24,11149.00
+2022,5,May,"Bloomington - IL",3,2142.00
+2022,5,May,"Boston - MA",36,29503.27
+2022,5,May,"Buffalo - NY",57,34366.53
+2022,5,May,"Chicago North - IL",29,19466.02
+2022,5,May,"Chicago South - IL",50,34270.26
+2022,5,May,"Corpus Christi - TX",36,21980.09
+2022,5,May,"Dallas Fort Worth Northwest - TX",10,4470.00
+2022,5,May,"DC West - DC",3,2551.00
+2022,5,May,"Harrisburg - PA",26,20865.30
+2022,5,May,"Hartford - CT",53,38756.53
+2022,5,May,"Lafayette - LA",12,7784.00
+2022,5,May,"Lexington - KY",73,43730.36
+2022,5,May,"Long Island - NY",78,58007.54
+2022,5,May,"Lubbock - TX",36,19902.74
+2022,5,May,"Manchester - NH",9,9220.70
+2022,5,May,"McAllen - TX",42,33888.46
+2022,5,May,"Midland - TX",88,56400.80
+2022,5,May,"New Jersey Central - NJ",11,6506.93
+2022,5,May,"Newport News - VA",47,25088.25
+2022,5,May,"Northshore - LA",1,1059.00
+2022,5,May,"Orchard Park - NY",68,42042.24
+2022,5,May,"Orlando West - FL",9,5483.00
+2022,5,May,"Oxford - CT",77,56022.34
+2022,5,May,"Pittsburgh - PA",13,10404.00
+2022,5,May,"Providence - RI",94,80606.28
+2022,5,May,"Rochester - NY",63,38447.98
+2022,5,May,"Syracuse - NY",23,14088.00
+2022,5,May,"Virginia Beach - VA",59,34301.89
+2022,5,May,"Westchester - NY",41,25504.02
+2022,6,June,"Albany - NY",38,26090.52
+2022,6,June,"Baton Rouge - LA",28,15345.97
+2022,6,June,"Bloomington - IL",12,9513.00
+2022,6,June,"Boston - MA",37,31103.78
+2022,6,June,"Buffalo - NY",66,39583.32
+2022,6,June,"Chicago North - IL",23,15670.71
+2022,6,June,"Chicago South - IL",80,54216.77
+2022,6,June,"Corpus Christi - TX",44,24925.57
+2022,6,June,"Dallas Fort Worth Northwest - TX",5,2400.00
+2022,6,June,"DC West - DC",5,2373.00
+2022,6,June,"Harrisburg - PA",39,30621.68
+2022,6,June,"Hartford - CT",53,43572.44
+2022,6,June,"Lafayette - LA",9,5516.88
+2022,6,June,"Lexington - KY",93,55267.68
+2022,6,June,"Long Island - NY",76,60262.00
+2022,6,June,"Lubbock - TX",38,20571.15
+2022,6,June,"Manchester - NH",18,14013.00
+2022,6,June,"McAllen - TX",61,34449.18
+2022,6,June,"Midland - TX",90,62422.71
+2022,6,June,"New Jersey Central - NJ",8,6123.00
+2022,6,June,"Newport News - VA",46,31320.94
+2022,6,June,"Northshore - LA",10,5489.24
+2022,6,June,"Orchard Park - NY",76,46350.40
+2022,6,June,"Orlando West - FL",6,2765.00
+2022,6,June,"Oxford - CT",107,88370.01
+2022,6,June,"Pittsburgh - PA",7,6402.00
+2022,6,June,"Providence - RI",102,78587.99
+2022,6,June,"Rochester - NY",148,80973.25
+2022,6,June,"Syracuse - NY",55,26640.08
+2022,6,June,"Virginia Beach - VA",64,38891.23
+2022,6,June,"Westchester - NY",73,46068.38
+2022,7,July,"Albany - NY",43,27050.74
+2022,7,July,"Baton Rouge - LA",50,20997.50
+2022,7,July,"Bloomington - IL",11,6044.73
+2022,7,July,"Boston - MA",57,54754.09
+2022,7,July,"Buffalo - NY",52,32335.02
+2022,7,July,"Chicago North - IL",35,22994.98
+2022,7,July,"Chicago South - IL",100,61366.93
+2022,7,July,"Corpus Christi - TX",69,28216.54
+2022,7,July,"Dallas Fort Worth Northwest - TX",13,4863.10
+2022,7,July,"DC West - DC",10,6757.00
+2022,7,July,"Harrisburg - PA",54,31172.60
+2022,7,July,"Hartford - CT",93,62083.93
+2022,7,July,"Lafayette - LA",11,5583.00
+2022,7,July,"Lexington - KY",87,46370.99
+2022,7,July,"Long Island - NY",125,63591.30
+2022,7,July,"Lubbock - TX",39,17037.16
+2022,7,July,"Manchester - NH",21,15409.50
+2022,7,July,"McAllen - TX",87,31647.04
+2022,7,July,"Midland - TX",167,66587.55
+2022,7,July,"New Jersey Central - NJ",11,7648.09
+2022,7,July,"Newport News - VA",73,35569.01
+2022,7,July,"Northshore - LA",11,2607.00
+2022,7,July,"Orchard Park - NY",96,57225.39
+2022,7,July,"Orlando West - FL",9,3615.60
+2022,7,July,"Oxford - CT",135,108762.27
+2022,7,July,"Pittsburgh - PA",11,6095.56
+2022,7,July,"Providence - RI",157,121283.09
+2022,7,July,"Rochester - NY",87,56118.42
+2022,7,July,"Syracuse - NY",43,24217.78
+2022,7,July,"Virginia Beach - VA",159,52194.13
+2022,7,July,"Westchester - NY",113,49236.11
+2022,8,August,"Albany - NY",57,28447.02
+2022,8,August,"Baton Rouge - LA",30,17148.62
+2022,8,August,"Bloomington - IL",8,4797.55
+2022,8,August,"Boston - MA",58,47719.38
+2022,8,August,"Buffalo - NY",78,43667.11
+2022,8,August,"Chicago North - IL",42,26170.50
+2022,8,August,"Chicago South - IL",83,53760.99
+2022,8,August,"Corpus Christi - TX",61,36317.50
+2022,8,August,"Dallas Fort Worth Northwest - TX",13,8432.00
+2022,8,August,"DC West - DC",22,13730.35
+2022,8,August,"Harrisburg - PA",58,47001.50
+2022,8,August,"Hartford - CT",129,83663.24
+2022,8,August,"Lafayette - LA",9,4212.00
+2022,8,August,"Lexington - KY",80,51444.12
+2022,8,August,"Long Island - NY",149,71229.80
+2022,8,August,"Lubbock - TX",31,19991.52
+2022,8,August,"Manchester - NH",11,8149.78
+2022,8,August,"McAllen - TX",48,32013.85
+2022,8,August,"Midland - TX",124,87643.10
+2022,8,August,"New Jersey Central - NJ",27,15114.50
+2022,8,August,"Newport News - VA",64,39259.50
+2022,8,August,"Northshore - LA",4,2882.00
+2022,8,August,"Orchard Park - NY",119,58710.07
+2022,8,August,"Orlando West - FL",11,6954.45
+2022,8,August,"Oxford - CT",132,108803.18
+2022,8,August,"Pittsburgh - PA",21,10760.00
+2022,8,August,"Providence - RI",126,102082.35
+2022,8,August,"Rochester - NY",115,70221.50
+2022,8,August,"Syracuse - NY",79,37702.85
+2022,8,August,"Virginia Beach - VA",118,64029.89
+2022,8,August,"Westchester - NY",99,56385.62
+2022,9,September,"Albany - NY",27,21684.39
+2022,9,September,"Baton Rouge - LA",19,11389.71
+2022,9,September,"Bloomington - IL",18,8208.77
+2022,9,September,"Boston - MA",57,49648.42
+2022,9,September,"Buffalo - NY",126,67161.18
+2022,9,September,"Chicago North - IL",50,31010.11
+2022,9,September,"Chicago South - IL",125,61454.34
+2022,9,September,"Corpus Christi - TX",56,30930.77
+2022,9,September,"Dallas Fort Worth Northwest - TX",8,4226.00
+2022,9,September,"DC West - DC",17,9294.00
+2022,9,September,"Harrisburg - PA",120,67465.69
+2022,9,September,"Hartford - CT",518,269916.56
+2022,9,September,"Lafayette - LA",10,5411.00
+2022,9,September,"Lexington - KY",68,44583.33
+2022,9,September,"Long Island - NY",164,79315.69
+2022,9,September,"Lubbock - TX",31,18111.80
+2022,9,September,"Manchester - NH",15,14235.65
+2022,9,September,"McAllen - TX",61,37567.94
+2022,9,September,"Midland - TX",97,67672.20
+2022,9,September,"New Jersey Central - NJ",43,18126.84
+2022,9,September,"Newport News - VA",57,36663.27
+2022,9,September,"Northshore - LA",6,3322.00
+2022,9,September,"Orchard Park - NY",119,53671.85
+2022,9,September,"Orlando West - FL",11,6213.50
+2022,9,September,"Oxford - CT",238,166848.22
+2022,9,September,"Pittsburgh - PA",22,16094.88
+2022,9,September,"Providence - RI",128,108317.68
+2022,9,September,"Rochester - NY",135,68257.86
+2022,9,September,"Syracuse - NY",77,37704.94
+2022,9,September,"Virginia Beach - VA",74,43728.96
+2022,9,September,"Westchester - NY",113,56873.60
+2022,10,October,"Albany - NY",59,38957.91
+2022,10,October,"Baton Rouge - LA",33,17581.00
+2022,10,October,"Bloomington - IL",13,8459.00
+2022,10,October,"Boston - MA",113,57127.79
+2022,10,October,"Buffalo - NY",88,46658.60
+2022,10,October,"Chicago North - IL",63,34879.58
+2022,10,October,"Chicago South - IL",117,60103.92
+2022,10,October,"Corpus Christi - TX",58,35310.37
+2022,10,October,"Dallas Fort Worth Northwest - TX",9,7513.00
+2022,10,October,"DC West - DC",16,10985.84
+2022,10,October,"Harrisburg - PA",53,40177.60
+2022,10,October,"Hartford - CT",136,87887.26
+2022,10,October,"Lafayette - LA",5,2255.00
+2022,10,October,"Lexington - KY",97,62504.86
+2022,10,October,"Long Island - NY",118,81537.68
+2022,10,October,"Lubbock - TX",25,14431.86
+2022,10,October,"Manchester - NH",23,17616.25
+2022,10,October,"McAllen - TX",45,27389.90
+2022,10,October,"Midland - TX",76,47303.35
+2022,10,October,"New Jersey Central - NJ",47,21861.97
+2022,10,October,"Newport News - VA",51,33680.28
+2022,10,October,"Northshore - LA",6,3790.00
+2022,10,October,"Orchard Park - NY",102,68687.05
+2022,10,October,"Orlando West - FL",13,8221.75
+2022,10,October,"Oxford - CT",508,325454.91
+2022,10,October,"Pittsburgh - PA",15,11937.85
+2022,10,October,"Providence - RI",146,124402.50
+2022,10,October,"Rochester - NY",124,66770.64
+2022,10,October,"Syracuse - NY",69,32828.12
+2022,10,October,"Virginia Beach - VA",75,51135.91
+2022,10,October,"Westchester - NY",82,53780.97
+2022,11,November,"Albany - NY",18,14993.22
+2022,11,November,"Baton Rouge - LA",18,10133.84
+2022,11,November,"Bloomington - IL",8,6050.80
+2022,11,November,"Boston - MA",178,75349.10
+2022,11,November,"Buffalo - NY",58,40710.37
+2022,11,November,"Chicago North - IL",44,26481.00
+2022,11,November,"Chicago South - IL",75,46784.21
+2022,11,November,"Corpus Christi - TX",34,17569.29
+2022,11,November,"Dallas Fort Worth Northwest - TX",29,11099.50
+2022,11,November,"DC West - DC",18,6914.00
+2022,11,November,"Harrisburg - PA",92,47949.08
+2022,11,November,"Hartford - CT",91,70730.34
+2022,11,November,"Lafayette - LA",16,8807.73
+2022,11,November,"Lexington - KY",66,45792.12
+2022,11,November,"Long Island - NY",100,77952.67
+2022,11,November,"Lubbock - TX",28,18627.27
+2022,11,November,"Manchester - NH",18,18447.43
+2022,11,November,"McAllen - TX",47,26812.90
+2022,11,November,"Midland - TX",72,57638.43
+2022,11,November,"New Jersey Central - NJ",26,12234.16
+2022,11,November,"Newport News - VA",32,23146.15
+2022,11,November,"Northshore - LA",7,3783.25
+2022,11,November,"Orchard Park - NY",70,49668.54
+2022,11,November,"Orlando West - FL",10,6015.55
+2022,11,November,"Oxford - CT",307,139998.27
+2022,11,November,"Pittsburgh - PA",29,16991.00
+2022,11,November,"Providence - RI",809,327503.36
+2022,11,November,"Rochester - NY",58,45976.09
+2022,11,November,"Syracuse - NY",33,22358.37
+2022,11,November,"Virginia Beach - VA",68,43786.50
+2022,11,November,"Westchester - NY",55,46858.29
+2022,12,December,"Albany - NY",107,41090.51
+2022,12,December,"Baton Rouge - LA",20,12506.47
+2022,12,December,"Bloomington - IL",13,10745.16
+2022,12,December,"Boston - MA",39,39663.99
+2022,12,December,"Buffalo - NY",53,40664.67
+2022,12,December,"Chicago North - IL",33,20909.39
+2022,12,December,"Chicago South - IL",95,63821.46
+2022,12,December,"Corpus Christi - TX",55,29457.08
+2022,12,December,"Dallas Fort Worth Northwest - TX",10,5871.00
+2022,12,December,"DC West - DC",14,10623.87
+2022,12,December,"Harrisburg - PA",208,95927.02
+2022,12,December,"Hartford - CT",69,56539.16
+2022,12,December,"Lafayette - LA",11,6695.08
+2022,12,December,"Lexington - KY",59,39896.95
+2022,12,December,"Long Island - NY",104,90309.00
+2022,12,December,"Lubbock - TX",32,18800.60
+2022,12,December,"Manchester - NH",16,15883.20
+2022,12,December,"McAllen - TX",56,35559.80
+2022,12,December,"Midland - TX",62,46777.68
+2022,12,December,"New Jersey Central - NJ",18,12049.00
+2022,12,December,"Newport News - VA",39,25228.89
+2022,12,December,"Northshore - LA",8,6588.00
+2022,12,December,"Orchard Park - NY",78,60116.45
+2022,12,December,"Orlando West - FL",8,3982.50
+2022,12,December,"Oxford - CT",94,73312.07
+2022,12,December,"Pittsburgh - PA",17,10570.28
+2022,12,December,"Providence - RI",119,112311.56
+2022,12,December,"Rochester - NY",75,58997.71
+2022,12,December,"Syracuse - NY",34,27068.80
+2022,12,December,"Virginia Beach - VA",56,37474.10
+2022,12,December,"Westchester - NY",81,50332.04
+2023,1,January,"Albany - NY",31,22432.26
+2023,1,January,"Baton Rouge - LA",20,13555.81
+2023,1,January,"Bloomington - IL",16,11602.50
+2023,1,January,"Boston - MA",56,56672.59
+2023,1,January,"Buffalo - NY",47,35143.35
+2023,1,January,"Chicago North - IL",67,39759.06
+2023,1,January,"Chicago South - IL",91,65669.46
+2023,1,January,"Corpus Christi - TX",54,31050.74
+2023,1,January,"Dallas Fort Worth Northwest - TX",10,7946.00
+2023,1,January,"DC West - DC",12,10285.88
+2023,1,January,"Harrisburg - PA",47,40207.29
+2023,1,January,"Hartford - CT",79,62111.74
+2023,1,January,"Lafayette - LA",11,7033.45
+2023,1,January,"Lexington - KY",81,50680.03
+2023,1,January,"Long Island - NY",95,83043.95
+2023,1,January,"Lubbock - TX",37,25299.05
+2023,1,January,"Manchester - NH",8,7245.00
+2023,1,January,"McAllen - TX",53,30859.02
+2023,1,January,"Midland - TX",102,66831.57
+2023,1,January,"New Jersey Central - NJ",19,15614.20
+2023,1,January,"Newport News - VA",52,37164.69
+2023,1,January,"Northshore - LA",7,3962.83
+2023,1,January,"Orchard Park - NY",54,41650.21
+2023,1,January,"Orlando West - FL",11,7002.00
+2023,1,January,"Oxford - CT",117,92542.15
+2023,1,January,"Pittsburgh - PA",11,9299.00
+2023,1,January,"Providence - RI",179,140509.66
+2023,1,January,"Rochester - NY",92,69274.88
+2023,1,January,"Syracuse - NY",26,20595.60
+2023,1,January,"Virginia Beach - VA",59,36311.58
+2023,1,January,"Westchester - NY",40,35778.08
+2023,2,February,"Albany - NY",14,11818.86
+2023,2,February,"Baton Rouge - LA",33,21041.84
+2023,2,February,"Bloomington - IL",14,8096.20
+2023,2,February,"Boston - MA",40,29957.42
+2023,2,February,"Buffalo - NY",31,22664.88
+2023,2,February,"Chicago North - IL",81,42769.10
+2023,2,February,"Chicago South - IL",95,46503.66
+2023,2,February,"Corpus Christi - TX",44,21928.89
+2023,2,February,"Dallas Fort Worth Northwest - TX",10,6835.00
+2023,2,February,"DC West - DC",14,9085.00
+2023,2,February,"Harrisburg - PA",45,32452.68
+2023,2,February,"Hartford - CT",71,71380.78
+2023,2,February,"Lafayette - LA",6,4335.10
+2023,2,February,"Lexington - KY",142,85510.20
+2023,2,February,"Long Island - NY",71,56798.12
+2023,2,February,"Lubbock - TX",31,17675.50
+2023,2,February,"Manchester - NH",15,15571.00
+2023,2,February,"McAllen - TX",50,30564.13
+2023,2,February,"Midland - TX",83,62872.49
+2023,2,February,"New Jersey Central - NJ",9,8149.52
+2023,2,February,"Newport News - VA",51,38192.60
+2023,2,February,"Northshore - LA",9,5253.83
+2023,2,February,"Orchard Park - NY",45,35915.08
+2023,2,February,"Orlando West - FL",22,12608.25
+2023,2,February,"Oxford - CT",88,76643.43
+2023,2,February,"Pittsburgh - PA",11,9481.00
+2023,2,February,"Providence - RI",101,88158.11
+2023,2,February,"Rochester - NY",55,47885.91
+2023,2,February,"Syracuse - NY",28,20497.35
+2023,2,February,"Virginia Beach - VA",50,38811.18
+2023,2,February,"Westchester - NY",50,41579.88
+2023,3,March,"Albany - NY",24,19782.26
+2023,3,March,"Baton Rouge - LA",21,13867.67
+2023,3,March,"Bloomington - IL",6,4319.92
+2023,3,March,"Boston - MA",39,33692.91
+2023,3,March,"Buffalo - NY",40,33362.75
+2023,3,March,"Chicago North - IL",37,25140.75
+2023,3,March,"Chicago South - IL",69,46119.23
+2023,3,March,"Corpus Christi - TX",60,34338.96
+2023,3,March,"Dallas Fort Worth Northwest - TX",10,6804.00
+2023,3,March,"DC West - DC",5,3865.00
+2023,3,March,"Harrisburg - PA",30,20569.59
+2023,3,March,"Hartford - CT",60,49539.19
+2023,3,March,"Lafayette - LA",13,11189.00
+2023,3,March,"Lexington - KY",85,61682.49
+2023,3,March,"Long Island - NY",81,72275.62
+2023,3,March,"Lubbock - TX",39,23930.40
+2023,3,March,"Manchester - NH",13,15208.00
+2023,3,March,"McAllen - TX",46,28519.33
+2023,3,March,"Midland - TX",71,60783.40
+2023,3,March,"New Jersey Central - NJ",13,10781.80
+2023,3,March,"Newport News - VA",38,30514.20
+2023,3,March,"Northshore - LA",12,8193.00
+2023,3,March,"Orchard Park - NY",69,49937.19
+2023,3,March,"Orlando West - FL",12,8109.20
+2023,3,March,"Oxford - CT",85,76457.07
+2023,3,March,"Pittsburgh - PA",17,13446.00
+2023,3,March,"Providence - RI",114,104476.51
+2023,3,March,"Rochester - NY",60,48973.71
+2023,3,March,"Syracuse - NY",28,22891.25
+2023,3,March,"Virginia Beach - VA",39,26906.32
+2023,3,March,"Westchester - NY",53,45269.10
+2023,4,April,"Albany - NY",21,19161.15
+2023,4,April,"Baton Rouge - LA",16,12562.72
+2023,4,April,"Bloomington - IL",10,6731.00
+2023,4,April,"Boston - MA",30,26608.21
+2023,4,April,"Buffalo - NY",45,33526.61
+2023,4,April,"Chicago North - IL",34,26924.45
+2023,4,April,"Chicago South - IL",71,52837.23
+2023,4,April,"Corpus Christi - TX",41,26156.22
+2023,4,April,"Dallas Fort Worth Northwest - TX",7,3949.00
+2023,4,April,"DC West - DC",9,6613.66
+2023,4,April,"Harrisburg - PA",39,30588.44
+2023,4,April,"Hartford - CT",59,54147.87
+2023,4,April,"Lafayette - LA",8,4634.60
+2023,4,April,"Lexington - KY",61,44036.81
+2023,4,April,"Long Island - NY",240,101170.02
+2023,4,April,"Lubbock - TX",17,10385.68
+2023,4,April,"Manchester - NH",14,10051.78
+2023,4,April,"McAllen - TX",40,25980.83
+2023,4,April,"Midland - TX",65,53469.23
+2023,4,April,"New Jersey Central - NJ",14,9326.90
+2023,4,April,"Newport News - VA",41,32318.40
+2023,4,April,"Northshore - LA",8,6378.72
+2023,4,April,"Orchard Park - NY",54,43110.88
+2023,4,April,"Orlando West - FL",23,12969.72
+2023,4,April,"Oxford - CT",90,67436.49
+2023,4,April,"Pittsburgh - PA",13,10108.00
+2023,4,April,"Providence - RI",76,67575.86
+2023,4,April,"Rochester - NY",69,49230.84
+2023,4,April,"Syracuse - NY",24,17332.29
+2023,4,April,"Virginia Beach - VA",50,37568.97
+2023,4,April,"Westchester - NY",54,39466.28
+2023,5,May,"Albany - NY",20,13948.10
+2023,5,May,"Baton Rouge - LA",44,29131.56
+2023,5,May,"Bloomington - IL",19,14546.25
+2023,5,May,"Boston - MA",50,41839.51
+2023,5,May,"Buffalo - NY",40,29020.76
+2023,5,May,"Chicago North - IL",68,45595.57
+2023,5,May,"Chicago South - IL",141,102999.10
+2023,5,May,"Corpus Christi - TX",71,47830.13
+2023,5,May,"Dallas Fort Worth Northwest - TX",19,13153.00
+2023,5,May,"DC West - DC",18,14163.60
+2023,5,May,"Harrisburg - PA",63,43020.73
+2023,5,May,"Hartford - CT",70,59620.96
+2023,5,May,"Lafayette - LA",16,10374.18
+2023,5,May,"Lexington - KY",85,54602.44
+2023,5,May,"Long Island - NY",57,44938.83
+2023,5,May,"Lubbock - TX",42,29670.80
+2023,5,May,"Manchester - NH",25,21658.80
+2023,5,May,"McAllen - TX",58,40535.47
+2023,5,May,"Midland - TX",110,79291.56
+2023,5,May,"New Jersey Central - NJ",22,15858.20
+2023,5,May,"Newport News - VA",49,37830.88
+2023,5,May,"Northshore - LA",6,4081.70
+2023,5,May,"Orchard Park - NY",60,44588.75
+2023,5,May,"Orlando West - FL",15,11254.96
+2023,5,May,"Oxford - CT",94,69916.48
+2023,5,May,"Pittsburgh - PA",25,19661.00
+2023,5,May,"Providence - RI",122,108200.85
+2023,5,May,"Rochester - NY",57,44152.64
+2023,5,May,"Syracuse - NY",33,24541.41
+2023,5,May,"Virginia Beach - VA",70,49730.63
+2023,5,May,"Westchester - NY",41,30259.73
+2023,6,June,"Albany - NY",35,30252.12
+2023,6,June,"Baton Rouge - LA",58,40632.55
+2023,6,June,"Bloomington - IL",17,11224.02
+2023,6,June,"Boston - MA",57,55448.65
+2023,6,June,"Buffalo - NY",61,50954.27
+2023,6,June,"Chicago North - IL",51,32015.66
+2023,6,June,"Chicago South - IL",81,53224.65
+2023,6,June,"Corpus Christi - TX",79,48160.90
+2023,6,June,"Dallas Fort Worth Northwest - TX",20,14915.28
+2023,6,June,"DC West - DC",15,12111.00
+2023,6,June,"Harrisburg - PA",79,68482.46
+2023,6,June,"Hartford - CT",123,117023.98
+2023,6,June,"Lafayette - LA",18,10234.26
+2023,6,June,"Lexington - KY",80,59091.78
+2023,6,June,"Long Island - NY",133,116427.19
+2023,6,June,"Lubbock - TX",52,35095.06
+2023,6,June,"Manchester - NH",27,29100.16
+2023,6,June,"McAllen - TX",80,51063.79
+2023,6,June,"Midland - TX",97,76388.27
+2023,6,June,"New Jersey Central - NJ",24,15597.35
+2023,6,June,"Newport News - VA",52,40803.93
+2023,6,June,"Northshore - LA",9,6182.86
+2023,6,June,"Orchard Park - NY",83,67758.75
+2023,6,June,"Orlando West - FL",18,13166.48
+2023,6,June,"Oxford - CT",187,153005.85
+2023,6,June,"Pittsburgh - PA",19,17810.00
+2023,6,June,"Providence - RI",204,148370.03
+2023,6,June,"Rochester - NY",89,65153.02
+2023,6,June,"Syracuse - NY",55,40345.67
+2023,6,June,"Virginia Beach - VA",66,46824.49
+2023,6,June,"Westchester - NY",54,47292.29
+2023,7,July,"Albany - NY",20,16124.90
+2023,7,July,"Baton Rouge - LA",26,18347.92
+2023,7,July,"Bloomington - IL",12,9426.56
+2023,7,July,"Boston - MA",25,23341.16
+2023,7,July,"Buffalo - NY",52,38114.08
+2023,7,July,"Chicago North - IL",55,38419.21
+2023,7,July,"Chicago South - IL",100,70468.56
+2023,7,July,"Corpus Christi - TX",53,36934.25
+2023,7,July,"Dallas Fort Worth Northwest - TX",14,8315.82
+2023,7,July,"DC West - DC",15,9064.12
+2023,7,July,"Harrisburg - PA",46,39789.41
+2023,7,July,"Hartford - CT",101,98176.59
+2023,7,July,"Lafayette - LA",7,4491.40
+2023,7,July,"Lexington - KY",87,76242.36
+2023,7,July,"Long Island - NY",120,98155.52
+2023,7,July,"Lubbock - TX",35,24232.54
+2023,7,July,"Manchester - NH",29,25482.99
+2023,7,July,"McAllen - TX",50,32685.71
+2023,7,July,"Midland - TX",86,68213.48
+2023,7,July,"New Jersey Central - NJ",21,14467.37
+2023,7,July,"Newport News - VA",44,31678.75
+2023,7,July,"Northshore - LA",11,8664.00
+2023,7,July,"Orchard Park - NY",68,57977.91
+2023,7,July,"Orlando West - FL",18,16681.80
+2023,7,July,"Oxford - CT",142,110821.92
+2023,7,July,"Pittsburgh - PA",20,15348.40
+2023,7,July,"Providence - RI",105,95773.96
+2023,7,July,"Rochester - NY",70,53613.79
+2023,7,July,"Syracuse - NY",62,44441.62
+2023,7,July,"Virginia Beach - VA",44,35694.50
+2023,7,July,"Westchester - NY",73,51958.71
+2023,8,August,"Albany - NY",57,32495.20
+2023,8,August,"Baton Rouge - LA",52,37805.89
+2023,8,August,"Bloomington - IL",20,13984.88
+2023,8,August,"Boston - MA",97,64270.49
+2023,8,August,"Buffalo - NY",73,53397.71
+2023,8,August,"Chicago North - IL",105,64508.33
+2023,8,August,"Chicago South - IL",154,96658.01
+2023,8,August,"Corpus Christi - TX",56,36059.67
+2023,8,August,"Dallas Fort Worth Northwest - TX",18,12879.00
+2023,8,August,"DC West - DC",94,39586.97
+2023,8,August,"Harrisburg - PA",96,70425.53
+2023,8,August,"Hartford - CT",196,140835.57
+2023,8,August,"Lafayette - LA",18,11830.72
+2023,8,August,"Lexington - KY",81,63561.28
+2023,8,August,"Long Island - NY",214,123551.56
+2023,8,August,"Lubbock - TX",66,42589.06
+2023,8,August,"Manchester - NH",52,38831.34
+2023,8,August,"McAllen - TX",54,37457.77
+2023,8,August,"Midland - TX",109,81833.26
+2023,8,August,"New Jersey Central - NJ",55,35044.26
+2023,8,August,"Newport News - VA",90,61699.53
+2023,8,August,"Northshore - LA",11,6928.64
+2023,8,August,"Orchard Park - NY",108,81439.02
+2023,8,August,"Orlando West - FL",34,24276.30
+2023,8,August,"Oxford - CT",181,126142.41
+2023,8,August,"Pittsburgh - PA",44,28826.99
+2023,8,August,"Providence - RI",269,175986.21
+2023,8,August,"Rochester - NY",113,92076.18
+2023,8,August,"Syracuse - NY",86,56817.71
+2023,8,August,"Virginia Beach - VA",102,78265.11
+2023,8,August,"Westchester - NY",120,81066.00
+2023,9,September,"Albany - NY",80,44116.39
+2023,9,September,"Baton Rouge - LA",32,20576.07
+2023,9,September,"Bloomington - IL",16,11975.09
+2023,9,September,"Boston - MA",90,63338.18
+2023,9,September,"Buffalo - NY",106,53313.67
+2023,9,September,"Chicago North - IL",69,37688.62
+2023,9,September,"Chicago South - IL",147,86421.63
+2023,9,September,"Corpus Christi - TX",50,32316.10
+2023,9,September,"Dallas Fort Worth Northwest - TX",28,17848.45
+2023,9,September,"DC West - DC",45,24442.10
+2023,9,September,"Harrisburg - PA",120,75569.36
+2023,9,September,"Hartford - CT",213,132271.37
+2023,9,September,"Lafayette - LA",12,8915.70
+2023,9,September,"Lexington - KY",91,64010.24
+2023,9,September,"Long Island - NY",260,165602.18
+2023,9,September,"Lubbock - TX",39,27008.28
+2023,9,September,"Manchester - NH",34,21799.47
+2023,9,September,"McAllen - TX",67,44568.17
+2023,9,September,"Midland - TX",96,74354.69
+2023,9,September,"New Jersey Central - NJ",55,35813.39
+2023,9,September,"Newport News - VA",61,40843.34
+2023,9,September,"Northshore - LA",17,11179.14
+2023,9,September,"Orchard Park - NY",148,100173.66
+2023,9,September,"Orlando West - FL",25,15040.82
+2023,9,September,"Oxford - CT",225,141147.96
+2023,9,September,"Pittsburgh - PA",90,44521.44
+2023,9,September,"Providence - RI",282,179098.77
+2023,9,September,"Rochester - NY",161,89482.51
+2023,9,September,"Syracuse - NY",107,65431.14
+2023,9,September,"Virginia Beach - VA",102,79844.12
+2023,9,September,"Westchester - NY",161,96821.72
+2023,10,October,"Albany - NY",41,32006.96
+2023,10,October,"Baton Rouge - LA",40,29144.46
+2023,10,October,"Bloomington - IL",18,12649.00
+2023,10,October,"Boston - MA",96,67097.92
+2023,10,October,"Buffalo - NY",99,63960.15
+2023,10,October,"Chicago North - IL",72,48369.70
+2023,10,October,"Chicago South - IL",125,82875.19
+2023,10,October,"Corpus Christi - TX",61,42338.70
+2023,10,October,"Dallas Fort Worth Northwest - TX",10,8749.79
+2023,10,October,"DC West - DC",18,12559.54
+2023,10,October,"Harrisburg - PA",175,126587.84
+2023,10,October,"Hartford - CT",149,111510.74
+2023,10,October,"Lafayette - LA",13,9099.52
+2023,10,October,"Lexington - KY",84,60725.02
+2023,10,October,"Long Island - NY",183,136884.65
+2023,10,October,"Lubbock - TX",35,24423.85
+2023,10,October,"Manchester - NH",52,32208.07
+2023,10,October,"McAllen - TX",69,45750.98
+2023,10,October,"Midland - TX",119,91277.49
+2023,10,October,"New Jersey Central - NJ",28,21064.46
+2023,10,October,"Newport News - VA",50,38887.16
+2023,10,October,"Northshore - LA",15,10134.18
+2023,10,October,"Orchard Park - NY",125,76127.43
+2023,10,October,"Orlando West - FL",15,11491.28
+2023,10,October,"Oxford - CT",224,171001.10
+2023,10,October,"Pittsburgh - PA",85,48245.92
+2023,10,October,"Providence - RI",193,154918.63
+2023,10,October,"Rochester - NY",121,86133.99
+2023,10,October,"Syracuse - NY",99,65247.95
+2023,10,October,"Virginia Beach - VA",61,47538.64
+2023,10,October,"Westchester - NY",112,85862.33
+2023,11,November,"Albany - NY",47,37291.33
+2023,11,November,"Baton Rouge - LA",26,17908.46
+2023,11,November,"Bloomington - IL",16,11345.19
+2023,11,November,"Boston - MA",85,77640.49
+2023,11,November,"Buffalo - NY",66,56731.03
+2023,11,November,"Chicago North - IL",66,45447.19
+2023,11,November,"Chicago South - IL",95,62837.24
+2023,11,November,"Corpus Christi - TX",58,38953.55
+2023,11,November,"Dallas Fort Worth Northwest - TX",9,5841.54
+2023,11,November,"DC West - DC",32,21912.69
+2023,11,November,"Harrisburg - PA",130,94704.02
+2023,11,November,"Hartford - CT",132,107204.23
+2023,11,November,"Lafayette - LA",8,5462.00
+2023,11,November,"Lexington - KY",53,39635.81
+2023,11,November,"Long Island - NY",120,94566.42
+2023,11,November,"Lubbock - TX",47,28746.48
+2023,11,November,"Manchester - NH",35,27182.80
+2023,11,November,"McAllen - TX",61,42007.41
+2023,11,November,"Midland - TX",104,83037.31
+2023,11,November,"New Jersey Central - NJ",19,18096.47
+2023,11,November,"Newport News - VA",37,29426.71
+2023,11,November,"Northshore - LA",6,4485.37
+2023,11,November,"Orchard Park - NY",68,54650.50
+2023,11,November,"Orlando West - FL",25,17066.22
+2023,11,November,"Oxford - CT",126,97071.55
+2023,11,November,"Pittsburgh - PA",37,36991.69
+2023,11,November,"Providence - RI",180,145729.45
+2023,11,November,"Rochester - NY",88,71561.99
+2023,11,November,"Syracuse - NY",69,53208.33
+2023,11,November,"Virginia Beach - VA",62,46837.92
+2023,11,November,"Westchester - NY",119,81156.37
+2023,12,December,"Albany - NY",29,26274.05
+2023,12,December,"Baton Rouge - LA",27,20433.01
+2023,12,December,"Bloomington - IL",10,7368.45
+2023,12,December,"Boston - MA",60,55512.40
+2023,12,December,"Buffalo - NY",49,36259.77
+2023,12,December,"Chicago North - IL",41,27708.46
+2023,12,December,"Chicago South - IL",103,76908.89
+2023,12,December,"Corpus Christi - TX",39,25776.68
+2023,12,December,"Dallas Fort Worth Northwest - TX",15,13093.21
+2023,12,December,"DC West - DC",20,16627.32
+2023,12,December,"Harrisburg - PA",90,69592.68
+2023,12,December,"Hartford - CT",99,84943.10
+2023,12,December,"Lafayette - LA",11,6471.03
+2023,12,December,"Lexington - KY",75,56926.95
+2023,12,December,"Long Island - NY",96,85721.64
+2023,12,December,"Lubbock - TX",37,24393.87
+2023,12,December,"Manchester - NH",15,13848.08
+2023,12,December,"McAllen - TX",68,46714.29
+2023,12,December,"Midland - TX",83,72605.92
+2023,12,December,"New Jersey Central - NJ",38,23768.52
+2023,12,December,"Newport News - VA",38,32047.37
+2023,12,December,"Northshore - LA",5,3938.50
+2023,12,December,"Orchard Park - NY",91,77015.98
+2023,12,December,"Orlando West - FL",14,10205.00
+2023,12,December,"Oxford - CT",139,129275.43
+2023,12,December,"Pittsburgh - PA",68,39882.63
+2023,12,December,"Providence - RI",140,126803.69
+2023,12,December,"Rochester - NY",95,72057.35
+2023,12,December,"Syracuse - NY",43,29590.75
+2023,12,December,"Virginia Beach - VA",65,49450.68
+2023,12,December,"Westchester - NY",44,38747.47
+2024,1,January,"Albany - NY",45,29452.38
+2024,1,January,"Baton Rouge - LA",30,21000.07
+2024,1,January,"Bloomington - IL",14,10395.07
+2024,1,January,"Boston - MA",106,75862.72
+2024,1,January,"Buffalo - NY",93,63244.39
+2024,1,January,"Chicago North - IL",80,50277.06
+2024,1,January,"Chicago South - IL",134,87791.03
+2024,1,January,"Corpus Christi - TX",44,31867.81
+2024,1,January,"Dallas Fort Worth Northwest - TX",13,9459.80
+2024,1,January,"DC West - DC",34,21280.44
+2024,1,January,"Harrisburg - PA",173,98405.57
+2024,1,January,"Hartford - CT",237,126475.58
+2024,1,January,"Lafayette - LA",19,13330.23
+2024,1,January,"Lexington - KY",46,32363.87
+2024,1,January,"Long Island - NY",155,126931.16
+2024,1,January,"Lubbock - TX",28,19055.73
+2024,1,January,"Manchester - NH",50,33350.64
+2024,1,January,"McAllen - TX",47,33105.61
+2024,1,January,"Midland - TX",89,69551.83
+2024,1,January,"New Jersey Central - NJ",55,35656.13
+2024,1,January,"Newport News - VA",51,42458.29
+2024,1,January,"Northshore - LA",7,4728.76
+2024,1,January,"Orchard Park - NY",96,77480.77
+2024,1,January,"Orlando West - FL",16,12461.18
+2024,1,January,"Oxford - CT",171,122582.62
+2024,1,January,"Pittsburgh - PA",90,48850.44
+2024,1,January,"Providence - RI",205,174489.53
+2024,1,January,"Rochester - NY",108,80084.78
+2024,1,January,"Syracuse - NY",43,37056.40
+2024,1,January,"Virginia Beach - VA",69,52268.84
+2024,1,January,"Westchester - NY",92,71197.33
+2024,2,February,"Albany - NY",24,22051.49
+2024,2,February,"Baton Rouge - LA",23,14780.85
+2024,2,February,"Bloomington - IL",11,8315.00
+2024,2,February,"Boston - MA",58,62294.13
+2024,2,February,"Buffalo - NY",49,40954.60
+2024,2,February,"Chicago North - IL",45,36059.18
+2024,2,February,"Chicago South - IL",88,66464.85
+2024,2,February,"Corpus Christi - TX",41,28315.36
+2024,2,February,"Dallas Fort Worth Northwest - TX",7,5799.48
+2024,2,February,"DC West - DC",15,13395.78
+2024,2,February,"Harrisburg - PA",66,53566.13
+2024,2,February,"Hartford - CT",99,95196.63
+2024,2,February,"Lafayette - LA",16,11277.76
+2024,2,February,"Lexington - KY",52,40775.01
+2024,2,February,"Long Island - NY",74,72591.25
+2024,2,February,"Lubbock - TX",27,17650.45
+2024,2,February,"Manchester - NH",20,19160.08
+2024,2,February,"McAllen - TX",52,35957.72
+2024,2,February,"Midland - TX",79,59781.84
+2024,2,February,"New Jersey Central - NJ",31,25925.21
+2024,2,February,"Newport News - VA",49,42383.68
+2024,2,February,"Northshore - LA",8,5761.00
+2024,2,February,"Orchard Park - NY",67,57339.80
+2024,2,February,"Orlando West - FL",23,16481.50
+2024,2,February,"Oxford - CT",139,111530.45
+2024,2,February,"Pittsburgh - PA",33,27450.51
+2024,2,February,"Providence - RI",160,143662.99
+2024,2,February,"Rochester - NY",89,76375.61
+2024,2,February,"Syracuse - NY",54,63981.84
+2024,2,February,"Virginia Beach - VA",43,35883.68
+2024,2,February,"Westchester - NY",44,41762.07
+2024,3,March,"Albany - NY",24,21811.30
+2024,3,March,"Baton Rouge - LA",34,26306.53
+2024,3,March,"Bloomington - IL",24,14713.00
+2024,3,March,"Boston - MA",50,48529.50
+2024,3,March,"Buffalo - NY",56,62715.13
+2024,3,March,"Chicago North - IL",64,52801.13
+2024,3,March,"Chicago South - IL",140,81864.58
+2024,3,March,"Corpus Christi - TX",56,38104.98
+2024,3,March,"Dallas Fort Worth Northwest - TX",20,13751.56
+2024,3,March,"DC West - DC",17,13811.49
+2024,3,March,"Harrisburg - PA",97,78076.64
+2024,3,March,"Hartford - CT",99,91975.39
+2024,3,March,"Lafayette - LA",22,14376.71
+2024,3,March,"Lexington - KY",71,52454.02
+2024,3,March,"Long Island - NY",106,106012.37
+2024,3,March,"Lubbock - TX",38,24671.00
+2024,3,March,"Manchester - NH",26,25199.53
+2024,3,March,"McAllen - TX",80,50409.63
+2024,3,March,"Midland - TX",119,94209.54
+2024,3,March,"New Jersey Central - NJ",34,29841.00
+2024,3,March,"Newport News - VA",45,39638.84
+2024,3,March,"Northshore - LA",16,11445.80
+2024,3,March,"Orchard Park - NY",64,56612.01
+2024,3,March,"Orlando West - FL",32,22682.14
+2024,3,March,"Oxford - CT",149,132904.02
+2024,3,March,"Pittsburgh - PA",38,33022.12
+2024,3,March,"Providence - RI",160,144288.59
+2024,3,March,"Rochester - NY",85,72823.88
+2024,3,March,"Syracuse - NY",40,32201.52
+2024,3,March,"Virginia Beach - VA",58,50201.27
+2024,3,March,"Westchester - NY",82,70784.34
+2024,4,April,"Albany - NY",28,24057.80
+2024,4,April,"Baton Rouge - LA",34,25617.59
+2024,4,April,"Bloomington - IL",10,7904.00
+2024,4,April,"Boston - MA",48,51799.32
+2024,4,April,"Buffalo - NY",43,33353.11
+2024,4,April,"Chicago North - IL",41,33341.67
+2024,4,April,"Chicago South - IL",72,55558.43
+2024,4,April,"Corpus Christi - TX",36,24774.51
+2024,4,April,"Dallas Fort Worth Northwest - TX",17,13924.30
+2024,4,April,"DC West - DC",16,12253.00
+2024,4,April,"Harrisburg - PA",90,70124.67
+2024,4,April,"Hartford - CT",95,83023.00
+2024,4,April,"Lafayette - LA",13,10182.06
+2024,4,April,"Lexington - KY",57,42281.48
+2024,4,April,"Long Island - NY",92,82932.40
+2024,4,April,"Lubbock - TX",36,25002.99
+2024,4,April,"Manchester - NH",122,55265.64
+2024,4,April,"McAllen - TX",58,37063.80
+2024,4,April,"Midland - TX",68,53244.82
+2024,4,April,"New Jersey Central - NJ",23,19236.25
+2024,4,April,"Newport News - VA",38,28514.07
+2024,4,April,"Northshore - LA",9,6056.17
+2024,4,April,"Orchard Park - NY",74,59714.44
+2024,4,April,"Orlando West - FL",27,17053.02
+2024,4,April,"Oxford - CT",129,110435.49
+2024,4,April,"Pittsburgh - PA",36,30267.48
+2024,4,April,"Providence - RI",146,132639.69
+2024,4,April,"Rochester - NY",80,67061.63
+2024,4,April,"Syracuse - NY",47,43323.04
+2024,4,April,"Virginia Beach - VA",47,36480.00
+2024,4,April,"Westchester - NY",44,42852.93
+2024,5,May,"Albany - NY",32,29426.17
+2024,5,May,"Baton Rouge - LA",30,20456.95
+2024,5,May,"Bloomington - IL",10,8480.00
+2024,5,May,"Boston - MA",59,55035.74
+2024,5,May,"Buffalo - NY",60,56313.25
+2024,5,May,"Chicago North - IL",70,50168.80
+2024,5,May,"Chicago South - IL",117,79697.06
+2024,5,May,"Corpus Christi - TX",45,29476.33
+2024,5,May,"Dallas Fort Worth Northwest - TX",18,13717.84
+2024,5,May,"DC West - DC",24,15136.45
+2024,5,May,"Harrisburg - PA",94,66474.54
+2024,5,May,"Hartford - CT",107,95541.99
+2024,5,May,"Lafayette - LA",14,9703.70
+2024,5,May,"Lexington - KY",76,52459.26
+2024,5,May,"Long Island - NY",99,87879.90
+2024,5,May,"Lubbock - TX",52,34080.10
+2024,5,May,"Manchester - NH",37,33898.47
+2024,5,May,"McAllen - TX",52,36338.55
+2024,5,May,"Midland - TX",78,65800.39
+2024,5,May,"New Jersey Central - NJ",35,28631.20
+2024,5,May,"Newport News - VA",40,33152.15
+2024,5,May,"Northshore - LA",5,5170.88
+2024,5,May,"Orchard Park - NY",60,57704.90
+2024,5,May,"Orlando West - FL",18,12824.30
+2024,5,May,"Oxford - CT",134,118071.29
+2024,5,May,"Pittsburgh - PA",48,37974.68
+2024,5,May,"Providence - RI",131,117199.70
+2024,5,May,"Rochester - NY",81,60745.16
+2024,5,May,"Syracuse - NY",40,30172.75
+2024,5,May,"Virginia Beach - VA",70,55582.99
+2024,5,May,"Westchester - NY",56,45600.28
+2024,6,June,"Albany - NY",28,20454.04
+2024,6,June,"Baton Rouge - LA",19,13322.43
+2024,6,June,"Bloomington - IL",13,9365.74
+2024,6,June,"Boston - MA",73,63985.15
+2024,6,June,"Buffalo - NY",48,39611.51
+2024,6,June,"Chicago North - IL",57,37516.79
+2024,6,June,"Chicago South - IL",88,61152.24
+2024,6,June,"Corpus Christi - TX",56,39299.12
+2024,6,June,"Dallas Fort Worth Northwest - TX",17,12521.00
+2024,6,June,"DC West - DC",25,18524.76
+2024,6,June,"Harrisburg - PA",102,78844.80
+2024,6,June,"Hartford - CT",134,113282.90
+2024,6,June,"Iowa City - IA",1,200.00
+2024,6,June,"Lafayette - LA",12,8149.00
+2024,6,June,"Lexington - KY",75,59250.69
+2024,6,June,"Long Island - NY",87,74078.83
+2024,6,June,"Lubbock - TX",56,36886.07
+2024,6,June,"Manchester - NH",38,32633.90
+2024,6,June,"McAllen - TX",67,44078.42
+2024,6,June,"Midland - TX",69,51347.61
+2024,6,June,"New Jersey Central - NJ",35,26959.71
+2024,6,June,"Newport News - VA",46,38805.08
+2024,6,June,"Northshore - LA",13,9067.66
+2024,6,June,"Orchard Park - NY",72,57818.24
+2024,6,June,"Orlando West - FL",15,10466.55
+2024,6,June,"Oxford - CT",141,109964.56
+2024,6,June,"Pensacola - FL",1,820.00
+2024,6,June,"Pittsburgh - PA",44,34027.00
+2024,6,June,"Providence - RI",141,130594.66
+2024,6,June,"Rochester - NY",80,70986.48
+2024,6,June,"Springfield - MA",1,965.00
+2024,6,June,"Syracuse - NY",57,40800.59
+2024,6,June,"Virginia Beach - VA",70,53404.15
+2024,6,June,"Westchester - NY",82,61238.69
+2024,7,July,"Albany - NY",43,34992.97
+2024,7,July,"Baton Rouge - LA",43,27349.65
+2024,7,July,"Bloomington - IL",20,12819.03
+2024,7,July,"Boston - MA",83,73787.80
+2024,7,July,"Buffalo - NY",60,46526.29
+2024,7,July,"Chicago North - IL",86,57931.69
+2024,7,July,"Chicago South - IL",86,62119.55
+2024,7,July,"Corpus Christi - TX",39,24687.69
+2024,7,July,"Dallas Fort Worth Northwest - TX",18,14105.60
+2024,7,July,"DC West - DC",26,19312.60
+2024,7,July,"Harrisburg - PA",140,113386.09
+2024,7,July,"Hartford - CT",141,123306.32
+2024,7,July,"Iowa City - IA",2,1178.00
+2024,7,July,"Lafayette - LA",21,14206.74
+2024,7,July,"Lexington - KY",82,60693.89
+2024,7,July,"Long Island - NY",94,85452.68
+2024,7,July,"Lubbock - TX",58,39523.61
+2024,7,July,"Manchester - NH",41,36771.86
+2024,7,July,"McAllen - TX",61,42178.07
+2024,7,July,"Midland - TX",81,59895.02
+2024,7,July,"New Jersey Central - NJ",86,47766.80
+2024,7,July,"Newport News - VA",60,49882.43
+2024,7,July,"Northshore - LA",9,5980.32
+2024,7,July,"Orchard Park - NY",79,85624.17
+2024,7,July,"Orlando West - FL",35,19938.67
+2024,7,July,"Oxford - CT",165,138989.64
+2024,7,July,"Pensacola - FL",2,455.00
+2024,7,July,"Pittsburgh - PA",53,42327.38
+2024,7,July,"Providence - RI",182,157843.33
+2024,7,July,"Rochester - NY",134,93680.37
+2024,7,July,"Springfield - MA",2,650.00
+2024,7,July,"Syracuse - NY",56,44480.52
+2024,7,July,"Virginia Beach - VA",76,61021.77
+2024,7,July,"Westchester - NY",77,65276.14
+2024,8,August,"Albany - NY",54,39237.45
+2024,8,August,"Baton Rouge - LA",42,24260.38
+2024,8,August,"Bloomington - IL",9,6869.70
+2024,8,August,"Boston - MA",102,76894.22
+2024,8,August,"Buffalo - NY",94,68965.84
+2024,8,August,"Chicago North - IL",88,53534.74
+2024,8,August,"Chicago South - IL",140,87926.76
+2024,8,August,"Corpus Christi - TX",47,32261.07
+2024,8,August,"Dallas Fort Worth Northwest - TX",15,12920.85
+2024,8,August,"DC West - DC",41,28336.92
+2024,8,August,"Harrisburg - PA",160,120167.22
+2024,8,August,"Hartford - CT",140,112601.70
+2024,8,August,"Iowa City - IA",2,1138.00
+2024,8,August,"Lafayette - LA",17,11931.45
+2024,8,August,"Lexington - KY",70,56941.40
+2024,8,August,"Long Island - NY",149,125506.21
+2024,8,August,"Lubbock - TX",51,35508.24
+2024,8,August,"Manchester - NH",42,37951.07
+2024,8,August,"McAllen - TX",43,31727.51
+2024,8,August,"Midland - TX",92,71501.12
+2024,8,August,"New Jersey Central - NJ",52,39385.80
+2024,8,August,"Newport News - VA",59,45621.22
+2024,8,August,"Northshore - LA",13,7133.80
+2024,8,August,"Orchard Park - NY",117,89307.89
+2024,8,August,"Orlando West - FL",22,16874.65
+2024,8,August,"Oxford - CT",193,160908.37
+2024,8,August,"Pensacola - FL",2,1067.00
+2024,8,August,"Pittsburgh - PA",76,60236.48
+2024,8,August,"Portland - ME",7,4384.62
+2024,8,August,"Providence - RI",197,156156.77
+2024,8,August,"Rochester - NY",107,94186.44
+2024,8,August,"Springfield - MA",4,1249.00
+2024,8,August,"Syracuse - NY",75,56203.33
+2024,8,August,"Virginia Beach - VA",77,60474.12
+2024,8,August,"Westchester - NY",103,81396.50
+2024,9,September,"Albany - NY",57,37839.32
+2024,9,September,"Baton Rouge - LA",33,21104.53
+2024,9,September,"Bloomington - IL",19,14227.30
+2024,9,September,"Boston - MA",115,85131.32
+2024,9,September,"Buffalo - NY",98,67393.81
+2024,9,September,"Chicago North - IL",81,47540.69
+2024,9,September,"Chicago South - IL",118,72502.00
+2024,9,September,"Corpus Christi - TX",42,31341.26
+2024,9,September,"Dallas Fort Worth Northwest - TX",13,7652.00
+2024,9,September,"DC West - DC",34,19073.46
+2024,9,September,"Harrisburg - PA",183,122011.98
+2024,9,September,"Hartford - CT",138,122754.69
+2024,9,September,"Iowa City - IA",5,2405.00
+2024,9,September,"Lafayette - LA",21,14678.86
+2024,9,September,"Lexington - KY",55,37377.74
+2024,9,September,"Long Island - NY",179,132736.15
+2024,9,September,"Lubbock - TX",50,34193.53
+2024,9,September,"Manchester - NH",67,48719.63
+2024,9,September,"McAllen - TX",47,30117.72
+2024,9,September,"Midland - TX",73,62100.90
+2024,9,September,"New Jersey Central - NJ",48,34572.77
+2024,9,September,"Newport News - VA",40,29077.52
+2024,9,September,"Northshore - LA",12,6092.36
+2024,9,September,"Orchard Park - NY",124,92248.46
+2024,9,September,"Orlando West - FL",25,19998.54
+2024,9,September,"Oxford - CT",170,137662.63
+2024,9,September,"Pensacola - FL",2,1489.00
+2024,9,September,"Pittsburgh - PA",79,48767.66
+2024,9,September,"Portland - ME",6,2586.50
+2024,9,September,"Providence - RI",181,148796.73
+2024,9,September,"Rochester - NY",155,117602.15
+2024,9,September,"Springfield - MA",1,1018.00
+2024,9,September,"Syracuse - NY",87,56476.53
+2024,9,September,"Virginia Beach - VA",61,48375.42
+2024,9,September,"Westchester - NY",120,91214.06
+2024,10,October,"Albany - NY",49,37521.19
+2024,10,October,"Baton Rouge - LA",42,24429.49
+2024,10,October,"Bloomington - IL",15,9906.00
+2024,10,October,"Boston - MA",99,83330.38
+2024,10,October,"Buffalo - NY",90,58733.09
+2024,10,October,"Chicago North - IL",80,55239.61
+2024,10,October,"Chicago South - IL",99,69334.13
+2024,10,October,"Corpus Christi - TX",41,27950.05
+2024,10,October,"Dallas Fort Worth Northwest - TX",15,11309.00
+2024,10,October,"DC West - DC",26,16038.95
+2024,10,October,"Harrisburg - PA",168,107392.33
+2024,10,October,"Hartford - CT",145,122116.37
+2024,10,October,"Iowa City - IA",3,2171.00
+2024,10,October,"Lafayette - LA",15,10277.31
+2024,10,October,"Lexington - KY",84,61316.90
+2024,10,October,"Long Island - NY",206,148539.10
+2024,10,October,"Lubbock - TX",49,33900.04
+2024,10,October,"Manchester - NH",55,38655.44
+2024,10,October,"McAllen - TX",48,33401.38
+2024,10,October,"Midland - TX",94,76716.46
+2024,10,October,"New Jersey Central - NJ",48,35019.46
+2024,10,October,"Newport News - VA",51,38703.20
+2024,10,October,"Northshore - LA",9,7126.40
+2024,10,October,"Orchard Park - NY",111,84345.71
+2024,10,October,"Orlando West - FL",15,10494.00
+2024,10,October,"Oxford - CT",194,162647.14
+2024,10,October,"Pensacola - FL",1,276.00
+2024,10,October,"Pittsburgh - PA",63,40532.20
+2024,10,October,"Portland - ME",3,1590.00
+2024,10,October,"Providence - RI",199,161201.74
+2024,10,October,"Rochester - NY",87,68661.15
+2024,10,October,"Springfield - MA",3,1384.00
+2024,10,October,"Syracuse - NY",73,49479.03
+2024,10,October,"Virginia Beach - VA",81,48658.02
+2024,10,October,"Westchester - NY",115,83152.70
+2024,11,November,"Albany - NY",23,17136.19
+2024,11,November,"Baton Rouge - LA",34,21446.29
+2024,11,November,"Bloomington - IL",18,12844.40
+2024,11,November,"Boston - MA",64,61174.14
+2024,11,November,"Buffalo - NY",59,42471.96
+2024,11,November,"Chicago North - IL",62,43300.91
+2024,11,November,"Chicago South - IL",67,49821.26
+2024,11,November,"Corpus Christi - TX",37,27069.84
+2024,11,November,"Dallas Fort Worth Northwest - TX",10,6588.00
+2024,11,November,"DC West - DC",31,25597.71
+2024,11,November,"Harrisburg - PA",174,103447.52
+2024,11,November,"Hartford - CT",111,103145.84
+2024,11,November,"Iowa City - IA",1,878.00
+2024,11,November,"Lafayette - LA",7,5044.64
+2024,11,November,"Lexington - KY",51,40140.86
+2024,11,November,"Long Island - NY",98,93058.54
+2024,11,November,"Lubbock - TX",35,28139.59
+2024,11,November,"Manchester - NH",26,29746.90
+2024,11,November,"McAllen - TX",43,29548.18
+2024,11,November,"Midland - TX",59,59490.78
+2024,11,November,"New Jersey Central - NJ",29,24426.36
+2024,11,November,"Newport News - VA",41,35958.80
+2024,11,November,"Northshore - LA",10,7518.10
+2024,11,November,"Orchard Park - NY",92,72357.12
+2024,11,November,"Orlando West - FL",17,10463.48
+2024,11,November,"Oxford - CT",137,126623.33
+2024,11,November,"Pensacola - FL",7,3929.00
+2024,11,November,"Pittsburgh - PA",35,26613.86
+2024,11,November,"Portland - ME",1,1081.00
+2024,11,November,"Providence - RI",130,110677.64
+2024,11,November,"Rochester - NY",102,80936.34
+2024,11,November,"Springfield - MA",3,1438.00
+2024,11,November,"Syracuse - NY",48,37282.10
+2024,11,November,"Virginia Beach - VA",42,28524.79
+2024,11,November,"Westchester - NY",78,54056.19
+2024,12,December,"Albany - NY",36,29869.47
+2024,12,December,"Baton Rouge - LA",38,26754.00
+2024,12,December,"Bloomington - IL",17,14306.95
+2024,12,December,"Boston - MA",56,57518.75
+2024,12,December,"Buffalo - NY",52,43256.63
+2024,12,December,"Chicago North - IL",114,74155.81
+2024,12,December,"Chicago South - IL",105,77247.78
+2024,12,December,"Corpus Christi - TX",34,23081.21
+2024,12,December,"Dallas Fort Worth Northwest - TX",19,24086.11
+2024,12,December,"DC West - DC",19,18032.18
+2024,12,December,"Harrisburg - PA",112,95463.82
+2024,12,December,"Hartford - CT",102,89871.58
+2024,12,December,"Lafayette - LA",21,15288.94
+2024,12,December,"Lexington - KY",67,54768.10
+2024,12,December,"Long Island - NY",115,112436.24
+2024,12,December,"Lubbock - TX",54,36179.74
+2024,12,December,"Manchester - NH",39,38274.16
+2024,12,December,"McAllen - TX",65,48943.74
+2024,12,December,"Midland - TX",83,65665.68
+2024,12,December,"New Jersey Central - NJ",41,36229.33
+2024,12,December,"Newport News - VA",40,32369.37
+2024,12,December,"Northshore - LA",20,14051.26
+2024,12,December,"Orchard Park - NY",92,88267.45
+2024,12,December,"Orlando West - FL",26,26439.62
+2024,12,December,"Oxford - CT",139,122926.97
+2024,12,December,"Pensacola - FL",3,2526.00
+2024,12,December,"Pittsburgh - PA",38,31718.86
+2024,12,December,"Portland - ME",6,4512.00
+2024,12,December,"Providence - RI",142,141387.38
+2024,12,December,"Rochester - NY",110,95508.31
+2024,12,December,"Springfield - MA",4,2735.00
+2024,12,December,"Syracuse - NY",62,54046.11
+2024,12,December,"Virginia Beach - VA",65,56199.64
+2024,12,December,"Westchester - NY",87,81647.29
+2025,1,January,"Albany - NY",23,22178.56
+2025,1,January,"Baton Rouge - LA",28,19862.42
+2025,1,January,"Bloomington - IL",18,13838.66
+2025,1,January,"Boston - MA",54,51395.40
+2025,1,January,"Buffalo - NY",69,61241.27
+2025,1,January,"Chicago North - IL",57,44413.82
+2025,1,January,"Chicago South - IL",91,70217.47
+2025,1,January,"Corpus Christi - TX",43,30223.63
+2025,1,January,"Dallas Fort Worth Northwest - TX",22,14972.38
+2025,1,January,"DC West - DC",15,12549.92
+2025,1,January,"Harrisburg - PA",85,75750.07
+2025,1,January,"Hartford - CT",98,94973.35
+2025,1,January,"Lafayette - LA",15,11350.50
+2025,1,January,"Lexington - KY",62,49683.40
+2025,1,January,"Long Island - NY",95,92707.31
+2025,1,January,"Lubbock - TX",39,27301.35
+2025,1,January,"Manchester - NH",26,27309.17
+2025,1,January,"McAllen - TX",57,40801.47
+2025,1,January,"Midland - TX",78,65103.30
+2025,1,January,"New Jersey Central - NJ",26,23967.60
+2025,1,January,"Newport News - VA",40,33814.44
+2025,1,January,"Northshore - LA",6,8306.50
+2025,1,January,"Orchard Park - NY",97,76096.23
+2025,1,January,"Orlando West - FL",20,18510.49
+2025,1,January,"Oxford - CT",138,144059.58
+2025,1,January,"Pensacola - FL",2,766.00
+2025,1,January,"Pittsburgh - PA",41,36677.18
+2025,1,January,"Portland - ME",1,1040.00
+2025,1,January,"Providence - RI",123,131027.40
+2025,1,January,"Rochester - NY",76,61127.29
+2025,1,January,"Springfield - MA",1,948.00
+2025,1,January,"Syracuse - NY",62,53083.13
+2025,1,January,"Virginia Beach - VA",42,35757.56
+2025,1,January,"Westchester - NY",56,51779.84
+2025,2,February,"Albany - NY",35,32521.83
+2025,2,February,"Baton Rouge - LA",31,25819.60
+2025,2,February,"Bloomington - IL",13,9980.11
+2025,2,February,"Boston - MA",69,68893.03
+2025,2,February,"Buffalo - NY",49,41003.06
+2025,2,February,"Chicago North - IL",48,35129.98
+2025,2,February,"Chicago South - IL",80,61160.58
+2025,2,February,"Corpus Christi - TX",44,31765.55
+2025,2,February,"Dallas Fort Worth Northwest - TX",17,13626.01
+2025,2,February,"DC West - DC",17,14517.63
+2025,2,February,"Harrisburg - PA",100,94135.89
+2025,2,February,"Hartford - CT",85,80754.93
+2025,2,February,"Lafayette - LA",27,17308.49
+2025,2,February,"Lexington - KY",28,21585.00
+2025,2,February,"Long Island - NY",81,80276.29
+2025,2,February,"Lubbock - TX",40,28266.73
+2025,2,February,"Manchester - NH",21,20166.21
+2025,2,February,"McAllen - TX",54,39857.50
+2025,2,February,"Midland - TX",81,64854.19
+2025,2,February,"New Jersey Central - NJ",22,19895.57
+2025,2,February,"Newport News - VA",30,26206.59
+2025,2,February,"Northshore - LA",13,9575.41
+2025,2,February,"Orchard Park - NY",63,58124.41
+2025,2,February,"Orlando West - FL",6,5904.59
+2025,2,February,"Oxford - CT",117,107568.49
+2025,2,February,"Pensacola - FL",2,525.00
+2025,2,February,"Pittsburgh - PA",27,24195.85
+2025,2,February,"Portland - ME",1,948.00
+2025,2,February,"Providence - RI",122,121645.45
+2025,2,February,"Rochester - NY",68,63043.07
+2025,2,February,"Springfield - MA",2,1869.00
+2025,2,February,"Syracuse - NY",46,38742.88
+2025,2,February,"Virginia Beach - VA",48,42150.79
+2025,2,February,"Westchester - NY",35,31437.00
+2025,3,March,"Albany - NY",33,28412.62
+2025,3,March,"Baton Rouge - LA",36,41031.15
+2025,3,March,"Bloomington - IL",9,7403.95
+2025,3,March,"Boston - MA",47,49898.24
+2025,3,March,"Buffalo - NY",53,46664.28
+2025,3,March,"Chicago North - IL",59,41638.92
+2025,3,March,"Chicago South - IL",86,71299.29
+2025,3,March,"Corpus Christi - TX",39,28442.86
+2025,3,March,"Dallas Fort Worth Northwest - TX",32,24666.67
+2025,3,March,"DC West - DC",25,21275.91
+2025,3,March,"Harrisburg - PA",80,67094.19
+2025,3,March,"Hartford - CT",101,105307.94
+2025,3,March,"Iowa City - IA",3,1338.00
+2025,3,March,"Lafayette - LA",17,12782.44
+2025,3,March,"Lexington - KY",56,47117.86
+2025,3,March,"Long Island - NY",96,94688.91
+2025,3,March,"Lubbock - TX",48,34384.57
+2025,3,March,"Manchester - NH",23,46363.87
+2025,3,March,"McAllen - TX",56,38978.89
+2025,3,March,"Midland - TX",67,62149.55
+2025,3,March,"New Jersey Central - NJ",25,19437.20
+2025,3,March,"Newport News - VA",43,58175.47
+2025,3,March,"Northshore - LA",17,12711.05
+2025,3,March,"Orchard Park - NY",74,68074.53
+2025,3,March,"Orlando West - FL",21,17225.49
+2025,3,March,"Oxford - CT",124,119287.94
+2025,3,March,"Pensacola - FL",2,1465.00
+2025,3,March,"Pittsburgh - PA",46,41692.96
+2025,3,March,"Providence - RI",113,111843.18
+2025,3,March,"Rochester - NY",73,63092.71
+2025,3,March,"Syracuse - NY",49,41069.12
+2025,3,March,"Virginia Beach - VA",48,40990.03
+2025,3,March,"Westchester - NY",59,54510.20
+2025,4,April,"Albany - NY",27,25583.22
+2025,4,April,"Baton Rouge - LA",23,15598.31
+2025,4,April,"Bloomington - IL",11,7277.56
+2025,4,April,"Boston - MA",63,62133.35
+2025,4,April,"Buffalo - NY",35,27822.50
+2025,4,April,"Chicago North - IL",71,109583.01
+2025,4,April,"Chicago South - IL",73,68045.21
+2025,4,April,"Corpus Christi - TX",52,33248.47
+2025,4,April,"Dallas Fort Worth Northwest - TX",23,19532.26
+2025,4,April,"DC West - DC",22,16482.28
+2025,4,April,"Harrisburg - PA",74,60599.39
+2025,4,April,"Hartford - CT",117,97785.48
+2025,4,April,"Iowa City - IA",1,350.00
+2025,4,April,"Lafayette - LA",14,8883.84
+2025,4,April,"Lexington - KY",38,30777.10
+2025,4,April,"Long Island - NY",66,65249.14
+2025,4,April,"Lubbock - TX",40,28247.23
+2025,4,April,"Manchester - NH",31,30902.01
+2025,4,April,"McAllen - TX",63,42245.91
+2025,4,April,"Midland - TX",105,87841.69
+2025,4,April,"New Jersey Central - NJ",24,22963.77
+2025,4,April,"Newport News - VA",39,31462.08
+2025,4,April,"Northshore - LA",11,8005.82
+2025,4,April,"Orchard Park - NY",57,51983.04
+2025,4,April,"Orlando West - FL",21,14227.34
+2025,4,April,"Oxford - CT",140,125084.54
+2025,4,April,"Pensacola - FL",5,3047.00
+2025,4,April,"Pittsburgh - PA",62,48554.97
+2025,4,April,"Portland - ME",2,2023.00
+2025,4,April,"Providence - RI",140,123280.72
+2025,4,April,"Rochester - NY",73,63188.60
+2025,4,April,"Springfield - MA",2,1625.00
+2025,4,April,"Syracuse - NY",39,38820.07
+2025,4,April,"Virginia Beach - VA",55,49930.60
+2025,4,April,"Westchester - NY",49,49235.13
+2025,5,May,"Albany - NY",35,27415.33
+2025,5,May,"Baton Rouge - LA",39,30094.43
+2025,5,May,"Bloomington - IL",16,12334.29
+2025,5,May,"Boston - MA",115,83831.81
+2025,5,May,"Buffalo - NY",65,55061.92
+2025,5,May,"Chicago North - IL",80,78551.05
+2025,5,May,"Chicago South - IL",100,69540.79
+2025,5,May,"Corpus Christi - TX",54,38849.42
+2025,5,May,"Dallas Fort Worth Northwest - TX",26,20661.81
+2025,5,May,"DC West - DC",24,25768.85
+2025,5,May,"Evansville - IN",1,250.00
+2025,5,May,"Harrisburg - PA",86,85015.73
+2025,5,May,"Hartford - CT",123,119174.61
+2025,5,May,"Iowa City - IA",6,4529.00
+2025,5,May,"Kennewick - WA",1,888.00
+2025,5,May,"Lafayette - LA",22,16060.94
+2025,5,May,"Lexington - KY",68,52600.72
+2025,5,May,"Long Island - NY",107,97560.85
+2025,5,May,"Lubbock - TX",68,44556.14
+2025,5,May,"Manchester - NH",36,28995.37
+2025,5,May,"McAllen - TX",55,40151.27
+2025,5,May,"Midland - TX",102,84132.63
+2025,5,May,"New Jersey Central - NJ",29,24995.41
+2025,5,May,"Newport News - VA",44,34928.61
+2025,5,May,"Northshore - LA",8,5526.00
+2025,5,May,"Orchard Park - NY",67,56545.81
+2025,5,May,"Orlando West - FL",17,12800.22
+2025,5,May,"Oxford - CT",141,130542.59
+2025,5,May,"Pensacola - FL",2,1515.00
+2025,5,May,"Pittsburgh - PA",146,76781.73
+2025,5,May,"Portland - ME",3,2269.00
+2025,5,May,"Providence - RI",134,119866.74
+2025,5,May,"Rochester - NY",85,75659.29
+2025,5,May,"South Bend - IN",1,200.00
+2025,5,May,"Spokane - WA",1,199.99
+2025,5,May,"Springfield - MA",5,5703.00
+2025,5,May,"Syracuse - NY",49,42756.36
+2025,5,May,"Virginia Beach - VA",65,54998.78
+2025,5,May,"Westchester - NY",63,53254.33
+2025,6,June,"Albany - NY",33,30091.10
+2025,6,June,"Baton Rouge - LA",33,25657.37
+2025,6,June,"Bloomington - IL",8,6575.96
+2025,6,June,"Boston - MA",83,67888.50
+2025,6,June,"Buffalo - NY",58,44725.18
+2025,6,June,"Chicago North - IL",75,62059.46
+2025,6,June,"Chicago South - IL",84,63673.73
+2025,6,June,"Corpus Christi - TX",58,39930.68
+2025,6,June,"Dallas Fort Worth Northwest - TX",18,19910.22
+2025,6,June,"DC West - DC",38,29223.17
+2025,6,June,"Evansville - IN",1,775.00
+2025,6,June,"Harrisburg - PA",99,77153.04
+2025,6,June,"Hartford - CT",116,109512.13
+2025,6,June,"Iowa City - IA",4,3537.00
+2025,6,June,"Kennewick - WA",1,275.00
+2025,6,June,"Lafayette - LA",19,13689.55
+2025,6,June,"Lexington - KY",53,41639.44
+2025,6,June,"Long Island - NY",85,79985.88
+2025,6,June,"Lubbock - TX",61,43240.16
+2025,6,June,"Manchester - NH",39,36362.36
+2025,6,June,"McAllen - TX",42,29746.08
+2025,6,June,"Midland - TX",84,66654.29
+2025,6,June,"New Jersey Central - NJ",29,25834.17
+2025,6,June,"Newport News - VA",50,40570.94
+2025,6,June,"Northshore - LA",18,14127.82
+2025,6,June,"Orchard Park - NY",63,52795.65
+2025,6,June,"Orlando West - FL",34,33950.20
+2025,6,June,"Oxford - CT",179,164278.52
+2025,6,June,"Pensacola - FL",8,5791.00
+2025,6,June,"Pittsburgh - PA",60,49180.97
+2025,6,June,"Portland - ME",9,7602.00
+2025,6,June,"Providence - RI",113,102564.56
+2025,6,June,"Rochester - NY",108,99543.56
+2025,6,June,"Springfield - MA",8,7322.00
+2025,6,June,"Syracuse - NY",70,57392.70
+2025,6,June,"Virginia Beach - VA",69,56407.97
+2025,6,June,"Westchester - NY",59,49694.35
+2025,7,July,"Albany - NY",54,44111.34
+2025,7,July,"Baton Rouge - LA",21,18226.20
+2025,7,July,"Bloomington - IL",16,12050.12
+2025,7,July,"Boston - MA",87,83159.76
+2025,7,July,"Buffalo - NY",75,63566.16
+2025,7,July,"Burlington - VT",2,1971.00
+2025,7,July,"Chicago North - IL",58,76395.42
+2025,7,July,"Chicago South - IL",118,125316.85
+2025,7,July,"Corpus Christi - TX",62,42410.25
+2025,7,July,"Dallas Fort Worth Northwest - TX",25,16905.96
+2025,7,July,"DC West - DC",32,26324.53
+2025,7,July,"Evansville - IN",1,802.00
+2025,7,July,"Harrisburg - PA",134,112844.53
+2025,7,July,"Hartford - CT",130,114020.88
+2025,7,July,"Iowa City - IA",9,7315.00
+2025,7,July,"Lafayette - LA",17,11598.84
+2025,7,July,"Lexington - KY",63,48358.15
+2025,7,July,"Long Island - NY",103,94070.13
+2025,7,July,"Lubbock - TX",41,28295.91
+2025,7,July,"Manchester - NH",57,46495.15
+2025,7,July,"McAllen - TX",63,44528.75
+2025,7,July,"Midland - TX",98,78711.64
+2025,7,July,"New Jersey Central - NJ",26,20376.65
+2025,7,July,"Newport News - VA",56,45695.88
+2025,7,July,"Northshore - LA",18,12180.58
+2025,7,July,"Orchard Park - NY",86,71073.58
+2025,7,July,"Orlando West - FL",25,17450.45
+2025,7,July,"Oxford - CT",156,143706.75
+2025,7,July,"Pensacola - FL",4,3653.00
+2025,7,July,"Pittsburgh - PA",43,37217.02
+2025,7,July,"Portland - ME",3,900.00
+2025,7,July,"Providence - RI",167,144598.50
+2025,7,July,"Reno - NV",3,1270.00
+2025,7,July,"Rochester - NY",105,89724.95
+2025,7,July,"Sioux Falls - SD",3,1811.00
+2025,7,July,"South Bend - IN",1,552.00
+2025,7,July,"Springfield - MA",8,5699.00
+2025,7,July,"Syracuse - NY",68,57540.54
+2025,7,July,"Virginia Beach - VA",50,40139.11
+2025,7,July,"Westchester - NY",94,82032.89
+2025,8,August,"Albany - NY",38,31300.50
+2025,8,August,"Baton Rouge - LA",28,21516.68
+2025,8,August,"Bloomington - IL",18,13149.61
+2025,8,August,"Boston - MA",110,79129.05
+2025,8,August,"Buffalo - NY",76,63546.44
+2025,8,August,"Burlington - VT",7,3596.00
+2025,8,August,"Chicago North - IL",63,42856.01
+2025,8,August,"Chicago South - IL",102,82656.15
+2025,8,August,"Corpus Christi - TX",54,36308.32
+2025,8,August,"Dallas Fort Worth Northwest - TX",17,13574.16
+2025,8,August,"DC West - DC",43,28183.97
+2025,8,August,"Evansville - IN",2,1759.00
+2025,8,August,"Harrisburg - PA",147,107806.98
+2025,8,August,"Hartford - CT",194,152063.76
+2025,8,August,"Iowa City - IA",7,4467.00
+2025,8,August,"Lafayette - LA",27,19394.42
+2025,8,August,"Lexington - KY",70,61385.99
+2025,8,August,"Long Island - NY",158,137963.02
+2025,8,August,"Lubbock - TX",69,48482.17
+2025,8,August,"Manchester - NH",53,42846.54
+2025,8,August,"McAllen - TX",47,32866.79
+2025,8,August,"Midland - TX",88,74425.39
+2025,8,August,"New Jersey Central - NJ",37,28697.47
+2025,8,August,"Newport News - VA",57,44802.28
+2025,8,August,"Northshore - LA",19,14060.30
+2025,8,August,"Orchard Park - NY",128,101378.45
+2025,8,August,"Orlando West - FL",16,10264.00
+2025,8,August,"Oxford - CT",188,168590.07
+2025,8,August,"Pensacola - FL",7,4672.00
+2025,8,August,"Pittsburgh - PA",85,58844.52
+2025,8,August,"Portland - ME",7,4891.00
+2025,8,August,"Providence - RI",186,159327.38
+2025,8,August,"Reno - NV",3,1913.00
+2025,8,August,"Rochester - NY",160,128715.41
+2025,8,August,"Sioux Falls - SD",1,690.00
+2025,8,August,"South Bend - IN",4,1300.00
+2025,8,August,"Spokane - WA",2,950.00
+2025,8,August,"Springfield - MA",8,6689.00
+2025,8,August,"Syracuse - NY",67,52507.88
+2025,8,August,"Virginia Beach - VA",42,33673.81
+2025,8,August,"Westchester - NY",91,73857.14
+2025,9,September,"Albany - NY",57,42146.98
+2025,9,September,"Baton Rouge - LA",36,29285.88
+2025,9,September,"Bloomington - IL",22,15817.36
+2025,9,September,"Boston - MA",89,81643.29
+2025,9,September,"Buffalo - NY",107,81738.80
+2025,9,September,"Burlington - VT",4,1909.00
+2025,9,September,"Chicago North - IL",92,124327.01
+2025,9,September,"Chicago South - IL",113,70287.61
+2025,9,September,"Corpus Christi - TX",66,45287.47
+2025,9,September,"Dallas Fort Worth Northwest - TX",25,20466.00
+2025,9,September,"DC West - DC",45,32476.34
+2025,9,September,"Evansville - IN",1,781.00
+2025,9,September,"Harrisburg - PA",210,150804.76
+2025,9,September,"Hartford - CT",181,129857.11
+2025,9,September,"Iowa City - IA",6,2664.00
+2025,9,September,"Kennewick - WA",3,1846.00
+2025,9,September,"Lafayette - LA",33,23186.24
+2025,9,September,"Lexington - KY",73,81853.48
+2025,9,September,"Long Island - NY",161,133682.62
+2025,9,September,"Lubbock - TX",55,38874.21
+2025,9,September,"Manchester - NH",85,56537.22
+2025,9,September,"McAllen - TX",48,36225.39
+2025,9,September,"Midland - TX",93,83916.96
+2025,9,September,"New Jersey Central - NJ",49,36109.84
+2025,9,September,"Newport News - VA",52,44277.16
+2025,9,September,"Northshore - LA",17,13374.73
+2025,9,September,"Orchard Park - NY",137,103951.81
+2025,9,September,"Orlando West - FL",36,32619.86
+2025,9,September,"Oxford - CT",231,172913.26
+2025,9,September,"Pensacola - FL",8,3886.00
+2025,9,September,"Pittsburgh - PA",62,41029.74
+2025,9,September,"Portland - ME",13,5786.00
+2025,9,September,"Providence - RI",228,180461.89
+2025,9,September,"Reno - NV",4,2165.00
+2025,9,September,"Rochester - NY",150,127937.00
+2025,9,September,"Sioux Falls - SD",2,1718.00
+2025,9,September,"South Bend - IN",1,670.00
+2025,9,September,"Spokane - WA",1,828.00
+2025,9,September,"Springfield - MA",12,8526.00
+2025,9,September,"Syracuse - NY",97,67294.57
+2025,9,September,"Virginia Beach - VA",57,45137.17
+2025,9,September,"Westchester - NY",123,89535.59
+2025,10,October,"Albany - NY",51,41529.64
+2025,10,October,"Baton Rouge - LA",37,36865.31
+2025,10,October,"Bloomington - IL",18,22889.52
+2025,10,October,"Boston - MA",87,90870.17
+2025,10,October,"Buffalo - NY",84,66303.80
+2025,10,October,"Burlington - VT",4,2822.00
+2025,10,October,"Chicago North - IL",67,55526.93
+2025,10,October,"Chicago South - IL",92,66037.82
+2025,10,October,"Corpus Christi - TX",54,54273.10
+2025,10,October,"Dallas Fort Worth Northwest - TX",24,22311.84
+2025,10,October,"DC West - DC",23,16805.90
+2025,10,October,"Harrisburg - PA",168,120419.69
+2025,10,October,"Hartford - CT",133,116139.65
+2025,10,October,"Iowa City - IA",12,4992.00
+2025,10,October,"Lafayette - LA",28,18760.35
+2025,10,October,"Lexington - KY",63,58452.73
+2025,10,October,"Long Island - NY",122,107346.43
+2025,10,October,"Lubbock - TX",39,26600.16
+2025,10,October,"Manchester - NH",54,51737.42
+2025,10,October,"McAllen - TX",78,51378.59
+2025,10,October,"Midland - TX",93,70812.89
+2025,10,October,"New Jersey Central - NJ",30,21070.32
+2025,10,October,"Newport News - VA",41,35124.60
+2025,10,October,"Northshore - LA",7,6143.12
+2025,10,October,"Orchard Park - NY",130,106844.00
+2025,10,October,"Orlando West - FL",23,15731.34
+2025,10,October,"Oxford - CT",207,176207.14
+2025,10,October,"Pensacola - FL",5,3955.00
+2025,10,October,"Pittsburgh - PA",72,57384.68
+2025,10,October,"Portland - ME",4,2578.00
+2025,10,October,"Providence - RI",195,175163.19
+2025,10,October,"Reno - NV",2,1689.00
+2025,10,October,"Rochester - NY",82,67802.59
+2025,10,October,"Sioux Falls - SD",2,1096.00
+2025,10,October,"South Bend - IN",3,1430.00
+2025,10,October,"Spokane - WA",1,803.00
+2025,10,October,"Springfield - MA",14,7868.00
+2025,10,October,"Syracuse - NY",68,71345.59
+2025,10,October,"Virginia Beach - VA",50,38661.75
+2025,10,October,"Westchester - NY",116,92343.63
+2025,11,November,"Albany - NY",39,35117.88
+2025,11,November,"Baton Rouge - LA",32,25285.27
+2025,11,November,"Bloomington - IL",21,16623.00
+2025,11,November,"Boston - MA",62,67383.83
+2025,11,November,"Buffalo - NY",74,57713.20
+2025,11,November,"Burlington - VT",2,635.00
+2025,11,November,"Chicago North - IL",85,71033.73
+2025,11,November,"Chicago South - IL",85,71085.25
+2025,11,November,"Corpus Christi - TX",34,43146.91
+2025,11,November,"Dallas Fort Worth Northwest - TX",19,12553.79
+2025,11,November,"DC West - DC",19,14957.36
+2025,11,November,"Evansville - IN",3,1885.00
+2025,11,November,"Harrisburg - PA",112,90535.74
+2025,11,November,"Hartford - CT",127,109429.27
+2025,11,November,"Iowa City - IA",12,9445.00
+2025,11,November,"Kennewick - WA",6,5766.00
+2025,11,November,"Lafayette - LA",12,8986.86
+2025,11,November,"Lexington - KY",44,40427.21
+2025,11,November,"Long Island - NY",114,115734.34
+2025,11,November,"Lubbock - TX",40,29920.49
+2025,11,November,"Manchester - NH",42,41276.73
+2025,11,November,"McAllen - TX",53,39515.64
+2025,11,November,"Midland - TX",93,101693.77
+2025,11,November,"New Jersey Central - NJ",35,29173.37
+2025,11,November,"Newport News - VA",48,40735.97
+2025,11,November,"Northshore - LA",18,11106.10
+2025,11,November,"Orchard Park - NY",101,84126.77
+2025,11,November,"Orlando West - FL",17,10280.00
+2025,11,November,"Oxford - CT",172,150625.38
+2025,11,November,"Pensacola - FL",9,6913.00
+2025,11,November,"Pittsburgh - PA",37,30086.42
+2025,11,November,"Portland - ME",9,6641.00
+2025,11,November,"Providence - RI",143,134142.08
+2025,11,November,"Reno - NV",2,1068.00
+2025,11,November,"Rochester - NY",74,59454.08
+2025,11,November,"Sioux Falls - SD",2,1684.00
+2025,11,November,"South Bend - IN",6,3309.00
+2025,11,November,"Spokane - WA",2,1078.00
+2025,11,November,"Springfield - MA",13,11982.00
+2025,11,November,"Syracuse - NY",67,58797.21
+2025,11,November,"Virginia Beach - VA",51,54866.08
+2025,11,November,"Westchester - NY",65,60182.54
+2025,12,December,"Albany - NY",38,36731.41
+2025,12,December,"Baton Rouge - LA",40,37363.95
+2025,12,December,"Bloomington - IL",19,14744.18
+2025,12,December,"Boston - MA",65,67066.34
+2025,12,December,"Buffalo - NY",57,51358.91
+2025,12,December,"Burlington - VT",1,1070.00
+2025,12,December,"Chicago North - IL",76,85564.44
+2025,12,December,"Chicago South - IL",100,92056.70
+2025,12,December,"Corpus Christi - TX",65,46302.05
+2025,12,December,"Dallas Fort Worth Northwest - TX",28,21003.51
+2025,12,December,"DC West - DC",20,15764.77
+2025,12,December,"Evansville - IN",9,5943.00
+2025,12,December,"Harrisburg - PA",152,131873.07
+2025,12,December,"Hartford - CT",126,117886.17
+2025,12,December,"Iowa City - IA",6,3302.00
+2025,12,December,"Kennewick - WA",4,3443.00
+2025,12,December,"Lafayette - LA",36,42976.58
+2025,12,December,"Lexington - KY",71,70240.38
+2025,12,December,"Long Island - NY",118,125151.74
+2025,12,December,"Lubbock - TX",50,35086.31
+2025,12,December,"Manchester - NH",44,45632.71
+2025,12,December,"McAllen - TX",60,42337.16
+2025,12,December,"Midland - TX",91,76084.86
+2025,12,December,"New Jersey Central - NJ",35,31736.50
+2025,12,December,"Newport News - VA",37,32640.53
+2025,12,December,"Northshore - LA",22,61147.21
+2025,12,December,"Orchard Park - NY",116,113893.95
+2025,12,December,"Orlando West - FL",25,17489.38
+2025,12,December,"Oxford - CT",176,175995.32
+2025,12,December,"Pensacola - FL",12,8051.00
+2025,12,December,"Pittsburgh - PA",58,52323.75
+2025,12,December,"Portland - ME",8,4667.00
+2025,12,December,"Providence - RI",172,170976.48
+2025,12,December,"Reno - NV",2,1770.00
+2025,12,December,"Rochester - NY",129,115419.11
+2025,12,December,"Sioux Falls - SD",5,3478.99
+2025,12,December,"South Bend - IN",2,1540.00
+2025,12,December,"Spokane - WA",1,820.00
+2025,12,December,"Springfield - MA",14,11069.00
+2025,12,December,"Syracuse - NY",71,69816.07
+2025,12,December,"Virginia Beach - VA",43,41114.94
+2025,12,December,"Westchester - NY",55,52297.39
+2026,1,January,"Albany - NY",40,38473.90
+2026,1,January,"Baton Rouge - LA",31,43904.01
+2026,1,January,"Bloomington - IL",11,7746.47
+2026,1,January,"Boston - MA",63,61373.23
+2026,1,January,"Buffalo - NY",53,45479.34
+2026,1,January,"Chicago North - IL",107,356543.38
+2026,1,January,"Chicago South - IL",70,52460.38
+2026,1,January,"Corpus Christi - TX",100,58167.39
+2026,1,January,"Dallas Fort Worth Northwest - TX",29,22418.43
+2026,1,January,"DC West - DC",25,22466.91
+2026,1,January,"Evansville - IN",1,803.00
+2026,1,January,"Harrisburg - PA",89,71952.74
+2026,1,January,"Hartford - CT",98,92890.52
+2026,1,January,"Iowa City - IA",8,7978.00
+2026,1,January,"Lafayette - LA",34,24670.67
+2026,1,January,"Lexington - KY",39,32044.23
+2026,1,January,"Long Island - NY",81,82719.62
+2026,1,January,"Lubbock - TX",64,57480.47
+2026,1,January,"Manchester - NH",38,48761.43
+2026,1,January,"McAllen - TX",75,41311.02
+2026,1,January,"Midland - TX",154,102092.75
+2026,1,January,"New Jersey Central - NJ",40,42868.35
+2026,1,January,"Newport News - VA",40,34306.83
+2026,1,January,"Northshore - LA",21,18310.04
+2026,1,January,"Orchard Park - NY",86,77944.02
+2026,1,January,"Orlando West - FL",26,15815.40
+2026,1,January,"Oxford - CT",137,138918.79
+2026,1,January,"Pensacola - FL",11,7097.00
+2026,1,January,"Pittsburgh - PA",43,46403.43
+2026,1,January,"Portland - ME",6,4725.00
+2026,1,January,"Providence - RI",145,139765.10
+2026,1,January,"Reno - NV",2,1579.00
+2026,1,January,"Rochester - NY",84,105580.78
+2026,1,January,"Sioux Falls - SD",3,1971.00
+2026,1,January,"South Bend - IN",3,2293.00
+2026,1,January,"Spokane - WA",2,2349.88
+2026,1,January,"Springfield - MA",13,13143.00
+2026,1,January,"Syracuse - NY",56,50756.21
+2026,1,January,"Virginia Beach - VA",59,50389.36
+2026,1,January,"Westchester - NY",64,58548.05
+2026,2,February,"Albany - NY",35,45206.98
+2026,2,February,"Baton Rouge - LA",38,28249.74
+2026,2,February,"Bloomington - IL",26,20154.55
+2026,2,February,"Boston - MA",42,43425.85
+2026,2,February,"Buffalo - NY",39,33842.01
+2026,2,February,"Burlington - VT",2,2161.00
+2026,2,February,"Chicago North - IL",50,49567.12
+2026,2,February,"Chicago South - IL",63,47801.01
+2026,2,February,"Corpus Christi - TX",47,32048.96
+2026,2,February,"Dallas Fort Worth Northwest - TX",12,9291.68
+2026,2,February,"DC West - DC",32,30321.98
+2026,2,February,"Evansville - IN",1,904.00
+2026,2,February,"Harrisburg - PA",83,74759.64
+2026,2,February,"Hartford - CT",95,91009.82
+2026,2,February,"Iowa City - IA",7,6228.00
+2026,2,February,"Kennewick - WA",1,843.00
+2026,2,February,"Lafayette - LA",33,23461.89
+2026,2,February,"Lexington - KY",40,34347.48
+2026,2,February,"Long Island - NY",98,94616.23
+2026,2,February,"Lubbock - TX",42,33437.28
+2026,2,February,"Manchester - NH",21,21541.10
+2026,2,February,"McAllen - TX",55,43734.27
+2026,2,February,"Midland - TX",70,58925.93
+2026,2,February,"New Jersey Central - NJ",21,18861.22
+2026,2,February,"Newport News - VA",36,29541.59
+2026,2,February,"Northshore - LA",7,5839.85
+2026,2,February,"Orchard Park - NY",67,61299.59
+2026,2,February,"Orlando West - FL",19,14130.60
+2026,2,February,"Oxford - CT",110,113454.54
+2026,2,February,"Pensacola - FL",9,6308.13
+2026,2,February,"Pittsburgh - PA",43,44838.51
+2026,2,February,"Portland - ME",2,1731.00
+2026,2,February,"Providence - RI",132,118910.94
+2026,2,February,"Reno - NV",1,835.00
+2026,2,February,"Rochester - NY",49,42485.63
+2026,2,February,"Sioux Falls - SD",5,3805.00
+2026,2,February,"South Bend - IN",3,2221.00
+2026,2,February,"Spokane - WA",2,1130.72
+2026,2,February,"Springfield - MA",8,6671.00
+2026,2,February,"Syracuse - NY",52,55113.67
+2026,2,February,"Virginia Beach - VA",52,45606.65
+2026,2,February,"Westchester - NY",41,41761.21
+2026,3,March,"Albany - NY",32,31242.81
+2026,3,March,"Baton Rouge - LA",33,25980.65
+2026,3,March,"Bloomington - IL",16,12153.60
+2026,3,March,"Boston - MA",56,60293.09
+2026,3,March,"Buffalo - NY",53,47059.42
+2026,3,March,"Chicago North - IL",52,41800.97
+2026,3,March,"Chicago South - IL",91,89485.19
+2026,3,March,"Corpus Christi - TX",61,43353.28
+2026,3,March,"Dallas Fort Worth Northwest - TX",30,15934.50
+2026,3,March,"DC West - DC",22,17053.58
+2026,3,March,"Evansville - IN",5,3857.00
+2026,3,March,"Harrisburg - PA",103,107885.40
+2026,3,March,"Hartford - CT",93,87224.53
+2026,3,March,"Iowa City - IA",9,8405.00
+2026,3,March,"Kennewick - WA",2,1700.00
+2026,3,March,"Lafayette - LA",19,12815.83
+2026,3,March,"Lexington - KY",81,76827.86
+2026,3,March,"Long Island - NY",104,104386.85
+2026,3,March,"Lubbock - TX",44,31654.15
+2026,3,March,"Manchester - NH",25,25703.20
+2026,3,March,"McAllen - TX",61,44872.71
+2026,3,March,"Midland - TX",70,59723.10
+2026,3,March,"New Jersey Central - NJ",22,17277.08
+2026,3,March,"Newport News - VA",70,70832.75
+2026,3,March,"Northshore - LA",11,10045.15
+2026,3,March,"Orchard Park - NY",69,60957.30
+2026,3,March,"Orlando West - FL",11,8020.28
+2026,3,March,"Oxford - CT",111,123297.20
+2026,3,March,"Pensacola - FL",4,2314.00
+2026,3,March,"Pittsburgh - PA",33,29329.75
+2026,3,March,"Portland - ME",7,6210.50
+2026,3,March,"Providence - RI",129,124520.72
+2026,3,March,"Reno - NV",5,3908.00
+2026,3,March,"Rochester - NY",75,66929.13
+2026,3,March,"Sioux Falls - SD",2,1662.00
+2026,3,March,"South Bend - IN",4,3144.00
+2026,3,March,"Spokane - WA",2,1668.00
+2026,3,March,"Springfield - MA",8,7391.00
+2026,3,March,"Syracuse - NY",58,53844.29
+2026,3,March,"Virginia Beach - VA",45,46399.03
+2026,3,March,"Westchester - NY",59,58207.46
+2026,4,April,"Albany - NY",30,28174.35
+2026,4,April,"Baton Rouge - LA",33,30711.51
+2026,4,April,"Bloomington - IL",18,18369.06
+2026,4,April,"Boston - MA",66,67930.07
+2026,4,April,"Buffalo - NY",40,35991.63
+2026,4,April,"Burlington - VT",1,275.00
+2026,4,April,"Chicago North - IL",49,38546.41
+2026,4,April,"Chicago South - IL",91,79542.47
+2026,4,April,"Corpus Christi - TX",64,45122.01
+2026,4,April,"Dallas Fort Worth Northwest - TX",31,18002.60
+2026,4,April,"DC West - DC",22,14632.71
+2026,4,April,"Harrisburg - PA",95,99193.89
+2026,4,April,"Hartford - CT",106,98776.90
+2026,4,April,"Iowa City - IA",9,36068.00
+2026,4,April,"Kennewick - WA",4,3552.00
+2026,4,April,"Lafayette - LA",20,15517.08
+2026,4,April,"Lexington - KY",57,72843.27
+2026,4,April,"Long Island - NY",99,95629.34
+2026,4,April,"Lubbock - TX",48,40485.74
+2026,4,April,"Manchester - NH",39,42325.56
+2026,4,April,"McAllen - TX",54,41981.68
+2026,4,April,"Midland - TX",88,73314.36
+2026,4,April,"New Jersey Central - NJ",25,29058.12
+2026,4,April,"Newport News - VA",61,60789.96
+2026,4,April,"Northshore - LA",9,6776.45
+2026,4,April,"Orchard Park - NY",65,57738.81
+2026,4,April,"Orlando West - FL",19,23270.28
+2026,4,April,"Oxford - CT",141,138461.71
+2026,4,April,"Pensacola - FL",6,4614.25
+2026,4,April,"Pittsburgh - PA",37,30889.09
+2026,4,April,"Portland - ME",7,6008.00
+2026,4,April,"Providence - RI",137,137064.39
+2026,4,April,"Reno - NV",3,1451.00
+2026,4,April,"Rochester - NY",70,62107.98
+2026,4,April,"Sioux Falls - SD",6,4042.00
+2026,4,April,"South Bend - IN",10,6855.00
+2026,4,April,"Spokane - WA",1,872.00
+2026,4,April,"Springfield - MA",11,9437.93
+2026,4,April,"Syracuse - NY",54,53888.65
+2026,4,April,"Virginia Beach - VA",41,44783.72
+2026,4,April,"Westchester - NY",64,58414.26
+2026,5,May,"Albany - NY",8,7515.75
+2026,5,May,"Baton Rouge - LA",8,6476.78
+2026,5,May,"Bloomington - IL",2,2201.52
+2026,5,May,"Boston - MA",18,18021.24
+2026,5,May,"Buffalo - NY",10,8938.43
+2026,5,May,"Chicago North - IL",27,19369.49
+2026,5,May,"Chicago South - IL",30,20679.15
+2026,5,May,"Corpus Christi - TX",14,9587.55
+2026,5,May,"Dallas Fort Worth Northwest - TX",11,5827.49
+2026,5,May,"DC West - DC",6,4448.80
+2026,5,May,"Harrisburg - PA",32,30301.33
+2026,5,May,"Hartford - CT",26,24006.05
+2026,5,May,"Iowa City - IA",2,1332.00
+2026,5,May,"Kennewick - WA",1,504.00
+2026,5,May,"Lafayette - LA",10,6742.00
+2026,5,May,"Lexington - KY",17,12761.87
+2026,5,May,"Long Island - NY",24,21506.52
+2026,5,May,"Lubbock - TX",20,14417.84
+2026,5,May,"Manchester - NH",14,38003.70
+2026,5,May,"McAllen - TX",12,8907.40
+2026,5,May,"Midland - TX",23,19400.48
+2026,5,May,"New Jersey Central - NJ",10,9065.02
+2026,5,May,"Newport News - VA",12,9834.06
+2026,5,May,"Northshore - LA",4,2402.00
+2026,5,May,"Orchard Park - NY",14,13933.34
+2026,5,May,"Orlando West - FL",8,4488.00
+2026,5,May,"Oxford - CT",51,51668.36
+2026,5,May,"Pensacola - FL",4,2145.00
+2026,5,May,"Pittsburgh - PA",19,14372.65
+2026,5,May,"Portland - ME",3,2036.00
+2026,5,May,"Providence - RI",44,39130.82
+2026,5,May,"Reno - NV",2,1669.00
+2026,5,May,"Rochester - NY",12,11759.76
+2026,5,May,"Sioux Falls - SD",2,1758.00
+2026,5,May,"South Bend - IN",1,788.00
+2026,5,May,"Springfield - MA",5,3228.00
+2026,5,May,"Syracuse - NY",14,11755.00
+2026,5,May,"Virginia Beach - VA",13,11023.79
+2026,5,May,"Westchester - NY",27,25298.05

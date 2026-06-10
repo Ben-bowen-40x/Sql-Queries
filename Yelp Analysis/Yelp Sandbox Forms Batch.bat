@@ -1,0 +1,1 @@
+qlite3 -header -csv Repos\LeadPipe\LeadPipe.Infrastructure\.info\leadpipe.test.db < C:\Users\benjamin.bowen\Repos\LeadPipe\LeadPipe.Infrastructure\.queries\YellerCorns.sql > "Repos\Sql-Queries\Yelp Analysis\Yelp Sandbox Forms.csv" 2> "Repos\Sql-Queries\Yelp Analysis\Yelp Sandbox Forms Error Log.log"
