@@ -165,9 +165,10 @@ SELECT
     YEAR(first_contact)  					AS year,
     MONTH(first_contact) 					AS month,
     source,
-    `status`,
+--     `status`,
     COUNT(*)                        AS total_sales,
     FORMAT(SUM(contractvalue), 2)   AS total_contract_value
 FROM claimed
-GROUP BY YEAR(first_contact), MONTH(first_contact), `status`, `source` -- WITH ROLLUP
+WHERE claimed.status <> 'upgrades'
+GROUP BY YEAR(first_contact), MONTH(first_contact), `source` -- WITH ROLLUP
 ORDER BY year, month, source;#*/
