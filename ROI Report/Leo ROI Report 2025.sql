@@ -8,7 +8,7 @@ WITH cm AS (
 --       /* Normalized Source
       CASE
         WHEN source IN ('Google Adwords','Ad Extension','Google Call Extension',
-		  					'call only','Google Ads','Google Call Asset')
+		  					'call only','Google Ads','Google Call Asset','Google Call Asset')
 		  																																		THEN 'Google Ads'
         WHEN source = 'wgl' 																											THEN 'WGL'
         WHEN source = 'website' 																										THEN 'Website'

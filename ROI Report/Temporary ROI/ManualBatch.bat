@@ -1,9 +1,10 @@
 @echo off
-echo Please have your password ready
-set /p host="Please enter the url of the database: "
-set /p user="Please enter your username: "
-set /p pass="Please enter your password: "
-echo.
+
+call "C:\Users\benjamin.bowen\Repos\Automate\LeadPipe.bat"
+if errorlevel 1 (
+    set query=LeadPipe
+    goto :end
+)
 
 set query=Manual
 echo %query%
@@ -11,17 +12,30 @@ echo %query%
 if errorlevel 1 goto :end
 echo %query% successful!
 
-set query=OLDROI
-echo %query%
-"C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysql.exe" -u %user% -p%pass% -h %host% -D dwh_reportsdb --batch < "C:\Users\benjamin.bowen\Repos\Sql-Queries\ROI Report\Leo ROI Report 2025.sql" > "C:\Users\benjamin.bowen\Repos\Sql-Queries\ROI Report\Temporary ROI\OLDROI_tsv.tsv" 2>nul
-if errorlevel 1 goto :end
-echo %query% successful!
+:: ---------------------------------------
+echo Opening Excel files...
+set query=OpenAndSaveTemporaryROI
+set "SCRIPT_PATH=%USERPROFILE%\Repos\Sql-Queries\ROI Report\Temporary ROI\OpenAndSaveTemporaryROI.ps1"
 
-set query=ROI
-echo %query%
-"C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysql.exe" -u %user% -p%pass% -h %host% -D dwh_reportsdb --batch < "C:\Users\benjamin.bowen\Repos\Sql-Queries\ROI Report\Stephen ROI _ CTE _ With all Columns.sql" > "C:\Users\benjamin.bowen\Repos\Sql-Queries\ROI Report\Temporary ROI\ROI.tsv" 2>nul
-if errorlevel 1 goto :end
-echo %feailedQuery% successful!
+:: Check if the PowerShell script exists
+if exist "%SCRIPT_PATH%" (
+    powershell -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_PATH%"
+    
+    :: Check for errors
+    if errorlevel 1 (
+        echo PowerShell script encountered an error with %SCRIPT_PATH%. Pausing for review...
+        goto :end
+    ) else (
+        echo Script completed successfully.
+    )
+) else (
+    echo PowerShell script not found!
+    goto :end
+)
+
+echo Done.
+echo. 
+:: ---------------------------------------
 
 echo All queries completed successfully.
 goto :done
