@@ -16,8 +16,8 @@ try {
     #Refresh external data connections
     $workbook.RefreshAll()
     
-    #Sleep for 60 seconds. This gives the workbook time to refresh
-    Start-Sleep -Seconds 110
+    #Sleep for x seconds. This gives the workbook time to refresh
+    Start-Sleep -Seconds 250
 
     # Save the workbook
     $workbook.Save()
