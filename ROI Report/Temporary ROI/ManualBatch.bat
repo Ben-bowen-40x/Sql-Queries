@@ -42,6 +42,6 @@ goto :done
 
 :end
 echo %query% failed
+pause
 
 :done
-pause
