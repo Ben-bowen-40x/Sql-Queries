@@ -14,7 +14,6 @@ WITH cand_customers AS (
     s.contractValue AS sub_contractvalue
   FROM dwh_reportsdb.subscription s
   WHERE s.initialStatus = 1
-    AND dateaddeddate >= '2026-01-01'
     AND s.customerid IN (SELECT customerid FROM cand_customers)
 ), candidate_subs AS (
   SELECT s.subscriptionid AS sub_id, s.customerid AS sub_customerid,
@@ -242,7 +241,7 @@ claimed AS (
     cc.cust_phone10 AS touch_phone,
     cc.ctm_call_id,
     CASE
-      WHEN cc.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset'
+      WHEN cc.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset',
 										'Google Ads','Google Call Asset') 																	
 																																						THEN 'Google Ads'
       WHEN cc.touch_source = 'wgl' 																											THEN 'WGL'
@@ -278,7 +277,8 @@ claimed AS (
       ELSE cc.touch_source
     END AS normalized_source,
     CASE
-      WHEN cc.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Ads') 
+      WHEN cc.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension',
+										'call only','Google Call Asset','Google Ads') 
 																																						THEN 'Paid'
       WHEN cc.touch_source = 'wgl' 																											THEN 'Paid'
       WHEN cc.touch_source = 'website' 																									THEN 'Non-Paid'
@@ -325,4 +325,4 @@ claimed AS (
   LEFT JOIN dwh_reportsdb.customer c ON c.customerID = cs.sub_customerid
   WHERE cc.touch_first_contact < cs.sub_dateadded
 )
-SELECT * FROM claimed WHERE YEAR(touch_first_contact) = 2026;
+SELECT * FROM claimed WHERE touch_first_contact >= '2026-01-01' AND touch_first_contact < '2027-01-01';
