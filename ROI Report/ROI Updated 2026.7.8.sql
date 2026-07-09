@@ -5,6 +5,8 @@
 -- To see earlier years, change @population_epoch value to 'yyyy-MM-DD' format (hardcoded),
 -- or adjust the formula to include the desired year.
 -- Keep in mind that extending the population_epoch will increase the execution time
+-- NOTE: with the rolling formula, years age out of the table permanently each Jan 1.
+-- Aged-out years can only be reconstructed by rerunning with an older epoch.
 SET @population_epoch := MAKEDATE(YEAR(CURDATE()) - 4, 1); -- Originally, 4 years ago (based on current year): MAKEDATE(YEAR(CURDATE()) - 4, 1)
 SET @window_end 		 := MAKEDATE(YEAR(CURDATE()) + 1, 1); -- Originally, Jan 1 next year (based on current year): MAKEDATE(YEAR(CURDATE()) + 1, 1)
 
@@ -224,6 +226,7 @@ all_subs AS (
   WHERE s.initialStatus = 1
     AND s.customerid IN (SELECT customerid FROM cand_customers)
 ),
+
 -- Reported population: subscriptions from [year] or later where status=1.
 candidate_subs AS (
   SELECT s.subscriptionid AS sub_id, s.customerid AS sub_customerid,
@@ -262,6 +265,7 @@ sub_status AS (
   LEFT JOIN prior_active pa ON pa.sub_id = s.sub_id
   LEFT JOIN prior_ever pe ON pe.sub_id = s.sub_id
 ),
+
 -- winback_floor = latest prior CANCEL; upgrade_floor = latest prior START.
 prior_floor AS (
   SELECT curr.sub_id,
@@ -273,6 +277,7 @@ prior_floor AS (
    AND prev.sub_dateadded_day < curr.sub_dateadded_day
   GROUP BY curr.sub_id
 ),
+
 -- PER-SUB attribution: earliest touch in each sub's window. rn=1 wins.
 --   new_acquisition: any touch < sub_dateadded
 --   upgrades:        upgrade_floor <= touch < sub_dateadded
