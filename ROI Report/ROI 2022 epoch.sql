@@ -1,14 +1,11 @@
 -- ===================================================================
 -- Configuration: File-wide variable declarations
 -- ===================================================================
--- Every year, the table will only be able to see four years back. 
--- To see earlier years, change @population_epoch value to 'yyyy-MM-DD' format (hardcoded),
--- or adjust the formula to include the desired year.
--- Keep in mind that extending the population_epoch will increase the execution time
--- NOTE: with the rolling formula, years age out of the table permanently each Jan 1.
--- Aged-out years can only be reconstructed by rerunning with an older epoch.
-SET @population_epoch := MAKEDATE(YEAR(CURDATE()) - 4, 1); -- Originally, 4 years ago (based on current year): MAKEDATE(YEAR(CURDATE()) - 4, 1)
-SET @window_end 		 := MAKEDATE(YEAR(CURDATE()) + 1, 1); -- Originally, Jan 1 next year (based on current year): MAKEDATE(YEAR(CURDATE()) + 1, 1)
+-- Every year, the table will always go back to @population_epoch, '2022-01-01', which means performance will suffer over time.
+-- By narrowing the @population_epoch, (making the date more recent) the query should improve in performance. 
+-- By widening the @population_epoch, (make the date older, further in the past) the query will suffer in performance.
+SET @population_epoch := '2022-01-01'; 							  -- Originally hard-coded '2022-01-01'
+SET @window_end 		 := DATE_ADD(CURDATE(), INTERVAL 1 DAY); -- Originally DATE_ADD(CURDATE(), INTERVAL 1 DAY)
 
 -- ===================================================================
 -- STEP 1: Materialize all touches joined to customers, WITH INDEX.
@@ -66,7 +63,7 @@ lf_first AS (
     lf_phone10, lf_contact_pacific, lf_source,
     'leadferno' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
+    NULL AS ctm_contact_number, location AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
     NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
     NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
     NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
@@ -78,7 +75,7 @@ lf_first AS (
         WHEN source LIKE '%gclid%' THEN 'Google Ads Leadferno'
         WHEN source LIKE '%msclkid%' THEN 'Microsoft Ads Leadferno'
         ELSE 'Leadferno'
-      END AS lf_source
+      END AS lf_source, `source` AS location
     FROM dwh_leadferno.leadferno_messages
   ) x
   WHERE RIGHT(x.lf_phone10,10) IN (SELECT p10 FROM cand_phone_list)
@@ -390,6 +387,24 @@ claimed AS (
 
 -- Prod select 
 -- SELECT *  FROM claimed;
+
+/* Leadferno select -- must not survive beyond testing
+SELECT 
+	CASE WHEN `ctm_location` LIKE '%gclid=%' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(`ctm_location`, 'gclid=', -1), '&', 1)
+	END AS `Google Click ID`,
+	'Leadferno Sale Values' AS `Conversion Name`,
+	CONCAT(
+		DATE_FORMAT(
+			CONVERT_TZ(touch_first_contact, 'America/Los_Angeles', '-05:00'),
+			'%Y-%m-%dT%H:%i:%s'
+		),
+	  '-0500'
+	) AS `Conversion Time`,
+	sub_contractvalue AS `Conversion Value`,
+	'USD' AS `Conversion Currency`
+FROM claimed
+WHERE touch_medium = 'leadferno' AND `ctm_location` LIKE '%gclid=%';
+-- */
 
 -- /* Aggregates -- must not survive beyond testing
 SELECT
