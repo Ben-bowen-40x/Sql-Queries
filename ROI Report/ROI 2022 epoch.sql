@@ -63,17 +63,29 @@ lf_first AS (
     lf_phone10, lf_contact_pacific, lf_source,
     'leadferno' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, location AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
-    NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
-    NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
-    NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
+    NULL AS ctm_contact_number, 
+	 location AS ctm_location, 
+	 NULL AS ctm_referrer, 
+	 NULL AS ctm_campaign,
+    NULL AS wbf_referring_url, 
+	 NULL AS wbf_source, 
+	 NULL AS wbf_medium, 
+	 NULL AS wbf_campaign,
+    NULL AS wbf_utm_content, 
+	 NULL AS wbf_utm_term, 
+	 NULL AS wbf_form_name, 
+	 NULL AS wbf_contact_name,
+    NULL AS wbf_hearded_about, 
+	 NULL AS wbf_referred_by, 
+	 NULL AS wbf_current_customer, 
+	 NULL AS wbf_commercial
   FROM (
     SELECT
       RIGHT(phone,10) AS lf_phone10,
       CONVERT_TZ(messageDate,'+00:00','America/Los_Angeles') AS lf_contact_pacific,
       CASE
-        WHEN source LIKE '%gclid%' THEN 'Google Ads Leadferno'
-        WHEN source LIKE '%msclkid%' THEN 'Microsoft Ads Leadferno'
+        WHEN source LIKE '%gclid=%' THEN 'Google Ads Leadferno'
+        WHEN source LIKE '%msclkid=%' THEN 'Microsoft Ads Leadferno'
         ELSE 'Leadferno'
       END AS lf_source, `source` AS location
     FROM dwh_leadferno.leadferno_messages
@@ -82,23 +94,37 @@ lf_first AS (
 ),
 form_first AS (
   SELECT
-    wbf_phone10, wbf_contact_pacific, wbf_src_label,
+    wbf_phone10, 
+	 wbf_contact_pacific, 
+	 wbf_src_label,
     'contact forms' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
-    wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
-    wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
-    wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
+    NULL AS ctm_contact_number, 
+	 NULL AS ctm_location, 
+	 NULL AS ctm_referrer, 
+	 NULL AS ctm_campaign,
+    wbf_referring_url, 
+	 wbf_source, 
+	 wbf_medium, 
+	 wbf_campaign,
+    wbf_utm_content, 
+	 wbf_utm_term, 
+	 wbf_form_name, 
+	 wbf_contact_name,
+    wbf_hearded_about, 
+	 wbf_referred_by, 
+	 wbf_current_customer, 
+	 wbf_commercial
   FROM (
     SELECT
-      phoneNumber AS wbf_phone10,
-      CONVERT_TZ(timestamp,'+00:00','America/Los_Angeles') AS wbf_contact_pacific,
+      phoneNumber 														AS wbf_phone10,
+      CONVERT_TZ(timestamp,'+00:00','America/Los_Angeles') 	AS wbf_contact_pacific,
       CASE
         WHEN source LIKE '%gclid%' THEN 'Google Ads Form'
         WHEN source LIKE '%msclkid%' THEN 'Microsoft Ads Form'
         WHEN medium IS NOT NULL THEN CONCAT('Form: ', medium)
         ELSE 'Contact Form'
-      END AS wbf_src_label,
+      END 																	AS wbf_src_label,
       referringURL AS wbf_referring_url, source AS wbf_source, medium AS wbf_medium,
       campaign AS wbf_campaign, utmContent AS wbf_utm_content, utmTerm AS wbf_utm_term,
       formName AS wbf_form_name, CONCAT(firstName, ' ', lastName) AS wbf_contact_name,
@@ -109,6 +135,38 @@ form_first AS (
   ) x
   WHERE RIGHT(x.wbf_phone10,10) IN (SELECT p10 FROM cand_phone_list)
 ),
+/* Adds roi_sheet data to union
+-- TOUCH CHANNEL 4: offline/LSA data via roi_sheet (fed by LeadPipe export).
+-- touch_utc is UTC by contract with the feed; converted to Pacific like all channels.
+-- Outcome columns in roi_sheet (contract_value, initial_status) are legacy — never read them here.
+sheet_first AS (
+  SELECT
+    sh_phone10, sh_contact_pacific, sh_source,
+    'offline data' AS touch_medium,
+    NULL AS ctm_call_id,
+    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
+    NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
+    NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
+    NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
+  FROM (
+    SELECT
+      contact_number_clean AS sh_phone10,
+      CONVERT_TZ(touch_utc,'+00:00','America/Los_Angeles') AS sh_contact_pacific,
+      CASE 
+			WHEN SOURCE = 'Lab' 			then 'Bark' 
+			WHEN SOURCE = 'Pan' 			then 'PestNet'
+			WHEN SOURCE = 'Leased' 		then 'Google LSA Text'
+			WHEN SOURCE = 'Libacion' 	then 'Local Biz'
+			WHEN SOURCE = 'Calli' 		then 'Consumer Affairs'
+			WHEN SOURCE = 'Lather' 		then 'Lavin'
+			ELSE SOURCE 
+		END AS sh_source
+    FROM dwh_internetmarketingdb.roi_sheet
+    WHERE contact_number_clean IS NOT NULL 
+	 	AND contact_number_clean <> '4455550142' -- This can be removed when roi_sheet is fixed
+      AND RIGHT(contact_number_clean,10) IN (SELECT p10 FROM cand_phone_list)
+  ) x
+), -- */
 all_touches AS (
   SELECT
     ctm_phone10 AS touch_phone10, ctm_contact_pacific AS touch_first_contact,
@@ -134,6 +192,15 @@ all_touches AS (
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
   FROM form_first
+  /* Adds roi_sheet data to union
+  UNION ALL
+  SELECT
+    sh_phone10, sh_contact_pacific, sh_source, touch_medium, ctm_call_id,
+    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
+    wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
+    wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
+  FROM sheet_first -- */
 ),
 cust_norm AS (
   SELECT c.customerid AS cust_customerid, RIGHT(c.phone1,10) AS cust_phone10
@@ -319,60 +386,72 @@ claimed AS (
     st.touch_phone10 AS touch_phone,
     st.ctm_call_id,
     CASE
-      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset','Google Ads') THEN 'Google Ads'
-      WHEN st.touch_source = 'wgl' THEN 'WGL'
-      WHEN st.touch_source = 'website' THEN 'Website'
-      WHEN st.touch_source = 'Direct' THEN 'Direct'
-      WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137','Google My Business','GMB Post','GMB - Gurnee, IL 60031','North Chicago GMB','GMB - Brownsville','GMB - Newport News','Google Business Profile - Website Visitor','Google Business Profile - Static Number') THEN 'GBP'
-      WHEN st.touch_source IN ('facebook paid','General Meta Ads') THEN 'Meta Ads'
-      WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') THEN 'Facebook Organic'
-      WHEN st.touch_source = 'Google LSA' THEN 'Google LSA'
-      WHEN st.touch_source = 'Google organic' THEN 'Google Organic'
-      WHEN st.touch_source = 'PestNet' THEN 'PestNet'
-      WHEN st.touch_source = 'elocal' THEN 'Elocal'
-      WHEN st.touch_source = 'Goodzer' THEN 'Goodzer'
-      WHEN st.touch_source = 'email' THEN 'Email'
-      WHEN TRIM(st.touch_source) = '' THEN 'National Leads'
-      WHEN st.touch_source LIKE '%biz%' THEN 'Local Biz'
-      WHEN st.touch_source IN ('bing','BING Paid','Bing Organic','Bing Call Extensions') THEN 'Microsoft Ads'
-      WHEN LOWER(st.touch_source) LIKE '%service%direct%' THEN 'Service Direct'
-      WHEN st.touch_source LIKE '%Google Ads Leadferno%' THEN 'Google Ads'
-      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' THEN 'Microsoft Ads'
-      WHEN st.touch_source = 'Leadferno' THEN 'Leadferno'
-      WHEN st.touch_source LIKE '%Google Ads Form%' THEN 'Google Ads'
-      WHEN st.touch_source LIKE '%Microsoft Ads Form%' THEN 'Microsoft Ads'
-      WHEN st.touch_source = 'Contact Form' THEN 'Contact Form'
-      WHEN st.touch_source LIKE 'Form:%' THEN st.touch_source
+      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset','Google Ads') 
+																													THEN 'Google Ads'
+      WHEN st.touch_source = 'wgl' 																		THEN 'WGL'
+      WHEN st.touch_source = 'website' 																THEN 'Website'
+      WHEN st.touch_source = 'Direct' 																	THEN 'Direct'
+      WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137','Google My Business',
+			'GMB Post','GMB - Gurnee, IL 60031','North Chicago GMB','GMB - Brownsville','GMB - Newport News','Google Business Profile - Website Visitor',
+			'Google Business Profile - Static Number') 												THEN 'GBP'
+      WHEN st.touch_source IN ('facebook paid','General Meta Ads') 							THEN 'Meta Ads'
+      WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') 				THEN 'Facebook Organic'
+      WHEN st.touch_source = 'Google LSA' 															THEN 'Google LSA'
+      WHEN st.touch_source = 'Google organic' 														THEN 'Google Organic'
+      WHEN st.touch_source = 'PestNet' 																THEN 'PestNet'
+      WHEN st.touch_source = 'elocal' 																	THEN 'Elocal'
+      WHEN st.touch_source = 'Goodzer' 																THEN 'Goodzer'
+      WHEN st.touch_source = 'email' 																	THEN 'Email'
+      WHEN TRIM(st.touch_source) = '' 																	THEN 'National Leads'
+      WHEN st.touch_source LIKE '%biz%' 																THEN 'Local Biz'
+      WHEN st.touch_source IN ('bing','BING Paid','Bing Organic',
+			'Bing Call Extensions') 																		THEN 'Microsoft Ads'
+      WHEN LOWER(st.touch_source) LIKE '%service%direct%' 										THEN 'Service Direct'
+      WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Google Ads'
+      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Microsoft Ads'
+      WHEN st.touch_source = 'Leadferno' 																THEN 'Leadferno'
+      WHEN st.touch_source LIKE '%Google Ads Form%' 												THEN 'Google Ads'
+      WHEN st.touch_source LIKE '%Microsoft Ads Form%' 											THEN 'Microsoft Ads'
+      WHEN st.touch_source = 'Contact Form' 															THEN 'Contact Form'
+      WHEN st.touch_source LIKE 'Form:%' 																THEN st.touch_source
       ELSE st.touch_source
     END AS normalized_source,
     CASE
-      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset','Google Ads') THEN 'Paid'
-      WHEN st.touch_source = 'wgl' THEN 'Paid'
-      WHEN st.touch_source = 'website' THEN 'Non-Paid'
-      WHEN st.touch_source = 'Direct' THEN 'Non-Paid'
-      WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137','Google My Business','GMB Post','GMB - Gurnee, IL 60031','North Chicago GMB','GMB - Brownsville','GMB - Newport News') THEN 'Non-Paid'
-      WHEN st.touch_source IN ('facebook paid','General Meta Ads') THEN 'Paid'
-      WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') THEN 'Paid'
-      WHEN st.touch_source = 'Google LSA' THEN 'Paid'
-      WHEN st.touch_source = 'Google organic' THEN 'Non-Paid'
-      WHEN st.touch_source = 'PestNet' THEN 'Paid'
-      WHEN st.touch_source = 'Elocal' THEN 'Paid'
-      WHEN st.touch_source = 'Goodzer' THEN 'Paid'
-      WHEN st.touch_source = 'email' THEN 'Non-Paid'
-      WHEN TRIM(st.touch_source) = '' THEN 'Paid'
-      WHEN st.touch_source LIKE '%biz%' THEN 'Paid'
-      WHEN st.touch_source IN ('Bing Paid','Bing Organic','Bing Call Extensions','Bing','Local Biz Emails','LocalBizCslls') THEN 'Paid'
-      WHEN LOWER(st.touch_source) LIKE '%service%direct%' THEN 'Paid'
-      WHEN st.touch_source = 'Aragon' THEN 'Paid'
-      WHEN st.touch_source = 'Consumer Affairs' THEN 'Paid'
-      WHEN st.touch_source LIKE '%Google Ads Leadferno%' THEN 'Paid'
-      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' THEN 'Paid'
-      WHEN st.touch_source = 'Leadferno' THEN 'Non-Paid'
-      WHEN st.touch_source LIKE '%Google Ads Form%' THEN 'Paid'
-      WHEN st.touch_source LIKE '%Microsoft Ads Form%' THEN 'Paid'
-      WHEN st.touch_source = 'Contact Form' THEN 'Non-Paid'
-      WHEN st.touch_source LIKE 'Form:%' THEN 'Non-Paid'
-      ELSE 'Non-Paid'
+      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension',
+			'call only','Google Call Asset','Google Ads') 											THEN 'Paid'
+      WHEN st.touch_source = 'wgl' 																		THEN 'Paid'
+      WHEN st.touch_source = 'website' 																THEN 'Non-Paid'
+      WHEN st.touch_source = 'Direct' 																	THEN 'Non-Paid'
+      WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137','Google My Business',
+			'GMB Post','GMB - Gurnee, IL 60031','North Chicago GMB',
+			'GMB - Brownsville','GMB - Newport News') 												THEN 'Non-Paid'
+      WHEN st.touch_source IN ('facebook paid','General Meta Ads') 							THEN 'Paid'
+      WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') 				THEN 'Paid'
+      WHEN st.touch_source = 'Google LSA' 															THEN 'Paid'
+      when st.touch_source = 'Google LSA Text'														THEN 'Paid'
+      WHEN st.touch_source = 'Google organic' 														THEN 'Non-Paid'
+      WHEN st.touch_source = 'PestNet' 																THEN 'Paid'
+      WHEN st.touch_source = 'Elocal' 																	THEN 'Paid'
+      WHEN st.touch_source = 'Goodzer' 																THEN 'Paid'
+      WHEN st.touch_source = 'email' 																	THEN 'Non-Paid'
+      WHEN TRIM(st.touch_source) = '' 																	THEN 'Paid'
+      WHEN st.touch_source LIKE '%biz%' 																THEN 'Paid'
+      WHEN st.touch_source IN ('Bing Paid','Bing Organic','Bing Call Extensions','Bing',
+			'Local Biz Emails','LocalBizCalls') 														THEN 'Paid'
+      WHEN LOWER(st.touch_source) LIKE '%service%direct%' 										THEN 'Paid'
+      WHEN st.touch_source = 'Aragon' 																	THEN 'Paid'
+      WHEN st.touch_source = 'Consumer Affairs' 													THEN 'Paid'
+      WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Paid'
+      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Paid'
+      WHEN st.touch_source = 'Leadferno' 																THEN 'Non-Paid'
+      WHEN st.touch_source LIKE '%Google Ads Form%' 												THEN 'Paid'
+      WHEN st.touch_source LIKE '%Microsoft Ads Form%' 											THEN 'Paid'
+      WHEN st.touch_source = 'Contact Form' 															THEN 'Non-Paid'
+      WHEN st.touch_source LIKE 'Form:%' 																THEN 'Non-Paid'
+      WHEN st.touch_source = 'Bark' 																	THEN 'Paid'
+		WHEN st.touch_source = 'Local Biz'																THEN 'Paid'
+		WHEN st.touch_source = 'Lavin'      															then 'Paid'
+		ELSE 'Non-Paid'
     END AS paid_type,
     st.ctm_contact_number, st.ctm_location, st.ctm_referrer, st.ctm_campaign,
     st.wbf_referring_url, st.wbf_source, st.wbf_medium, st.wbf_campaign,
@@ -388,14 +467,14 @@ claimed AS (
 -- Prod select 
 -- SELECT *  FROM claimed;
 
-/* Leadferno select -- must not survive beyond testing
+-- /* Leadferno Google Ads select -- must not survive beyond testing
 SELECT 
 	CASE WHEN `ctm_location` LIKE '%gclid=%' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(`ctm_location`, 'gclid=', -1), '&', 1)
 	END AS `Google Click ID`,
 	'Leadferno Sale Values' AS `Conversion Name`,
 	CONCAT(
 		DATE_FORMAT(
-			CONVERT_TZ(touch_first_contact, 'America/Los_Angeles', '-05:00'),
+			CONVERT_TZ(touch_first_contact, 'America/Los_Angeles', 'America/New_York'),
 			'%Y-%m-%dT%H:%i:%s'
 		),
 	  '-0500'
@@ -406,7 +485,7 @@ FROM claimed
 WHERE touch_medium = 'leadferno' AND `ctm_location` LIKE '%gclid=%';
 -- */
 
--- /* Aggregates -- must not survive beyond testing
+/* Aggregates -- must not survive beyond testing
 SELECT
   YEAR(touch_first_contact)            AS touch_year,
 --   MONTH(touch_first_contact)           AS touch_month,
