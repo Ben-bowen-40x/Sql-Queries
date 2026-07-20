@@ -325,4 +325,4 @@ claimed AS (
   LEFT JOIN dwh_reportsdb.customer c ON c.customerID = cs.sub_customerid
   WHERE cc.touch_first_contact < cs.sub_dateadded
 )
-SELECT * FROM claimed WHERE touch_first_contact >= '2026-01-01' AND touch_first_contact < '2027-01-01';
+SELECT * FROM claimed WHERE touch_first_contact >= '2026-01-01' AND touch_first_contact < CURDATE();
