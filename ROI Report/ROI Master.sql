@@ -3,7 +3,19 @@
 -- ===================================================================
 -- This version has actually two different versions within it: one that includes dwh_internetmarketingdb.roi_sheet, and one without. 
 -- The roi_sheet inclusions are marked clearly with comments
+
 -- As of 2026-07-20, the roi_sheet version will not work unless the existing roi_sheet is updated
+/* This is just a sample create table statement for reference => not a suggestion, 
+	just shorthand for the shape needed for the roi_sheet version of this query to work
+	
+CREATE TABLE dwh_internetmarketingdb.roi_sheet (
+  source                VARCHAR(100)  NOT NULL,
+  contact_number_clean  VARCHAR(10)   NOT NULL,
+  touch_utc             DATETIME      NOT NULL,
+  INDEX idx_phone (contact_number_clean),
+  INDEX idx_phone_time (contact_number_clean, touch_utc)
+);
+*/
 
 -- ===================================================================
 -- Configuration: File-wide variable declarations
@@ -45,6 +57,42 @@ cand_phone_list AS (
   ) z
   WHERE CHAR_LENGTH(p10) = 10
 ),
+
+--   ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ ROI_SHEET CTE — START ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+-- /* Adds roi_sheet data to union
+-- TOUCH CHANNEL 4: offline data via roi_sheet (fed by LeadPipe export).
+-- touch_utc is UTC by contract with the feed; converted to Pacific like all channels.
+-- Outcome columns in roi_sheet (contract_value, initial_status) are legacy — never read them here.
+sheet_first AS (
+  SELECT
+    sh_phone10, sh_contact_pacific, sh_source,
+    'offline data' AS touch_medium,
+    NULL AS ctm_call_id,
+    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
+    NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
+    NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
+    NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
+  FROM (
+    SELECT
+      contact_number_clean AS sh_phone10,
+      CONVERT_TZ(touch_utc,'+00:00','America/Los_Angeles') AS sh_contact_pacific,
+      CASE 
+			WHEN `source` = 'Lab' 			then 'Bark' 
+			WHEN `source` = 'Pan' 			then 'PestNet'
+			WHEN `source` = 'Leased' 		then 'Google LSA Text'
+			WHEN `source` = 'Libacion' 	then 'Local Biz'
+			WHEN `source` = 'Calli' 		then 'Consumer Affairs'
+			WHEN `source` = 'Lather' 		then 'Lavin'
+			ELSE `source` 
+		END AS sh_source
+    FROM dwh_internetmarketingdb.roi_sheet
+    WHERE contact_number_clean IS NOT NULL 
+	 	AND contact_number_clean <> '4455550142' -- This can be removed when roi_sheet is fixed
+      AND RIGHT(contact_number_clean,10) IN (SELECT p10 FROM cand_phone_list)
+  ) x
+), -- */
+--  ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ ROI_SHEET CTE — END ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
 ctm_first AS (
   SELECT
     ctm_phone10, ctm_contact_pacific, ctm_source,
@@ -146,42 +194,6 @@ form_first AS (
   ) x
   WHERE RIGHT(x.wbf_phone10,10) IN (SELECT p10 FROM cand_phone_list)
 ),
-
---   ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ ROI_SHEET CTE — START ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
--- /* Adds roi_sheet data to union
--- TOUCH CHANNEL 4: offline/LSA data via roi_sheet (fed by LeadPipe export).
--- touch_utc is UTC by contract with the feed; converted to Pacific like all channels.
--- Outcome columns in roi_sheet (contract_value, initial_status) are legacy — never read them here.
-sheet_first AS (
-  SELECT
-    sh_phone10, sh_contact_pacific, sh_source,
-    'offline data' AS touch_medium,
-    NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
-    NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
-    NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
-    NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
-  FROM (
-    SELECT
-      contact_number_clean AS sh_phone10,
-      CONVERT_TZ(touch_utc,'+00:00','America/Los_Angeles') AS sh_contact_pacific,
-      CASE 
-			WHEN `source` = 'Lab' 			then 'Bark' 
-			WHEN `source` = 'Pan' 			then 'PestNet'
-			WHEN `source` = 'Leased' 		then 'Google LSA Text'
-			WHEN `source` = 'Libacion' 	then 'Local Biz'
-			WHEN `source` = 'Calli' 		then 'Consumer Affairs'
-			WHEN `source` = 'Lather' 		then 'Lavin'
-			ELSE `source` 
-		END AS sh_source
-    FROM dwh_internetmarketingdb.roi_sheet
-    WHERE contact_number_clean IS NOT NULL 
-	 	AND contact_number_clean <> '4455550142' -- This can be removed when roi_sheet is fixed
-      AND RIGHT(contact_number_clean,10) IN (SELECT p10 FROM cand_phone_list)
-  ) x
-), -- */
---  ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ ROI_SHEET CTE — END ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
 sf_first AS (
   SELECT
     sf_phone10, sf_contact_pacific, sf_source,
@@ -214,13 +226,27 @@ sf_first AS (
 all_touches AS (
   SELECT
     ctm_phone10 AS touch_phone10, ctm_contact_pacific AS touch_first_contact,
-    ctm_source AS touch_source, touch_medium, ctm_call_id,NULL AS sf_lead_id,
+    ctm_source AS touch_source, touch_medium, ctm_call_id, NULL AS sf_lead_id,
     ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
-  FROM ctm_first
+  FROM ctm_first  
   UNION ALL
+  
+--    ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ ROI_SHEET UNION ARM — START ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+--   /* Adds roi_sheet data to union
+  SELECT
+    sh_phone10, sh_contact_pacific, sh_source, touch_medium, ctm_call_id, NULL AS sf_lead_id,
+    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
+    wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
+    wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
+  FROM sheet_first 
+  UNION ALL
+  -- */
+--    ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ ROI_SHEET UNION ARM — END ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
   SELECT
     lf_phone10, lf_contact_pacific, lf_source, touch_medium, ctm_call_id,NULL AS sf_lead_id,
     ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
@@ -236,20 +262,6 @@ all_touches AS (
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
   FROM form_first
-  
---    ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ ROI_SHEET UNION ARM — START ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
---   /* Adds roi_sheet data to union
-  UNION ALL
-  SELECT
-    sh_phone10, sh_contact_pacific, sh_source, touch_medium, ctm_call_id,NULL AS sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
-    wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
-    wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
-    wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
-  FROM sheet_first 
-  -- */
---    ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ ROI_SHEET UNION ARM — END ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-  
   UNION ALL
   SELECT
     sf_phone10, sf_contact_pacific, sf_source, touch_medium, ctm_call_id, sf_lead_id,
