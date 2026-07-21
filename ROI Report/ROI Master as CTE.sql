@@ -4,6 +4,9 @@
 -- folded back into the WITH chain. No indexes exist on CTEs — that
 -- difference is the entire point of the benchmark.
 -- ===================================================================
+-- The core failure is stage_orig_attributed. 
+-- As a CTE, it joins ~1.27M touches against ~441K customers on customerid with a range predicate (touch < first_sub_date), and materialized CTEs carry no indexes.
+-- The temporary table version of this code solves that by materializing that particular data into indexed temp tables
 
 -- ===================================================================
 -- Configuration: File-wide variable declarations
