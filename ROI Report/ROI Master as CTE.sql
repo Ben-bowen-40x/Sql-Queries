@@ -12,8 +12,8 @@
 -- The decision to SET @population_epoch := '2022-01-01' was made 2026-07 by Digital Marketing Analytics team in the Internet Marketing Dept
 -- By narrowing the @population_epoch, (making the date more recent) the query should improve in performance. 
 -- By widening the @population_epoch, (make the date older, further in the past) the query will suffer in performance.
-SET @population_epoch := '2022-01-01'; 							  -- Originally hard-coded '2022-01-01'
-SET @window_end 		 := DATE_ADD(CURDATE(), INTERVAL 1 DAY); -- Originally DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+SET @population_epoch 	 := '2022-01-01'; 							  -- Originally hard-coded '2022-01-01'
+SET @window_end 		 	 := DATE_ADD(CURDATE(), INTERVAL 1 DAY); -- Originally DATE_ADD(CURDATE(), INTERVAL 1 DAY)
 -- Yelp RAQ leads arrive via Salesforce. 
 -- dwh_salesforce.MarketingSalesforceLeads.createdDate is confirmed 'America/Denver' by DBA 2026-07-20
 SET @salesforce_timezone := 'America/Denver';
