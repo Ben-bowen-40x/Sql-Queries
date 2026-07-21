@@ -1,4 +1,11 @@
 -- ===================================================================
+-- ROI MASTER: Execution time ~3 minutes
+-- ===================================================================
+-- This version has actually two different versions within it: one that includes dwh_internetmarketingdb.roi_sheet, and one without. 
+-- The roi_sheet inclusions are marked clearly with comments
+-- As of 2026-07-20, the roi_sheet version will not work unless the existing roi_sheet is updated
+
+-- ===================================================================
 -- Configuration: File-wide variable declarations
 -- ===================================================================
 -- Every year, the table will always go back to @population_epoch, '2022-01-01', which means performance will suffer over time.
@@ -159,13 +166,13 @@ sheet_first AS (
       contact_number_clean AS sh_phone10,
       CONVERT_TZ(touch_utc,'+00:00','America/Los_Angeles') AS sh_contact_pacific,
       CASE 
-			WHEN SOURCE = 'Lab' 			then 'Bark' 
-			WHEN SOURCE = 'Pan' 			then 'PestNet'
-			WHEN SOURCE = 'Leased' 		then 'Google LSA Text'
-			WHEN SOURCE = 'Libacion' 	then 'Local Biz'
-			WHEN SOURCE = 'Calli' 		then 'Consumer Affairs'
-			WHEN SOURCE = 'Lather' 		then 'Lavin'
-			ELSE SOURCE 
+			WHEN `source` = 'Lab' 			then 'Bark' 
+			WHEN `source` = 'Pan' 			then 'PestNet'
+			WHEN `source` = 'Leased' 		then 'Google LSA Text'
+			WHEN `source` = 'Libacion' 	then 'Local Biz'
+			WHEN `source` = 'Calli' 		then 'Consumer Affairs'
+			WHEN `source` = 'Lather' 		then 'Lavin'
+			ELSE `source` 
 		END AS sh_source
     FROM dwh_internetmarketingdb.roi_sheet
     WHERE contact_number_clean IS NOT NULL 
