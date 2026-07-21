@@ -1,5 +1,5 @@
 -- ===================================================================
--- CTE-ONLY VERSION: 
+-- CTE-ONLY VERSION: Execution lost connection with the DWH after ~ 6 hours 50 minutes
 -- Same logic as the staged version; the three stage_* tables are
 -- folded back into the WITH chain. No indexes exist on CTEs — that
 -- difference is the entire point of the benchmark.
