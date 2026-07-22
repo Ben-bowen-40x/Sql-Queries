@@ -59,7 +59,7 @@ SELECT
 	CASE
 		WHEN s.subscriptionID IS NULL THEN 'No Subscription'
     	WHEN s.dateCancelled IS NULL THEN 'Active'
-    	when s.initialstatus = 1 then 'Quit Before Start'
+    	when s.initialstatus != 1 then 'Quit Before Start'
     	WHEN s.dateCancelled >= e.campaign_date AND s.initialstatus != 1 THEN 'Quit Before Start After Campaign (Lost Revenue)'
 	   WHEN s.dateCancelled >= e.campaign_date THEN 'Active at send (cancelled after)'
     	ELSE 'Cancelled before send'
