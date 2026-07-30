@@ -4,12 +4,15 @@
 
 DROP TEMPORARY TABLE IF EXISTS email_campaigns;
 DROP TEMPORARY TABLE IF EXISTS email_counts;
+DROP TEMPORARY TABLE IF EXISTS tmp_customer;
 
+-- This will be populated by a csv file
 CREATE TEMPORARY TABLE email_campaigns (
 contact_email VARCHAR(100) NOT NULL,
 campaign_name VARCHAR(250) NOT NULL,
 campaign_date DATE NOT NULL,
-PRIMARY KEY (contact_email, campaign_name)
+PRIMARY KEY (contact_email, campaign_name),
+INDEX indx_contact_email (contact_email)
 );
 
 -- Add data from a single csv file (should be a microsoft csv)
@@ -21,14 +24,22 @@ LINES TERMINATED BY '\r\n'
 IGNORE 1 LINES 
 (contact_email, campaign_name, campaign_date);
 
+-- 2026-7-30 10.30a -> This addition reduces total execution time from ~8+ minutes to ~20 seconds
+-- The index on email helps, but reducing the customer population helps more
+CREATE TEMPORARY TABLE tmp_customer
+(INDEX idx_customer_email (email, customerid))
+AS SELECT email, customerid
+FROM dwh_reportsdb.customer c 
+WHERE c.email IN (SELECT contact_email FROM email_campaigns); -- This line is doing a LOT of work in a very small amount of time
+
 -- Temporary table allows us to count the number of times a particular email appears in all the campaign lists,
--- * without 
+-- * without repeating the first temporary table
 CREATE TEMPORARY TABLE email_counts AS
 SELECT contact_email, COUNT(*) AS times_contacted_by_email
 FROM email_campaigns
 GROUP BY contact_email;
 
--- /* This is just gathering data
+-- Gather data
 WITH campaigndata AS (
 SELECT 
 	-- Email campaign info
@@ -39,7 +50,7 @@ SELECT
 	DATEDIFF(s.dateadded, e.campaign_date) AS dateadded_after_email_date,	
 	
 	-- New sale subscription info
-	s.customerid, s.subscriptionid, s.dateadded, s.initialstatus, s.servicetype, s.contractvalue,
+	s.customerid, s.subscriptionid, s.dateadded, s.initialstatus, s.servicetype, s.contractvalue, r.sub_status,
 	case 
 		when s.dateadded IS NULL OR s.dateadded = '000-00-00 00:00:00' then 'No Subscription'
 		when s.dateadded <= e.campaign_date 								   then 'Previous Subscription'
@@ -70,46 +81,57 @@ SELECT
 	END AS cancel_status_at_email
 
 FROM email_campaigns e
-LEFT JOIN dwh_reportsdb.customer c ON c.email = e.contact_email
-LEFT JOIN dwh_internetmarketingdb.roi_master r ON c.customerID = r.sub_customerid
+LEFT JOIN tmp_customer c ON c.email = e.contact_email
 LEFT JOIN dwh_reportsdb.subscription s 
 	ON s.customerid = c.customerid 	 -- Provides all results that connect to an email (duplicates subscription rows where multiple subscriptions exist)
--- 	ON s.subscriptionid = r.sub_id -- alternate only provides results that have a touch, which removes legit email rows
+LEFT JOIN dwh_internetmarketingdb.roi_master r ON r.sub_id = s.subscriptionid
 LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email
 ), ranking AS (
-SELECT *, DENSE_RANK() OVER (PARTITION BY contact_email, campaign_start_date ORDER BY dateadded) AS rn
-FROM campaigndata
--- /* Remove this WHERE to see that there are many subscriptions that are irrelevant to campaigns
-WHERE `Subscription Classification` IN (
-'Possible Sale 1 week',
-'Possible Sale 2 weeks',
-'Possible Sale 3 weeks',
-'Possible Sale 4 weeks'
-) AND initialstatus = 1 
+	SELECT *, DENSE_RANK() OVER (PARTITION BY contact_email, campaign_start_date ORDER BY dateadded) AS dr
+	FROM campaigndata
+-- 	/* Remove this WHERE to see all subscriptions that occurred after the campaign
+--     There are many subscriptions that are irrelevant to campaigns because they started long after the email was sent
+	WHERE `Subscription Classification` IN (
+		'Possible Sale 1 week'
+-- 		'Possible Sale 2 weeks',
+-- 		'Possible Sale 3 weeks',
+-- 		'Possible Sale 4 weeks'
+	) AND initialstatus = 1 
 -- */
-) -- */
+) 
+-- This added ~1 min 20s or more to the query execution time
+-- This is here to eliminate cross-campaign duplicate subscriptions:
+-- * subscriptions are collapsed into single-campaign attribution (theoretically)
+, first_campaign AS ( 
+SELECT *, ROW_NUMBER() OVER (PARTITION BY subscriptionid ORDER BY campaign_start_date, campaign_name) AS rn
+FROM ranking
+WHERE dr = 1
+)
 
--- Prod select
--- SELECT * FROM ranking;
+-- /* Prod select
+SELECT * FROM first_campaign
+WHERE rn = 1; -- */
 
--- /* Aggregate, testing only
+/* Aggregate, testing only
 SELECT 
 	campaign_name, 
-	COUNT(DISTINCT contact_email) AS total_conversions,
+	COUNT(DISTINCT contact_email) AS total_conversion_emails,
 	
-	/* Service type groupings, can be omitted 
+-- /* Service type groupings, can be omitted 
 	servicetype,
 	COUNT(servicetype) AS count_servicetype,
-	AVG(contractvalue) AS average_value, -- */
+	FORMAT(AVG(contractvalue),2) AS average_value, -- */
 	
+	/*
 	FORMAT(SUM(contractvalue),2) AS total_value
-FROM ranking
+FROM first_campaign
 WHERE rn = 1
 GROUP BY campaign_name
--- , servicetype
+, servicetype
 ORDER BY campaign_name asc
 ; -- */
 	
 -- Drop tables
 DROP TEMPORARY TABLE email_campaigns;
 DROP TEMPORARY TABLE email_counts;
+DROP TEMPORARY TABLE tmp_customer;
