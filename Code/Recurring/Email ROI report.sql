@@ -27,7 +27,7 @@ IGNORE 1 LINES
 -- 2026-7-30 10.30a -> This addition reduces total execution time from ~8+ minutes to ~20 seconds
 -- The index on email helps, but reducing the customer population helps more
 CREATE TEMPORARY TABLE tmp_customer
-(INDEX idx_customer_email (email, customerid))
+(INDEX idx_email_customer (email, customerid))
 AS SELECT email, customerid
 FROM dwh_reportsdb.customer c 
 WHERE c.email IN (SELECT contact_email FROM email_campaigns); -- This line is doing a LOT of work in a very small amount of time
@@ -39,7 +39,9 @@ SELECT contact_email, COUNT(*) AS times_contacted_by_email
 FROM email_campaigns
 GROUP BY contact_email;
 
--- Gather data
+-- ========================================================
+-- CTEs gather info from other 
+-- ========================================================
 WITH campaigndata AS (
 SELECT 
 	-- Email campaign info
@@ -99,30 +101,29 @@ LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email
 	) AND initialstatus = 1 
 -- */
 ) 
--- This added ~1 min 20s or more to the query execution time
+-- /* This added minutes to the query execution time
 -- This is here to eliminate cross-campaign duplicate subscriptions:
 -- * subscriptions are collapsed into single-campaign attribution (theoretically)
 , first_campaign AS ( 
 SELECT *, ROW_NUMBER() OVER (PARTITION BY subscriptionid ORDER BY campaign_start_date, campaign_name) AS rn
 FROM ranking
 WHERE dr = 1
-)
+) # */
 
--- /* Prod select
+/* Prod select
 SELECT * FROM first_campaign
 WHERE rn = 1; -- */
 
-/* Aggregate, testing only
+-- /* Aggregate, testing only
 SELECT 
-	campaign_name, 
+	campaign_name, campaign_start_date,
 	COUNT(DISTINCT contact_email) AS total_conversion_emails,
 	
 -- /* Service type groupings, can be omitted 
-	servicetype,
+	servicetype, subscriptionid,
 	COUNT(servicetype) AS count_servicetype,
-	FORMAT(AVG(contractvalue),2) AS average_value, -- */
+	FORMAT(AVG(contractvalue),2) AS average_value, -- */ /*
 	
-	/*
 	FORMAT(SUM(contractvalue),2) AS total_value
 FROM first_campaign
 WHERE rn = 1
