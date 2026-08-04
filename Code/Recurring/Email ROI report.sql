@@ -1,5 +1,6 @@
 -- ========================================================
 --  EMAIL ROI REPORT
+/* Affected rows: 3,373,926  Found rows: 909  Warnings: 10,579  Duration for 36 queries: 00:15:04.2 (+ 0.344 sec. network) */
 -- ========================================================
 USE dwh_five9db;
 USE dwh_reportsdb;
@@ -61,13 +62,16 @@ IGNORE 1 LINES
 -- The regex forces anything non-numeric to NULL so it fails the filter instead of lying.
 SET opens = IF(@opens REGEXP '^[0-9]+$', CAST(@opens AS UNSIGNED), NULL);
 
+-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ START TOGGLABLE WHERE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 -- Unite data from file by join
+-- Toggle WHERE to see all emails and their open numbers
 INSERT INTO email_campaigns (contact_email, campaign_name, campaign_date, opens)
 SELECT s.contact_email, c.campaign_name, c.campaign_date, s.opens
 FROM stg_sends s
 JOIN stg_campaigns c ON c.campaign_id = s.campaign_id
-WHERE s.opens > 0 -- Remove this to see all emails and their open numbers
+-- WHERE s.opens > 0 -- Remove this to see all emails and their open numbers
 ;
+-- ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ *END* TOGGLABLE WHERE ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 -- 2026-7-30 -> This addition reduces execution time considerably by reducing the candidate customers
 -- The index on email helps, but reducing the customer population helps more
@@ -205,6 +209,7 @@ LEFT JOIN tmp_campaign_five9 f
 LEFT JOIN tmp_customer c ON c.email = e.contact_email
 LEFT JOIN dwh_reportsdb.subscription s 
 	ON s.customerid = c.customerid -- Provides all results that connect to an email (duplicates subscription rows where multiple subscriptions exist)
+	AND s.initialstatus = 1 		 -- Only includes actual subscriptions
 LEFT JOIN dwh_internetmarketingdb.roi_master r ON r.sub_id = s.subscriptionid AND s.initialstatus = 1
 LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email AND ec.campaign_name = e.campaign_name -- The additional part in the on statement ensures uniqueness
 -- 2026-08-04: DENSE_RANK, not ROW_NUMBER. Two campaigns on the same date to the same contact produce two rows for the SAME subscription with identical dateadded. 
@@ -213,28 +218,44 @@ LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email AND ec.campaign_
 ), ranking AS (
 	SELECT *, DENSE_RANK() OVER (PARTITION BY contact_email, campaign_date ORDER BY dateadded) AS dr
 	FROM campaigndata
+
+-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ START TOGGLABLE WHERE ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 -- 	/* Remove this WHERE to see all subscriptions that occurred after the campaign
---     There are many subscriptions that are irrelevant to campaigns because they started long after the email was sent
+-- 	Or toggle any or each of the individual classifications
+--    There are many subscriptions that are irrelevant to campaigns because they started long after the email was sent
 	WHERE `Subscription Classification` IN (
 		'Possible Sale 1 week'
-		-- , 'Possible Sale 2 weeks'
-		-- , 'Possible Sale 3 weeks'
+		, 'Possible Sale 2 weeks'
+		, 'Possible Sale 3 weeks'
 		-- , 'Possible Sale 4 weeks'
-	)
--- */
-) 
+	) -- */
+-- ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ *END* TOGGLABLE WHERE ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+ 
 -- /* This added minutes to the query execution time
--- This is here to eliminate cross-campaign duplicate subscriptions:
--- * subscriptions are collapsed into single-campaign attribution (theoretically)
-, first_campaign AS ( 
+-- This is here to eliminate cross-campaign duplicate subscriptions: subscriptions are collapsed into single-campaign attribution
+), first_campaign AS ( 
 SELECT *, ROW_NUMBER() OVER (PARTITION BY subscriptionid ORDER BY campaign_date, campaign_name) AS rn
 FROM ranking
 WHERE dr = 1
 ) # */
 
--- /* Prod select
+/* Prod select
 SELECT * FROM first_campaign
 WHERE rn = 1; -- */
+
+-- /* Aggregates, testing only
+SELECT
+	`Subscription Classification`,
+	COUNT(*)                                                     	  AS subs,
+	SUM(contractvalue)                                           	  AS total_value,
+	SUM(cancel_status_at_email = 'Cancelled before send')        	  AS cancelled_pre,
+	SUM(cancel_status_at_email = 'Active at send (cancelled after)') AS cancelled_post
+FROM first_campaign
+WHERE rn = 1 AND initialstatus = 1
+GROUP BY `Subscription Classification`
+ORDER BY `Subscription Classification`
+; -- */
+	
 	
 -- Drop tables
 DROP TEMPORARY TABLE email_campaigns;
