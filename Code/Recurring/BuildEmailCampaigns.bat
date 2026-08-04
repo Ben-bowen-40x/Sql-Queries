@@ -22,5 +22,5 @@ if not "%RC%"=="0" (
     echo Build OK. email_campaigns.csv is ready for LOAD DATA.
 )
 
-pause
+if "%~1"=="" pause
 endlocal & exit /b %RC%
