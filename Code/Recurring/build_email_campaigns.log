@@ -124,6 +124,7 @@ file                                                                            
 05.12.2026 - MF - If You've Seen One, There Are Likely Millions More - NonGmail_2                      3195   1785  1410     0     0
 05.19.2026 - HO - Those Are Not Flying Ants (Termite Focus)_Gmail                                      7881   7502   379     0     0
 05.19.2026 - HO - Those Are Not Flying Ants (Termite Focus)_NonGmail                                   5171   5007   164     0     0
+05.22.2026 - ST - What does mouse poop look like_ - NonHPP Gmail                                       4629   4226   403     0     0
 05.22.2026 - ST - What does mouse poop look like_ - NonHPP NonGmail                                    8335   7852   483     0     0
 05.27.2026 - MF - Summer Pests_ Don't Wait Until You Spot Them [Gmail]                                 3357   2777   580     0     0
 05.27.2026 - MF - Summer Pests_ Don't Wait Until You Spot Them [NonGmail]                              2333   1923   410     0     0
@@ -159,8 +160,8 @@ file                                                                            
 07.03.2026 - CV - It's Not Too Late To Take Back Your Backyard [Gmail]                                13430  13430     0     0     0
 07.03.2026 - CV - It's Not Too Late To Take Back Your Backyard [NonGmail]                             10864  10864     0     0     0
 ------------------------------------------------------------------------------------------------------------------------------------
-files processed : 158
-rows written    : 448991  ->  C:\Users\benjamin.bowen\Repos\Sql-Queries\Code\Recurring\email_campaigns.csv
-dropped         : 106828 deleted-sentinel, 0 blank, 0 duplicate
+files processed : 159
+rows written    : 453217  ->  C:\Users\benjamin.bowen\Repos\Sql-Queries\Code\Recurring\email_campaigns.csv
+dropped         : 107231 deleted-sentinel, 0 blank, 0 duplicate
 
 OK.
