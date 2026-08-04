@@ -21,13 +21,13 @@ year,month,source,status,total_sales,total_contract_value
 2024,05,Pan,new_acquisition,10,9797.00
 2024,06,Leased,winback,24,22500.53
 2024,06,Pan,winback,5,4621.00
-2024,07,Leased,new_acquisition,19,17125.70
+2024,07,Leased,new_acquisition,20,17622.70
 2024,07,Pan,new_acquisition,10,8968.55
 2024,08,Leased,new_acquisition,25,18793.36
 2024,08,Pan,new_acquisition,10,8731.38
 2024,09,Leased,new_acquisition,30,25174.33
 2024,09,Pan,new_acquisition,4,3549.00
-2024,10,Leased,new_acquisition,24,20983.10
+2024,10,Leased,new_acquisition,25,21676.10
 2024,10,Pan,winback,4,2646.00
 2024,11,Leased,new_acquisition,11,25078.00
 2024,11,Pan,new_acquisition,1,1045.00
@@ -62,7 +62,7 @@ year,month,source,status,total_sales,total_contract_value
 2025,10,Leased,new_acquisition,7,7166.00
 2025,10,Libacion,new_acquisition,7,4991.00
 2025,10,Pan,new_acquisition,2,1903.00
-2025,11,Calli,new_acquisition,18,20115.00
+2025,11,Calli,new_acquisition,19,20922.00
 2025,11,Leased,new_acquisition,11,8362.96
 2025,11,Libacion,new_acquisition,2,2125.00
 2025,11,Pan,new_acquisition,2,1735.00
@@ -80,7 +80,7 @@ year,month,source,status,total_sales,total_contract_value
 2026,02,Leased,new_acquisition,12,8948.87
 2026,02,Libacion,upgrade,5,2937.00
 2026,03,Calli,new_acquisition,10,8130.00
-2026,03,Leased,new_acquisition,45,37157.00
+2026,03,Leased,new_acquisition,46,37856.87
 2026,03,Libacion,new_acquisition,4,5036.25
 2026,03,Pan,new_acquisition,1,883.00
 2026,04,Calli,new_acquisition,29,26944.00
@@ -88,7 +88,7 @@ year,month,source,status,total_sales,total_contract_value
 2026,04,Libacion,new_acquisition,7,6017.00
 2026,05,Calli,new_acquisition,22,24957.00
 2026,05,Lab,winback,1,150.00
-2026,05,Leased,new_acquisition,60,47654.00
+2026,05,Leased,new_acquisition,62,49474.00
 2026,06,Calli,upgrade,33,43060.00
 2026,06,Lab,new_acquisition,3,1965.00
 2026,06,Leased,new_acquisition,39,31878.00
