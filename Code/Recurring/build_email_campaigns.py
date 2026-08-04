@@ -262,8 +262,8 @@ def main() -> int:
 
 	print("-" * 138)
 	print(f"files processed : {len(files)}")
-	print(f"campaigns       : {len(campaign_rows)}  ->  {OUT_CAMPAIGNS}")
-	print(f"sends           : {len(send_rows)}  ->  {OUT_SENDS}")
+	print(f"campaigns       : {len(campaign_rows)} \t->  {OUT_CAMPAIGNS}")
+	print(f"sends           : {len(send_rows)} \t->  {OUT_SENDS}")
 	try:
 		mb = OUT_SENDS.stat().st_size / (1024 * 1024)
 		print(f"sends.csv size  : {mb:.1f} MB")
