@@ -246,9 +246,14 @@ LEFT JOIN dwh_reportsdb.subscription s
 	AND s.initialstatus = 1 		 -- Only includes actual subscriptions
 LEFT JOIN dwh_internetmarketingdb.roi_master r ON r.sub_id = s.subscriptionid AND s.initialstatus = 1
 LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email AND ec.campaign_name = e.campaign_name -- The additional part in the on statement ensures uniqueness
--- 2026-08-04: DENSE_RANK, not ROW_NUMBER. Two campaigns on the same date to the same contact produce two rows for the SAME subscription with identical dateadded. 
--- DENSE_RANK ties them at rank 1 so both survive, and first_campaign picks the earliest campaign. 
--- ROW_NUMBER would drop one arbitrarily here and break same-date attribution.
+-- 2026-08-04: DENSE_RANK, not ROW_NUMBER. [superseded -- see below]
+-- 2026-08-05: What dr actually does: one subscription per (contact_email,
+-- campaign_date), the EARLIEST by dateadded. A contact with two subscriptions
+-- after the same send contributes ONE -- the second is dropped, not reattributed.
+-- That is intentional: crediting one send with two sales overstates the campaign.
+-- DENSE_RANK (not ROW_NUMBER) keeps same-date batch rows tied at 1 so
+-- first_campaign below picks the batch; same-date "campaigns" are batches of one
+-- real campaign, so which batch wins is arbitrary by design.
 ), ranking AS (
 	SELECT *, DENSE_RANK() OVER (PARTITION BY contact_email, campaign_date ORDER BY dateadded) AS dr
 	FROM campaigndata
