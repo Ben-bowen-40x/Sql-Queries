@@ -1,23 +1,24 @@
 """
 build_email_campaigns_v2.py
 
-Consolidates all campaign-list CSV exports into TWO files for ingestion by
+Consolidates all campaign-list CSV exports into THREE files for ingestion by
 MySQL via LOAD DATA LOCAL INFILE:
 
     campaigns.csv   campaign_id, campaign_name, campaign_date   (one row per file)
-    sends.csv       contact_email, campaign_id, opens           (one row per send)
+    sends.csv       email_id, campaign_id, opens                (one row per send)
+	 emails.csv      email_id, contact_email                     (one row per email)
 
-WHY TWO FILES (2026-08-04):
+WHY THREE FILES (2026-08-05):
 v1 wrote campaign_name inline on all ~453k send rows. At ~67 bytes per row for
 a repeated string, campaign_name was ~30MB of a 47.5MB file -- roughly
 two-thirds. LOAD DATA LOCAL streams the file from THIS machine to the server,
 and the measured throughput was ~178 KB/s, so the load took ~4.5 minutes and
 was entirely wire-bound: no index, schema, or regex change moved it.
 
-Replacing the repeated name with a small int drops sends.csv to ~16MB (~1.5
-min at the same throughput). The join back to campaign_name happens in SQL,
-where the strings live once instead of 453k times. Do not "simplify" this back
-to a single denormalized file.
+Replacing the repeated name with a small int and the email with a small int 
+drops sends.csv to ~6MB. The join back to campaign_name and contact_email 
+happens in SQL, where the strings live once instead of 453k times. 
+Do not "simplify" this back to a single denormalized file.
 
 Design notes carried over from v1 (all still load-bearing):
 - campaign_name is the FULL filename stem (no .csv). The date prefix stays in
@@ -34,7 +35,7 @@ Design notes carried over from v1 (all still load-bearing):
   these lists have shipped as tab-delimited despite the .csv extension.
 - Encoding: BOM-sniffed UTF-16 -> UTF-8(-sig) -> cp1252 fallback. Output is
   plain UTF-8, no BOM.
-- Output line terminator is explicitly \r\n on BOTH files to match LINES
+- Output line terminator is explicitly \r\n on ALL files to match LINES
   TERMINATED BY '\r\n'. A terminator mismatch makes LOAD DATA ingest ZERO rows
   with no error -- the classic silent failure -- so this is pinned, not
   defaulted.
@@ -46,11 +47,24 @@ New in v2:
 - campaign_id is assigned from the SORTED file list, so it is stable across
   runs given the same directory contents. It is NOT stable if files are added
   or removed between runs -- the ids are only meaningful within a single
-  matched pair of output files. Always reload BOTH files together.
+  matched pair of output files. Always reload ALL files together.
 - ALL sends are written, including opens = 0. The opens > 0 filter belongs in
   SQL, not here: email_counts derives times_contacted_by_email from the full
   send universe, and filtering upstream would silently redefine that column
   from "times sent" to "times opened".
+
+New in v3:
+- Emails are normalized out of sends.csv into emails.csv. email_id is minted on
+  FIRST APPEARANCE while walking the sorted file list, so it depends on both the
+  set of files AND their sort order -- inserting one file early in the sort
+  renumbers every email first seen after it. This is strictly less stable than
+  campaign_id. The ids are meaningful only within a single matched set of all
+  three output files; always regenerate and reload all three together.
+- Identity is global across files (email_ids dict, declared outside the file
+  loop). The per-file `seen` set is a SEPARATE mechanism guarding the
+  (email_id, campaign_id) PK -- do not merge the two. Reusing `seen` for
+  identity would re-mint an id per file, since it resets each iteration.
+
 """
 
 import csv
@@ -61,8 +75,12 @@ from pathlib import Path
 # ---------------------------------------------------------------- config ---
 SRC_DIR = Path(r"C:\Users\benjamin.bowen\Repos\Sql-Queries\Code\Recurring\Campaign lists")
 OUT_DIR = Path(r"C:\Users\benjamin.bowen\Repos\Sql-Queries\Code\Recurring")
-OUT_CAMPAIGNS = OUT_DIR / "campaigns.csv"
-OUT_SENDS = OUT_DIR / "sends.csv"
+CAMPAIGNS_NAME = "campaigns.csv"
+OUT_CAMPAIGNS = OUT_DIR / CAMPAIGNS_NAME
+SENDS_NAME = "sends.csv"
+OUT_SENDS = OUT_DIR / SENDS_NAME
+EMAILS_NAME = "emails.csv"
+OUT_EMAILS = OUT_DIR / EMAILS_NAME
 
 MAX_CAMPAIGN_NAME_LEN = 250                  # size the DDL column to match: VARCHAR(250)
 MAX_EMAIL_LEN = 100                          # matches contact_email VARCHAR(100)
@@ -129,13 +147,16 @@ def main() -> int:
 
 	# Variables for returning and reporting results
 	campaign_rows = []     # (campaign_id, campaign_name, campaign_date)
-	send_rows = []         # (contact_email, campaign_id, opens)
+	send_rows = []         # (email_id, campaign_id, opens)
+	email_rows = []        # (email_id, contact_email)
 	problems = []          # (filename, description) -> Any problem produces nonzero exit
 	total_deleted = 0
 	total_blank = 0
 	total_dupes = 0
 	total_long = 0
 	next_campaign_id = 1
+	email_ids = {}
+	next_email_id = 1
 
 	# Print beginning of report
 	print(f"{'id':>4} {'file':<100} {'read':>6} {'kept':>6} {'del':>5} {'blank':>5} {'dupe':>5}")
@@ -165,7 +186,7 @@ def main() -> int:
 			problems.append((stem, "file is empty"))
 			continue
 
-		# Find the file delimiter, then read the lines, and find the headers
+		# Find the file delimiter, read the lines, and find the headers
 		delim = sniff_delimiter(lines[0])
 		reader = csv.reader(lines, delimiter=delim)
 		try:
@@ -187,7 +208,7 @@ def main() -> int:
 		opens_idx, warnOpens = find_col(headers, "opens")
 		if opens_idx is None:
 			print(f"  WARN [{stem}]: no 'Opens' column; defaulting to 0")
-		if warnOpens:
+		elif warnOpens:
 			print(f"  WARN [{stem}]: {warnOpens}")
 
 		# This file gets an id whether or not it yields rows, 
@@ -204,9 +225,8 @@ def main() -> int:
 			email = (row[email_idx].strip() if email_idx < len(row) else "")
 
          # Parse Opens
-			strp_raw_opens = row[opens_idx].strip().replace(",", "")
 			valid_open_idx = opens_idx is not None and opens_idx < len(row) 
-			raw_opens = (strp_raw_opens if valid_open_idx else "")
+			raw_opens = (row[opens_idx].strip().replace(",", "") if valid_open_idx else "")
 			opens_default = "0" if opens_idx is None else r"\N"
 			# \N is MySQL's NULL sentinel in LOAD DATA. 
 			# Unparseable opens become NULL rather than 0 so the SQL side can tell "no data" from "no opens".
@@ -229,7 +249,16 @@ def main() -> int:
 					problems.append((stem, f"email exceeds {MAX_EMAIL_LEN} chars: {email[:40]}..."))
 				continue
 			seen.add(key)
-			send_rows.append((email, campaign_id, opens))
+			
+			# Email ids: Ensure each email gets its own unique id before adding it to the email list
+			email_id = email_ids.get(key)
+			if email_id is None:
+				email_id = next_email_id
+				next_email_id += 1
+				email_ids[key]=email_id
+				email_rows.append((email_id, email))
+		
+			send_rows.append((email_id, campaign_id, opens))
 			n_kept += 1
 
 		if n_long > MAX_PROBLEMS_PER_FILE:
@@ -257,19 +286,30 @@ def main() -> int:
 
 	with open(OUT_SENDS, "w", newline="", encoding="utf-8") as f:
 		w = csv.writer(f, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
-		w.writerow(["contact_email", "campaign_id", "opens"])
+		w.writerow(["email_id", "campaign_id", "opens"])
 		w.writerows(send_rows)
 
+	with open(OUT_EMAILS, "w", newline="", encoding="utf-8") as f:
+		w = csv.writer(f,lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
+		w.writerow(["email_id", "contact_email"])
+		w.writerows(email_rows)
+
 	print("-" * 138)
-	print(f"files processed : {len(files)}")
-	print(f"campaigns       : {len(campaign_rows)} \t->  {OUT_CAMPAIGNS}")
-	print(f"sends           : {len(send_rows)} \t->  {OUT_SENDS}")
+	print(f"files processed \t: {len(files)}")
+	print(f"campaigns       \t: {len(campaign_rows)}\t\t->  {OUT_CAMPAIGNS}")
+	print(f"emails          \t: {len(email_rows)}     \t->  {OUT_EMAILS}")
+	print(f"sends           \t: {len(send_rows)}      \t->  {OUT_SENDS}")
 	try:
-		mb = OUT_SENDS.stat().st_size / (1024 * 1024)
-		print(f"sends.csv size  : {mb:.1f} MB")
+		mb_sends = OUT_SENDS.stat().st_size / (1024 * 1024)
+		mb_campaigns = OUT_CAMPAIGNS.stat().st_size / 1024
+		mb_emails = OUT_EMAILS.stat().st_size / (1024 * 1024)
+		
+		print(f"{SENDS_NAME} size     \t: {mb_sends:.1f} MB")
+		print(f"{CAMPAIGNS_NAME} size \t: {mb_campaigns:.1f} KB")
+		print(f"{EMAILS_NAME} size    \t: {mb_emails:.1f} MB")
 	except OSError:
 		pass
-	print(f"dropped         : {total_deleted} deleted-sentinel, {total_blank} blank, {total_dupes} duplicate, {total_long} over-length")
+	print(f"dropped         \t: {total_deleted} deleted-sentinel, {total_blank} blank, {total_dupes} duplicate, {total_long} over-length")
 
 	if problems:
 		print(f"\n*** {len(problems)} PROBLEM(S) -- output written but treat this run as FAILED until reviewed: ***")
