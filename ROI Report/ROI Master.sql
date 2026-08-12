@@ -68,7 +68,7 @@ sheet_first AS (
     sh_phone10, sh_contact_pacific, sh_source,
     'offline data' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
+    NULL AS ctm_tracking_number, NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
     NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
     NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
     NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
@@ -98,7 +98,8 @@ ctm_first AS (
     ctm_phone10, ctm_contact_pacific, ctm_source,
     'ctm' AS touch_medium,
     ctm_call_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number,
+	 ctm_location, ctm_referrer, ctm_campaign,
     NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
     NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
     NULL AS wbf_hearded_about, NULL AS wbf_referred_by, NULL AS wbf_current_customer, NULL AS wbf_commercial
@@ -108,7 +109,14 @@ ctm_first AS (
       CONVERT_TZ(called_at_utc,'+00:00','America/Los_Angeles') AS ctm_contact_pacific,
       source AS ctm_source,
       call_id AS ctm_call_id,
-      contact_number AS ctm_contact_number,
+
+--  ********************* RENAME COLUMN -- ctm_contact_number to ctm_tracking_number -- UPDATED 2026-08-06 — START *********************
+-- This number is just a non-normalized version of dwh_ctmdb.calls.contact_number_clean
+-- What we want instead is dwh_ctmdb.calls.tracking_number
+-- We ought to keep this column honest by renaming to ctm_tracking_number, but that requires a database update
+      tracking_number AS ctm_tracking_number,
+--  ********************* RENAME COLUMN -- ctm_contact_number to ctm_tracking_number -- UPDATED 2026-08-06 — END ************************
+
       location AS ctm_location,
       referrer AS ctm_referrer,
       campaign AS ctm_campaign
@@ -122,7 +130,7 @@ lf_first AS (
     lf_phone10, lf_contact_pacific, lf_source,
     'leadferno' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, 
+    NULL AS ctm_tracking_number, 
 	 location AS ctm_location, 
 	 NULL AS ctm_referrer, 
 	 NULL AS ctm_campaign,
@@ -158,7 +166,7 @@ form_first AS (
 	 wbf_src_label,
     'contact forms' AS touch_medium,
     NULL AS ctm_call_id,
-    NULL AS ctm_contact_number, 
+    NULL AS ctm_tracking_number, 
 	 NULL AS ctm_location, 
 	 NULL AS ctm_referrer, 
 	 NULL AS ctm_campaign,
@@ -200,7 +208,7 @@ sf_first AS (
     'salesforce' AS touch_medium,
     NULL AS ctm_call_id,
     sf_lead_id,
-    sf_contact_number AS ctm_contact_number,
+    sf_contact_number AS ctm_tracking_number,
     NULL AS ctm_location, NULL AS ctm_referrer, NULL AS ctm_campaign,
     NULL AS wbf_referring_url, NULL AS wbf_source, NULL AS wbf_medium, NULL AS wbf_campaign,
     NULL AS wbf_utm_content, NULL AS wbf_utm_term, NULL AS wbf_form_name, NULL AS wbf_contact_name,
@@ -227,7 +235,7 @@ all_touches AS (
   SELECT
     ctm_phone10 AS touch_phone10, ctm_contact_pacific AS touch_first_contact,
     ctm_source AS touch_source, touch_medium, ctm_call_id, NULL AS sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
@@ -238,7 +246,7 @@ all_touches AS (
 --   /* Adds roi_sheet data to union
   SELECT
     sh_phone10, sh_contact_pacific, sh_source, touch_medium, ctm_call_id, NULL AS sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
@@ -249,7 +257,7 @@ all_touches AS (
 
   SELECT
     lf_phone10, lf_contact_pacific, lf_source, touch_medium, ctm_call_id,NULL AS sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
@@ -257,7 +265,7 @@ all_touches AS (
   UNION ALL
   SELECT
     wbf_phone10, wbf_contact_pacific, wbf_src_label, touch_medium, ctm_call_id,NULL AS sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
@@ -265,7 +273,7 @@ all_touches AS (
   UNION ALL
   SELECT
     sf_phone10, sf_contact_pacific, sf_source, touch_medium, ctm_call_id, sf_lead_id,
-    ctm_contact_number, ctm_location, ctm_referrer, ctm_campaign,
+    ctm_tracking_number, ctm_location, ctm_referrer, ctm_campaign,
     wbf_referring_url, wbf_source, wbf_medium, wbf_campaign,
     wbf_utm_content, wbf_utm_term, wbf_form_name, wbf_contact_name,
     wbf_hearded_about, wbf_referred_by, wbf_current_customer, wbf_commercial
@@ -285,7 +293,7 @@ cust_norm AS (
 SELECT
   cn.cust_customerid,
   t.touch_phone10, t.touch_first_contact, t.touch_source, t.touch_medium, t.ctm_call_id, t.sf_lead_id,
-  t.ctm_contact_number, t.ctm_location, t.ctm_referrer, t.ctm_campaign,
+  t.ctm_tracking_number, t.ctm_location, t.ctm_referrer, t.ctm_campaign,
   t.wbf_referring_url, t.wbf_source, t.wbf_medium, t.wbf_campaign,
   t.wbf_utm_content, t.wbf_utm_term, t.wbf_form_name, t.wbf_contact_name,
   t.wbf_hearded_about, t.wbf_referred_by, t.wbf_current_customer, t.wbf_commercial
@@ -345,14 +353,17 @@ WITH cand_customers AS (
 -- All-time, status=1 history. NO date filter — must be all-time, otherwise winbacks misclassify (bug fixed 2026-07-07).
 all_subs AS (
   SELECT
-    s.subscriptionID AS sub_id, s.customerID AS sub_customerid, s.customerid AS grp,
-    s.dateAdded AS sub_dateadded, s.dateAddedDate AS sub_dateadded_day,
+    s.subscriptionID AS sub_id, 
+	 s.customerID 		AS sub_customerid, 
+	 s.customerid 		AS grp,
+    s.dateAdded 		AS sub_dateadded, 
+	 s.dateAddedDate 	AS sub_dateadded_day,
     CASE
       WHEN s.dateCancelled IS NULL THEN '9999-12-31 23:59:59'
       WHEN CAST(s.dateCancelled AS CHAR) = '0000-00-00 00:00:00' THEN '9999-12-31 23:59:59'
       ELSE s.dateCancelled
-    END AS sub_active_end,
-    s.contractValue AS sub_contractvalue
+    END 					AS sub_active_end,
+    s.contractValue 	AS sub_contractvalue
   FROM dwh_reportsdb.subscription s
   WHERE s.initialStatus = 1
     AND s.customerid IN (SELECT customerid FROM cand_customers)
@@ -360,9 +371,18 @@ all_subs AS (
 
 -- Reported population: subscriptions from [year] or later where status=1.
 candidate_subs AS (
-  SELECT s.subscriptionid AS sub_id, s.customerid AS sub_customerid,
-    s.dateadded AS sub_dateadded, s.contractvalue AS sub_contractvalue,
-    s.officeID AS sub_officeid
+	SELECT 
+		s.subscriptionid 							AS sub_id,
+		s.customerid 								AS sub_customerid,
+  
+-- 	 ======================= 2026-08-06 ADD SERVICETYPE -- Directly from dwh_reportsdb.subscription ========================
+  	 	s.`servicetype` 							AS sub_servicetype,
+  	 	s.commercialaccount 						AS sub_commercialaccount,
+-- 	 ======================= 2026-08-06 ADD SERVICETYPE -- Directly from dwh_reportsdb.subscription ========================
+  
+    s.dateadded 									AS sub_dateadded, 
+	 s.contractvalue 								AS sub_contractvalue,
+    s.officeID 									AS sub_officeid
   FROM dwh_reportsdb.subscription s
   WHERE s.customerid IN (SELECT customerid FROM cand_customers)
     AND s.dateaddeddate >= @population_epoch AND s.initialstatus = 1
@@ -400,7 +420,7 @@ sub_status AS (
 prior_floor AS (
   SELECT curr.sub_id,
          MAX(CAST(prev.sub_active_end AS DATETIME)) AS winback_floor,
-         MAX(prev.sub_dateadded)                     AS upgrade_floor
+         MAX(prev.sub_dateadded)                    AS upgrade_floor
   FROM all_subs curr
   JOIN all_subs prev
     ON prev.grp = curr.grp
@@ -415,10 +435,15 @@ prior_floor AS (
 -- No qualifying touch → no row → excluded from report.
 sub_touch_ranked AS (
   SELECT
-    cs.sub_id, cs.sub_customerid, cs.sub_dateadded, cs.sub_contractvalue, cs.sub_officeid,
-    ss.sub_status,
+    cs.sub_id, cs.sub_customerid, cs.sub_dateadded, cs.sub_contractvalue, cs.sub_officeid, 
+
+-- 	 ======================= 2026-08-06 ADD servicetype and commercial account -- cascaded from candidate_subs =======================
+	 cs.sub_servicetype, cs.sub_commercialaccount,
+-- 	 ======================= 2026-08-06 ADD servicetype and commercial account -- cascaded from candidate_subs =======================
+    
+	 ss.sub_status,
     ct.touch_phone10, ct.touch_first_contact, ct.touch_source, ct.touch_medium, ct.ctm_call_id, ct.sf_lead_id,
-    ct.ctm_contact_number, ct.ctm_location, ct.ctm_referrer, ct.ctm_campaign,
+    ct.ctm_tracking_number, ct.ctm_location, ct.ctm_referrer, ct.ctm_campaign,
     ct.wbf_referring_url, ct.wbf_source, ct.wbf_medium, ct.wbf_campaign,
     ct.wbf_utm_content, ct.wbf_utm_term, ct.wbf_form_name, ct.wbf_contact_name,
     ct.wbf_hearded_about, ct.wbf_referred_by, ct.wbf_current_customer, ct.wbf_commercial,
@@ -435,10 +460,10 @@ sub_touch_ranked AS (
                ct.sf_lead_id          ASC
     ) AS rn
   FROM candidate_subs cs
-  JOIN sub_status ss ON ss.sub_id = cs.sub_id
-  LEFT JOIN prior_floor pf ON pf.sub_id = cs.sub_id
-  LEFT JOIN stage_orig_attributed oa ON oa.customerid = cs.sub_customerid
-  JOIN stage_cust_touches ct ON ct.cust_customerid = cs.sub_customerid
+  JOIN sub_status ss 						ON ss.sub_id = cs.sub_id
+  LEFT JOIN prior_floor pf 				ON pf.sub_id = cs.sub_id
+  LEFT JOIN stage_orig_attributed oa 	ON oa.customerid = cs.sub_customerid
+  JOIN stage_cust_touches ct 				ON ct.cust_customerid = cs.sub_customerid
   WHERE ct.touch_first_contact < cs.sub_dateadded
     AND (
          ss.sub_status = 'new_acquisition'
@@ -455,15 +480,21 @@ sub_touch AS (
 -- All dates Pacific (touches converted; dateAdded/dateCancelled stored Pacific — verified 2026-07).
 claimed AS (
   SELECT
-    st.sub_id, st.sub_customerid, st.sub_dateadded, st.sub_contractvalue, st.sub_officeid,
+    st.sub_id, st.sub_customerid, st.sub_dateadded, 
+
+
+	 st.sub_contractvalue, st.sub_officeid,
     ofc.branchName AS ofc_branchname,
     c.phone1 AS cust_phone1, c.phone2 AS cust_phone2,
     st.sub_status,
     st.touch_first_contact, st.touch_source, st.touch_medium,
     st.touch_phone10 AS touch_phone,
     st.ctm_call_id,st.sf_lead_id,
+
+--     Source normalization
     CASE
-      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension','call only','Google Call Asset','Google Ads') 
+      WHEN st.touch_source IN ('Google Adwords','Ad Extension',
+         'Google Call Extension','call only','Google Call Asset','Google Ads') 
 																													THEN 'Google Ads'
       WHEN st.touch_source = 'wgl' 																		THEN 'WGL'
       WHEN st.touch_source = 'website' 																THEN 'Website'
@@ -478,7 +509,9 @@ claimed AS (
       WHEN st.touch_source = 'Google LSA' 															THEN 'Google LSA'
       WHEN st.touch_source = 'Google organic' 														THEN 'Google Organic'
       WHEN st.touch_source = 'PestNet' 																THEN 'PestNet'
-      WHEN st.touch_source = 'elocal' 																	THEN 'Elocal'
+--       *************** 2026-08-12 Update elocal function to like and the then from 'Elocal' to 'eLocal' *********************************
+      WHEN st.touch_source LIKE '%elocal%' 															THEN 'eLocal'
+--       *************** 2026-08-12 Update elocal function to like and the then from 'Elocal' to 'eLocal' *********************************
       WHEN st.touch_source = 'Goodzer' 																THEN 'Goodzer'
       WHEN st.touch_source = 'email' 																	THEN 'Email'
       WHEN TRIM(st.touch_source) = '' 																	THEN 'National Leads'
@@ -487,64 +520,103 @@ claimed AS (
       -- Google Ads / Google Organic separation. Before this date, roi_report
       -- history counted Bing Organic inside Microsoft Ads (and as Paid).
       WHEN st.touch_source = 'Bing Organic' 															THEN 'Microsoft Organic'
-      WHEN st.touch_source IN ('bing','BING Paid',
-			'Bing Call Extensions') 																		THEN 'Microsoft Ads'
+      WHEN st.touch_source IN ('bing','BING Paid','Bing Call Extensions') 					THEN 'Microsoft Ads'
       WHEN LOWER(st.touch_source) LIKE '%service%direct%' 										THEN 'Service Direct'
-      WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Google Ads'
-      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Microsoft Ads'
+--       *************************** 2026-08-12 Remove leadferno normalization into Google Ads or Microsoft Ads ***************************************
+--       WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Google Ads'
+--       WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Microsoft Ads'
+--       *************************** 2026-08-12 Remove leadferno normalization into Google Ads or Microsoft Ads ***************************************
       WHEN st.touch_source = 'Leadferno' 																THEN 'Leadferno'
       WHEN st.touch_source LIKE '%Google Ads Form%' 												THEN 'Google Ads'
       WHEN st.touch_source LIKE '%Microsoft Ads Form%' 											THEN 'Microsoft Ads'
       WHEN st.touch_source = 'Contact Form' 															THEN 'Contact Form'
-      WHEN st.touch_source LIKE 'Form:%' 																THEN st.touch_source
+      WHEN st.touch_source LIKE 'Form%' 																THEN st.touch_source
       ELSE st.touch_source
     END AS normalized_source,
+    
+--     Paid/Nonpaid/Unclassified case
+--    ***************** 2026-08-06 -- Adjusted Paid and Non-Paid cases and added Unclassified default *****************************
     CASE
-      WHEN st.touch_source IN ('Google Adwords','Ad Extension','Google Call Extension',
-			'call only','Google Call Asset','Google Ads') 											THEN 'Paid'
-      WHEN st.touch_source = 'wgl' 																		THEN 'Paid'
-      WHEN st.touch_source = 'website' 																THEN 'Non-Paid'
-      WHEN st.touch_source = 'Direct' 																	THEN 'Non-Paid'
-      WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137','Google My Business',
-			'GMB Post','GMB - Gurnee, IL 60031','North Chicago GMB',
-			'GMB - Brownsville','GMB - Newport News') 												THEN 'Non-Paid'
-      WHEN st.touch_source IN ('facebook paid','General Meta Ads') 							THEN 'Paid'
-      WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') 				THEN 'Paid'
-      WHEN st.touch_source = 'Google LSA' 															THEN 'Paid'
-      when st.touch_source = 'Google LSA Text'														THEN 'Paid'
-      WHEN st.touch_source = 'Google organic' 														THEN 'Non-Paid'
-      WHEN st.touch_source = 'PestNet' 																THEN 'Paid'
-      WHEN st.touch_source = 'Elocal' 																	THEN 'Paid'
-      WHEN st.touch_source = 'Goodzer' 																THEN 'Paid'
-      WHEN st.touch_source = 'email' 																	THEN 'Non-Paid'
-      WHEN TRIM(st.touch_source) = '' 																	THEN 'Paid'
-      WHEN st.touch_source LIKE '%biz%' 																THEN 'Paid'
+      WHEN st.touch_source IN (
+      -- Google Ads
+         'Google Adwords','Ad Extension', 'Google Call Extension','call only',
+         'Google Call Asset','Google Ads','Google LSA', 'Google LSA Text',
+      -- Meta
+         'facebook paid','General Meta Ads', 'Facebook Paid','Facebook video',
+         'Facebook Ads','facebook',
+      -- Bing
+         'Bing Paid','Bing Call Extensions','Bing',
+      -- Other Third Party
+         'PestNet', 'Elocal','Goodzer','Aragon','Consumer Affairs','Bark','Lavin',
+         'Yelp RAQ','wgl','Local Biz Calls','Local Biz','LocalBizCalls',
+         'Abstrakt',
+         'Archenia',
+         'Baton',
+         'FlowBridge', 'Flow Bridge',
+         'Lead Prediction',
+         'Markytek',
+         'Ring Local',
+         'Yelp','Yelp Referral',         
+         'Dexx Digital - Commercial',
+
+      
+      -- Blank
+         ''
+      )                                                                                THEN 'Paid'
+      WHEN LOWER(st.touch_source) LIKE '%service%direct%'
+               OR st.touch_source LIKE '%leadferno%'
+               OR st.touch_source LIKE '%Google Ad%Form%'
+               OR st.touch_source LIKE '%Microsoft Ad%Form%'
+               OR st.touch_source LIKE '%biz%'
+               OR st.touch_source LIKE '%flow%bri%e%'
+                                                                                       THEN 'Paid'
+      WHEN st.touch_source IN (
+      -- GMB
+         'GMB','GMB ','GMB - Glen Ellyn, IL 60137','GMB -  Glen Ellyn, IL 60137',
+			'Google My Business', 'GBP','GMB Post','GMB - Gurnee, IL 60031',
+			'North Chicago GMB','GMB - Brownsville','GMB - Newport News',
+			'Google Business Profile - Website Visitor','Google Business Profile - Static Number',
+      -- Apple Maps
+         'Apple Maps',
+      -- Website
+         'website', 'Website', 'Direct', 'Trusted','Commercial Website',
+         'DuckDuckGo',
+         'Wildlife',
+      -- Website Contact Form
+         'Contact Form',
+      -- Google
+         'Google organic', 'Google Organic',
       -- Bing Organic split out of 'Microsoft Ads' 2026-07-16 to mirror the
       -- Google Ads / Google Organic separation. Before this date, roi_report
       -- history counted Bing Organic inside Microsoft Ads (and as Paid).
-      WHEN st.touch_source = 'Bing Organic' 															THEN 'Non-Paid'
-      WHEN st.touch_source IN ('Bing Paid','Bing Call Extensions',
-			'Bing','Local Biz Emails','LocalBizCalls') 												THEN 'Paid'
-      WHEN LOWER(st.touch_source) LIKE '%service%direct%' 										THEN 'Paid'
-      WHEN st.touch_source = 'Aragon' 																	THEN 'Paid'
-      WHEN st.touch_source = 'Consumer Affairs' 													THEN 'Paid'
-      WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Paid'
-      WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Paid'
-      WHEN st.touch_source = 'Leadferno' 																THEN 'Non-Paid'
-      WHEN st.touch_source LIKE '%Google Ads Form%' 												THEN 'Paid'
-      WHEN st.touch_source LIKE '%Microsoft Ads Form%' 											THEN 'Paid'
-      WHEN st.touch_source = 'Contact Form' 															THEN 'Non-Paid'
-      WHEN st.touch_source LIKE 'Form:%' 																THEN 'Non-Paid'
-      WHEN st.touch_source = 'Bark' 																	THEN 'Paid'
-		WHEN st.touch_source = 'Local Biz'																THEN 'Paid'
-		WHEN st.touch_source = 'Lavin'      															THEN 'Paid'
-		WHEN st.touch_source = 'Yelp RAQ'  																THEN 'Paid'
-		ELSE 'Non-Paid'
+         'Bing Organic', 'Bing organic', 'bing Organic', 'bing organic',
+      -- Other
+			'Aktify',
+      	'Chamber eblast','Newsletter Upsell',
+			'BBB','Postcard','Print','Field Sales',
+			'Influencers',
+         'Moms Network',
+         'Nextdoor',
+         'Commercial Marketing Materials',
+         'TDP Campaign',
+         'YEP Campaign'
+      )                                                                                THEN 'Non-Paid'
+      WHEN  st.touch_source LIKE '%email%'
+         OR st.touch_source LIKE 'Form%'                                               THEN 'Non-Paid'
+
+		ELSE 'Unclassified'
+--    ***************** 2026-08-06 -- Adjusted Paid and Non-Paid cases and added Unclassified default *****************************
+		
     END AS paid_type,
-    st.ctm_contact_number, st.ctm_location, st.ctm_referrer, st.ctm_campaign,
+    st.ctm_tracking_number, st.ctm_location, st.ctm_referrer, st.ctm_campaign,
     st.wbf_referring_url, st.wbf_source, st.wbf_medium, st.wbf_campaign,
     st.wbf_utm_content, st.wbf_utm_term, st.wbf_form_name, st.wbf_contact_name,
-    st.wbf_hearded_about, st.wbf_referred_by, st.wbf_current_customer, st.wbf_commercial
+    st.wbf_hearded_about, st.wbf_referred_by, st.wbf_current_customer, st.wbf_commercial,
+
+--  ************************ 2026-08-06 -- ADD sub_servicetype AND sub_commercial account -- cascaded from sub_touch -> sub_touch_ranked -> candidiate_subs *****************************
+	 st.sub_servicetype, st.sub_commercialaccount
+--  ************************ 2026-08-06 -- ADD sub_servicetype AND sub_commercial account -- cascaded from sub_touch -> sub_touch_ranked -> candidiate_subs *****************************
+
   FROM sub_touch st
   LEFT JOIN dwh_reportsdb.office ofc ON ofc.officeID = st.sub_officeid
   LEFT JOIN dwh_reportsdb.customer c ON c.customerID = st.sub_customerid
@@ -552,8 +624,22 @@ claimed AS (
     AND st.touch_first_contact <  @window_end
 )
 
--- Prod select 
-SELECT *  FROM claimed;
+Prod select 
+-- SELECT * FROM claimed;
+
+/* Finding unclassified sources
+SELECT MAX(touch_first_contact), touch_source, normalized_source, paid_type FROM claimed
+WHERE paid_type = 'Unclassified'
+GROUP BY touch_source;
+
+-- */
+
+/* Looking for sources
+SELECT SUM(sub_contractvalue), touch_source, normalized_source
+FROM claimed 
+GROUP BY touch_source
+;
+-- */
 
 /* Leadferno Google Ads select -- must not survive beyond testing
 SELECT 
