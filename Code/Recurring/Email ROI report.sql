@@ -2,20 +2,21 @@
 --  EMAIL ROI REPORT
 /* Affected rows: 3,373,926  Found rows: 909  Warnings: 10,579  Duration for 36 queries: 00:15:04.2 (+ 0.344 sec. network) */
 -- ========================================================
-USE dwh_five9db;
 USE dwh_reportsdb;
 
+-- /*drop if exists 
 DROP TEMPORARY TABLE IF EXISTS email_campaigns;
-DROP TEMPORARY TABLE IF EXISTS email_campaigns_2;
 DROP TEMPORARY TABLE IF EXISTS stg_campaigns;
 DROP TEMPORARY TABLE IF EXISTS stg_sends;
 DROP TEMPORARY TABLE IF EXISTS stg_emails;
 DROP TEMPORARY TABLE IF EXISTS tmp_customer;
 DROP TEMPORARY TABLE IF EXISTS email_counts;
 DROP TEMPORARY TABLE IF EXISTS tmp_customer_phone;
-DROP TEMPORARY TABLE IF EXISTS tmp_email_calls;
+DROP TEMPORARY TABLE IF EXISTS email_campaigns_2;
+DROP TEMPORARY TABLE IF EXISTS tmp_five9_customer;
 DROP TEMPORARY TABLE IF EXISTS tmp_campaign_five9;
 DROP TEMPORARY TABLE IF EXISTS tmp_allNumbers;
+-- */
 
 -- ========================================================
 -- Import CSV data
@@ -26,7 +27,9 @@ DROP TEMPORARY TABLE IF EXISTS tmp_allNumbers;
 --   Both strings live once in their own table and are rejoined here. Do not re-denormalize to one file.
 --   All three files come from one run of build_email_campaigns.py and must be reloaded together -- the ids are only meaningful within a matched set.
 -- ========================================================
-CREATE TEMPORARY TABLE email_campaigns (
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE email_campaigns ( 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_campaigns (
 contact_email VARCHAR(100) NOT NULL,
 campaign_name VARCHAR(250) NOT NULL,
 campaign_date DATE NOT NULL,
@@ -35,7 +38,9 @@ PRIMARY KEY (contact_email, campaign_name)
 );
 
 -- Load campaign data into table from csv
-CREATE TEMPORARY TABLE stg_campaigns (
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE stg_campaigns ( 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_campaigns (
   campaign_id   INT UNSIGNED NOT NULL,
   campaign_name VARCHAR(250) NOT NULL,
   campaign_date DATE NOT NULL,
@@ -51,7 +56,9 @@ IGNORE 1 LINES
 (campaign_id, campaign_name, campaign_date);
 
 -- Load send data into table from csv
-CREATE TEMPORARY TABLE stg_sends (
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE stg_sends ( 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_sends (
   email_id 		 INT UNSIGNED NOT NULL,
   campaign_id   INT UNSIGNED NOT NULL,
   opens         INT UNSIGNED NULL
@@ -70,7 +77,9 @@ IGNORE 1 LINES
 SET opens = IF(@opens REGEXP '^[0-9]+$', CAST(@opens AS UNSIGNED), NULL);
 
 -- Load email data into table from csv
-CREATE TEMPORARY TABLE stg_emails (
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE stg_emails ( 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_emails (
 	email_id		  INT UNSIGNED NOT NULL,
 	contact_email VARCHAR(100) NOT NULL,
 	PRIMARY KEY (email_id)
@@ -86,7 +95,7 @@ IGNORE 1 LINES
 
 -- Unite data from file by join
 -- Toggle WHERE to see all emails and their open numbers
-INSERT INTO email_campaigns (contact_email, campaign_name, campaign_date, opens)
+INSERT IGNORE INTO email_campaigns (contact_email, campaign_name, campaign_date, opens)
 SELECT e.contact_email, c.campaign_name, c.campaign_date, s.opens
 FROM stg_sends s
 JOIN stg_campaigns c ON c.campaign_id = s.campaign_id
@@ -104,7 +113,9 @@ SELECT
 
 -- 2026-7-30 -> This addition reduces execution time considerably by reducing the candidate customers
 -- The index on email helps, but reducing the customer population helps more
-CREATE TEMPORARY TABLE tmp_customer
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE tmp_customer 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_customer
 (INDEX idx_email_customer (email, customerid))
 AS SELECT email, customerid
 FROM dwh_reportsdb.customer c 
@@ -114,7 +125,9 @@ WHERE c.email IN (SELECT DISTINCT contact_email FROM email_campaigns); -- This l
 -- 2026-08-04: built from stg_sends (UNFILTERED), not email_campaigns.
 -- When email_campaigns is filtered to opens > 0, counting from it would redefine times_contacted_by_email from "times sent" to "times opened". 
 -- Do not switch this to email_campaigns to save a scan.
-CREATE TEMPORARY TABLE email_counts
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE email_counts 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_counts
 (INDEX idx_email_campaignName (contact_email, campaign_name))
 AS SELECT e.contact_email, c.campaign_name,
 	COUNT(*) OVER (PARTITION BY e.contact_email) AS times_contacted_by_email,
@@ -132,73 +145,93 @@ JOIN stg_emails e ON e.email_id = s.email_id; -- 2026-08-05: v3 normalization. J
 -- 2026-08-05: the dedup moved from the PK (INSERT IGNORE) into the UNION, which killed ~10k per-row warnings. 
 -- The PK is now a BACKSTOP, not the mechanism -- a plain INSERT means it THROWS instead of silently swallowing. 
 -- That's intended: a dup surviving the UNION means an assumption broke and should be loud.
-CREATE TEMPORARY TABLE tmp_customer_phone (
-  email VARCHAR(100) NOT NULL,
-  phone VARCHAR(20)  NOT NULL,
-  PRIMARY KEY (email, phone)   
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE tmp_customer_phone ( 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_customer_phone (
+  customerid INT NOT NULL,
+  phone VARCHAR(45)  NOT NULL,
+  PRIMARY KEY (customerid, phone)   
 );
 
 -- 2026-08-05: This is the SECOND REFERENCE to email_campaigns for the UNION below.
 -- A single statement cannot reference the same TEMPORARY table twice (MySQL 1137), and both arms need the email filter. 
 -- Distinct emails only, with a PK, so the IN-subquery gets an index instead of scanning a heap.
 -- Not a second campaign table -- do not delete as redundant.
-CREATE TEMPORARY TABLE email_campaigns_2 
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE email_campaigns_2  
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_campaigns_2 
 (PRIMARY KEY (contact_email, campaign_name))
 AS SELECT * FROM email_campaigns;
 
 -- 2026-08-05: UNION, not UNION ALL, and plain INSERT rather than INSERT IGNORE.
 -- phone1 = phone2 on one customer, repeat emails across customerids
 -- PK is the backstop if this ever stops deduping.
-INSERT INTO tmp_customer_phone (email, phone)
-SELECT c.email, c.phone1 FROM dwh_reportsdb.customer c
+INSERT INTO tmp_customer_phone (customerid, phone)
+SELECT c.customerid, c.phone1 
+FROM dwh_reportsdb.customer c
 WHERE c.email IN (SELECT contact_email FROM email_campaigns)
   AND c.phone1 IS NOT NULL AND c.phone1 <> '' AND LENGTH(c.phone1) = 10
 UNION
-SELECT c.email, c.phone2 FROM dwh_reportsdb.customer c
+SELECT c.customerid, c.phone2
+FROM dwh_reportsdb.customer c
 WHERE c.email IN (SELECT contact_email FROM email_campaigns_2)
   AND c.phone2 IS NOT NULL AND c.phone2 <> '' AND LENGTH(c.phone2) = 10;
   
 -- STEP 2: create a temporary table that has the customer email, five9 timestamp, and five9 call type
 -- 2026-08-05: CTAS then ALTER, not pre-indexed INSERT. 
 -- Rows arrive in tmp_customer_phone order, which is random vs. the PK, so per-row clustered index maintenance across 1.8M rows cost ~15 min of a 17:51 run.
-CREATE TEMPORARY TABLE tmp_email_calls AS
-SELECT f.callid, p.email, f.`timestamp` AS five9_timestamp, f.calltype AS five9_calltype
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE tmp_five9_customer AS 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_five9_customer AS
+SELECT f.callid, p.customerid, 
+	f.`timestamp` 		AS five9_timestamp, 
+	f.calltype 			AS five9_calltype, 
+	f.customernumber 	AS five9_customernumber, 
+	f.disposition 		AS five9_disposition
 FROM tmp_customer_phone p
 JOIN (
-	SELECT callid, `timestamp`, calltype, customernumber 
+	SELECT callid, `timestamp`, calltype, customernumber, disposition
 	FROM dwh_five9db.calls -- This table is enormous, so limiting it is essential to performance
 	-- calls has no index on customernumber (verified via SHOW INDEX), so this range scan on ik_calls_timestamp is the only way to shrink it before the join.
 	-- We don't know whether the calls table is live data, and filtering up to yesterday is good enough since all campaigns are in the past anyway
 	WHERE `timestamp` >= '2026-01-01' AND `timestamp` < DATE_SUB(NOW(), INTERVAL 1 DAY)
 ) f ON f.customernumber = p.phone;
 
-ALTER TABLE tmp_email_calls ADD INDEX idx_email_ts (email, five9_timestamp);
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+-- Add index --> Include this in the toggle, because if we "create if exists" and existing table, then altering an existing index is an error
+ALTER TABLE tmp_five9_customer ADD INDEX idx_email_ts (customerid, five9_timestamp); -- Belongs in the toggle
 
-CREATE TEMPORARY TABLE tmp_campaign_five9
-(PRIMARY KEY (contact_email, campaign_name))
+-- This table will join the five9 information to the subscription information from
+CREATE TEMPORARY TABLE tmp_campaign_five9 
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_campaign_five9
+(PRIMARY KEY (subscriptionid))
 AS
-SELECT contact_email, campaign_name, five9_timestamp, five9_calltype
+SELECT subscriptionid, five9_timestamp, five9_calltype, five9_customernumber, five9_disposition
 FROM (
-  SELECT e.contact_email, e.campaign_name, c.five9_timestamp, c.five9_calltype,
-  	ROW_NUMBER() OVER (PARTITION BY e.contact_email, e.campaign_name ORDER BY c.five9_timestamp DESC) AS rn
-  FROM email_campaigns e
-  LEFT JOIN tmp_email_calls c
-    ON c.email = e.contact_email
-   AND c.five9_timestamp < e.campaign_date
+   SELECT s.subscriptionid, c.five9_timestamp, c.five9_calltype, c.five9_customernumber, c.five9_disposition,
+      ROW_NUMBER() OVER (PARTITION BY s.subscriptionid ORDER BY c.five9_timestamp DESC) AS rn
+   FROM dwh_reportsdb.subscription AS s
+   LEFT JOIN tmp_five9_customer AS c
+      ON c.customerid = s.customerid
+      AND c.five9_timestamp < s.dateadded
+   WHERE s.initialstatus = 1
+      AND s.customerid IN (SELECT customerid FROM tmp_customer_phone)
 ) x
 WHERE rn = 1;
 
 -- ========================================================
 -- CTEs
 -- ========================================================
-CREATE TEMPORARY TABLE tmp_allNumbers AS 
+-- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+CREATE TEMPORARY TABLE tmp_allNumbers AS  
+-- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_allNumbers AS 
 WITH campaigndata AS (
 SELECT 
 	-- Email campaign info
 	e.*, ec.times_contacted_by_email, ec.times_emailed,
 
 	-- five9 info
-	f.five9_timestamp, f.five9_calltype,
+	f.five9_timestamp, DATEDIFF(f.five9_timestamp, s.dateadded) AS calldate_minus_subscriptiondate_days, f.five9_calltype, f.five9_customernumber, f.five9_disposition,
 	
 	/* First touch info
 -- 	2026-08-04 -> First touch is unnecessary and just muddies the water
@@ -213,7 +246,7 @@ SELECT
 		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 1 WEEK)   then 'Possible Sale 1 week'
 		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 2 WEEK)   then 'Possible Sale 2 weeks'
 		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 3 WEEK)   then 'Possible Sale 3 weeks'
-		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 4 WEEK)   then 'Possible Sale 4 weeks'
+		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 4 WEEK)   then 'Possible Sale 4 weeks'				
 																							 ELSE 'Sale After 4 Weeks'
 	END AS `Subscription Classification`,
 	
@@ -237,13 +270,12 @@ SELECT
 	END AS cancel_status_at_email
 
 FROM email_campaigns e
-LEFT JOIN tmp_campaign_five9 f
-  ON f.contact_email = e.contact_email
- AND f.campaign_name = e.campaign_name
 LEFT JOIN tmp_customer c ON c.email = e.contact_email
 LEFT JOIN dwh_reportsdb.subscription s 
 	ON s.customerid = c.customerid -- Provides all results that connect to an email (duplicates subscription rows where multiple subscriptions exist)
 	AND s.initialstatus = 1 		 -- Only includes actual subscriptions
+LEFT JOIN tmp_campaign_five9 f
+  ON f.subscriptionid = s.subscriptionid
 LEFT JOIN dwh_internetmarketingdb.roi_master r ON r.sub_id = s.subscriptionid AND s.initialstatus = 1
 LEFT JOIN email_counts ec ON ec.contact_email = e.contact_email AND ec.campaign_name = e.campaign_name -- The additional part in the on statement ensures uniqueness
 -- 2026-08-04: DENSE_RANK, not ROW_NUMBER. [superseded -- see below]
@@ -284,13 +316,13 @@ SELECT * FROM first_campaign
 WHERE rn = 1;
 
 
-/* Prod select
+-- /* Prod select
 SELECT * FROM tmp_allNumbers; -- */
 
 -- ========================================================
 -- Aggregates, testing only
 -- ========================================================
--- /* OVERALL
+/* OVERALL
 SELECT
 	`Subscription Classification`,
 	COUNT(*)                                                     	  AS sales,
@@ -303,7 +335,7 @@ GROUP BY `Subscription Classification`
 ORDER BY `Subscription Classification`
 ; -- */
 
--- /* BY CAMPAIGN
+/* BY CAMPAIGN
 SELECT
 	campaign_name,
 	`Subscription Classification`,
@@ -318,7 +350,7 @@ ORDER BY `Subscription Classification`, campaign_name
 ;
 -- */
 
--- /* BY CAMPAIGN AND SERVICE TYPE
+/* BY CAMPAIGN AND SERVICE TYPE
 SELECT
 	campaign_name,
 	`Subscription Classification`,
@@ -334,7 +366,7 @@ ORDER BY `Subscription Classification`, campaign_name, `servicetype`
 ;
 -- */
 	
--- Drop tables
+-- /* Drop tables
 DROP TEMPORARY TABLE email_campaigns;
 DROP TEMPORARY TABLE email_campaigns_2;
 DROP TEMPORARY TABLE stg_campaigns;
@@ -343,6 +375,7 @@ DROP TEMPORARY TABLE stg_emails;
 DROP TEMPORARY TABLE tmp_customer;
 DROP TEMPORARY TABLE email_counts;
 DROP TEMPORARY TABLE tmp_customer_phone;
-DROP TEMPORARY TABLE tmp_email_calls;
+DROP TEMPORARY TABLE tmp_five9_customer;
 DROP TEMPORARY TABLE tmp_campaign_five9;
 DROP TEMPORARY TABLE tmp_allNumbers;
+-- */
