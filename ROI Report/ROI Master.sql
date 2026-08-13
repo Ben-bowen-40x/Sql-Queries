@@ -353,17 +353,17 @@ WITH cand_customers AS (
 -- All-time, status=1 history. NO date filter — must be all-time, otherwise winbacks misclassify (bug fixed 2026-07-07).
 all_subs AS (
   SELECT
-    s.subscriptionID AS sub_id, 
-	 s.customerID 		AS sub_customerid, 
-	 s.customerid 		AS grp,
-    s.dateAdded 		AS sub_dateadded, 
-	 s.dateAddedDate 	AS sub_dateadded_day,
+    s.subscriptionID 															AS sub_id, 
+	 s.customerID 																	AS sub_customerid, 
+	 s.customerid 																	AS grp,
+    s.dateAdded 																	AS sub_dateadded, 
+	 s.dateAddedDate 																AS sub_dateadded_day,
     CASE
-      WHEN s.dateCancelled IS NULL THEN '9999-12-31 23:59:59'
-      WHEN CAST(s.dateCancelled AS CHAR) = '0000-00-00 00:00:00' THEN '9999-12-31 23:59:59'
-      ELSE s.dateCancelled
-    END 					AS sub_active_end,
-    s.contractValue 	AS sub_contractvalue
+      WHEN s.dateCancelled IS NULL											THEN '9999-12-31 23:59:59'
+      WHEN CAST(s.dateCancelled AS CHAR) = '0000-00-00 00:00:00' 	THEN '9999-12-31 23:59:59'
+      																				ELSE s.dateCancelled
+    END 																				AS sub_active_end,
+    s.contractValue 																AS sub_contractvalue 
   FROM dwh_reportsdb.subscription s
   WHERE s.initialStatus = 1
     AND s.customerid IN (SELECT customerid FROM cand_customers)
@@ -509,9 +509,9 @@ claimed AS (
       WHEN st.touch_source = 'Google LSA' 															THEN 'Google LSA'
       WHEN st.touch_source = 'Google organic' 														THEN 'Google Organic'
       WHEN st.touch_source = 'PestNet' 																THEN 'PestNet'
---       *************** 2026-08-12 Update elocal function to like and the then from 'Elocal' to 'eLocal' *********************************
+--       *************** 2026-08-12 Update elocal function to like -- Update THEN from 'Elocal' to 'eLocal' *********************************
       WHEN st.touch_source LIKE '%elocal%' 															THEN 'eLocal'
---       *************** 2026-08-12 Update elocal function to like and the then from 'Elocal' to 'eLocal' *********************************
+--       *************** 2026-08-12 Update elocal function to like -- Update THEN from 'Elocal' to 'eLocal' *********************************
       WHEN st.touch_source = 'Goodzer' 																THEN 'Goodzer'
       WHEN st.touch_source = 'email' 																	THEN 'Email'
       WHEN TRIM(st.touch_source) = '' 																	THEN 'National Leads'
@@ -557,9 +557,7 @@ claimed AS (
          'Markytek',
          'Ring Local',
          'Yelp','Yelp Referral',         
-         'Dexx Digital - Commercial',
-
-      
+         'Dexx Digital - Commercial',      
       -- Blank
          ''
       )                                                                                THEN 'Paid'
@@ -625,9 +623,9 @@ claimed AS (
 )
 
 -- Prod select 
--- SELECT * FROM claimed;
+SELECT * FROM claimed;
 
--- /*
+/*
 SELECT SUM(sub_contractvalue), sub_officeid, ofc_branchname, sub_status
 FROM claimed
 WHERE ofc_branchname IN (
