@@ -4,20 +4,6 @@
 -- ========================================================
 USE dwh_reportsdb;
 
--- /*drop if exists 
-DROP TEMPORARY TABLE IF EXISTS email_campaigns;
-DROP TEMPORARY TABLE IF EXISTS stg_campaigns;
-DROP TEMPORARY TABLE IF EXISTS stg_sends;
-DROP TEMPORARY TABLE IF EXISTS stg_emails;
-DROP TEMPORARY TABLE IF EXISTS tmp_customer;
-DROP TEMPORARY TABLE IF EXISTS email_counts;
-DROP TEMPORARY TABLE IF EXISTS tmp_customer_phone;
-DROP TEMPORARY TABLE IF EXISTS email_campaigns_2;
-DROP TEMPORARY TABLE IF EXISTS tmp_five9_customer;
-DROP TEMPORARY TABLE IF EXISTS tmp_campaign_five9;
-DROP TEMPORARY TABLE IF EXISTS tmp_allNumbers;
--- */
-
 -- ========================================================
 -- Import CSV data
 -- Why multiple csv files?
@@ -28,6 +14,7 @@ DROP TEMPORARY TABLE IF EXISTS tmp_allNumbers;
 --   All three files come from one run of build_email_campaigns.py and must be reloaded together -- the ids are only meaningful within a matched set.
 -- ========================================================
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS email_campaigns;
 CREATE TEMPORARY TABLE email_campaigns ( 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_campaigns (
 contact_email VARCHAR(100) NOT NULL,
@@ -39,6 +26,7 @@ PRIMARY KEY (contact_email, campaign_name)
 
 -- Load campaign data into table from csv
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS stg_campaigns;
 CREATE TEMPORARY TABLE stg_campaigns ( 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_campaigns (
   campaign_id   INT UNSIGNED NOT NULL,
@@ -57,6 +45,7 @@ IGNORE 1 LINES
 
 -- Load send data into table from csv
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS stg_sends;
 CREATE TEMPORARY TABLE stg_sends ( 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_sends (
   email_id 		 INT UNSIGNED NOT NULL,
@@ -78,6 +67,7 @@ SET opens = IF(@opens REGEXP '^[0-9]+$', CAST(@opens AS UNSIGNED), NULL);
 
 -- Load email data into table from csv
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS stg_emails;
 CREATE TEMPORARY TABLE stg_emails ( 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS stg_emails (
 	email_id		  INT UNSIGNED NOT NULL,
@@ -114,6 +104,7 @@ SELECT
 -- 2026-7-30 -> This addition reduces execution time considerably by reducing the candidate customers
 -- The index on email helps, but reducing the customer population helps more
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS tmp_customer;
 CREATE TEMPORARY TABLE tmp_customer 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_customer
 (INDEX idx_email_customer (email, customerid))
@@ -126,6 +117,7 @@ WHERE c.email IN (SELECT DISTINCT contact_email FROM email_campaigns); -- This l
 -- When email_campaigns is filtered to opens > 0, counting from it would redefine times_contacted_by_email from "times sent" to "times opened". 
 -- Do not switch this to email_campaigns to save a scan.
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS email_counts;
 CREATE TEMPORARY TABLE email_counts 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_counts
 (INDEX idx_email_campaignName (contact_email, campaign_name))
@@ -146,6 +138,7 @@ JOIN stg_emails e ON e.email_id = s.email_id; -- 2026-08-05: v3 normalization. J
 -- The PK is now a BACKSTOP, not the mechanism -- a plain INSERT means it THROWS instead of silently swallowing. 
 -- That's intended: a dup surviving the UNION means an assumption broke and should be loud.
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS tmp_customer_phone;
 CREATE TEMPORARY TABLE tmp_customer_phone ( 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_customer_phone (
   customerid INT NOT NULL,
@@ -158,6 +151,7 @@ CREATE TEMPORARY TABLE tmp_customer_phone (
 -- Distinct emails only, with a PK, so the IN-subquery gets an index instead of scanning a heap.
 -- Not a second campaign table -- do not delete as redundant.
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS email_campaigns_2;
 CREATE TEMPORARY TABLE email_campaigns_2  
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS email_campaigns_2 
 (PRIMARY KEY (contact_email, campaign_name))
@@ -181,6 +175,7 @@ WHERE c.email IN (SELECT contact_email FROM email_campaigns_2)
 -- 2026-08-05: CTAS then ALTER, not pre-indexed INSERT. 
 -- Rows arrive in tmp_customer_phone order, which is random vs. the PK, so per-row clustered index maintenance across 1.8M rows cost ~15 min of a 17:51 run.
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS tmp_five9_customer;
 CREATE TEMPORARY TABLE tmp_five9_customer AS 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_five9_customer AS
 SELECT f.callid, p.customerid, 
@@ -201,6 +196,7 @@ JOIN (
 -- Add index --> Include this in the toggle, because if we "create if exists" and existing table, then altering an existing index is an error
 ALTER TABLE tmp_five9_customer ADD INDEX idx_email_ts (customerid, five9_timestamp); -- Belongs in the toggle
 
+DROP TEMPORARY TABLE IF EXISTS tmp_campaign_five9;
 -- This table will join the five9 information to the subscription information from
 CREATE TEMPORARY TABLE tmp_campaign_five9 
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_campaign_five9
@@ -223,6 +219,7 @@ WHERE rn = 1;
 -- CTEs
 -- ========================================================
 -- /* Toggleable CREATE --> Only untoggle for repeat queries per session. This toggle method will expose only one CREATE at a time
+DROP TEMPORARY TABLE IF EXISTS tmp_allNumbers;
 CREATE TEMPORARY TABLE tmp_allNumbers AS  
 -- */ CREATE TEMPORARY TABLE IF NOT EXISTS tmp_allNumbers AS 
 WITH campaigndata AS (
@@ -240,32 +237,32 @@ SELECT
 	
 	-- New sale subscription info
 	s.customerid, s.subscriptionid, s.dateadded, s.initialstatus, s.servicetype, s.contractvalue, r.sub_status,
-	case 
-		when s.dateadded IS NULL OR s.dateadded = '0000-00-00 00:00:00' then 'No Subscription'
-		when s.dateadded <= e.campaign_date 								    then 'Previous Subscription'
-		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 1 WEEK)   then 'Possible Sale 1 week'
-		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 2 WEEK)   then 'Possible Sale 2 weeks'
-		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 3 WEEK)   then 'Possible Sale 3 weeks'
-		when s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 4 WEEK)   then 'Possible Sale 4 weeks'				
+	CASE 
+		WHEN s.dateadded IS NULL OR s.dateadded = '0000-00-00 00:00:00' THEN 'No Subscription'
+		WHEN s.dateadded <= e.campaign_date 								    THEN 'Previous Subscription'
+		WHEN s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 1 WEEK)   THEN 'Possible Sale 1 week'
+		WHEN s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 2 WEEK)   THEN 'Possible Sale 2 weeks'
+		WHEN s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 3 WEEK)   THEN 'Possible Sale 3 weeks'
+		WHEN s.dateadded < DATE_ADD(e.campaign_date, INTERVAL 4 WEEK)   THEN 'Possible Sale 4 weeks'				
 																							 ELSE 'Sale After 4 Weeks'
 	END AS `Subscription Classification`,
 	
 	-- Subscription cancellation info
 	s.dateCancelled, DATEDIFF(s.dateCancelled, e.campaign_date) AS days_cancelled_after_email,
-	case 
-		when s.datecancelled IS NULL 								 then 'Invalid cancel date'
-		when DATEDIFF(s.datecancelled, e.campaign_date) > 0 then 'Cancelled after campaign'
-		when DATEDIFF(s.datecancelled, e.campaign_date) < 0 then 'Cancelled before campaign'		
-		when s.datecancelled = '0000-00-00 00:00:00'        then 'Active'
+	CASE 
+		WHEN s.datecancelled IS NULL 								 THEN 'Invalid cancel date'
+		WHEN DATEDIFF(s.datecancelled, e.campaign_date) > 0 THEN 'Cancelled after campaign'
+		WHEN DATEDIFF(s.datecancelled, e.campaign_date) < 0 THEN 'Cancelled before campaign'		
+		WHEN s.datecancelled = '0000-00-00 00:00:00'        THEN 'Active'
 																			 ELSE 'Not Cancelled'
 	END AS `Cancellation_Classification`,
 	
 	CASE
-		WHEN s.subscriptionID IS NULL 														then 'No Subscription'
-    	WHEN s.dateCancelled IS NULL OR s.datecancelled = '0000-00-00 00:00:00' then 'Active'
-    	WHEN s.dateCancelled >= e.campaign_date AND s.initialstatus != 1 			then 'Quit Before Start After Campaign (Lost Revenue)'
-    	WHEN s.initialstatus != 1 																then 'Quit Before Start'
-	   WHEN s.dateCancelled >= e.campaign_date 											then 'Active at send (cancelled after)'
+		WHEN s.subscriptionID IS NULL 														THEN 'No Subscription'
+    	WHEN s.dateCancelled IS NULL OR s.datecancelled = '0000-00-00 00:00:00' THEN 'Active'
+    	WHEN s.dateCancelled >= e.campaign_date AND s.initialstatus != 1 			THEN 'Quit Before Start After Campaign (Lost Revenue)'
+    	WHEN s.initialstatus != 1 																THEN 'Quit Before Start'
+	   WHEN s.dateCancelled >= e.campaign_date 											THEN 'Active at send (cancelled after)'
     																									ELSE 'Cancelled before send'
 	END AS cancel_status_at_email
 
@@ -379,3 +376,28 @@ DROP TEMPORARY TABLE tmp_five9_customer;
 DROP TEMPORARY TABLE tmp_campaign_five9;
 DROP TEMPORARY TABLE tmp_allNumbers;
 -- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
