@@ -624,8 +624,35 @@ claimed AS (
     AND st.touch_first_contact <  @window_end
 )
 
-Prod select 
+-- Prod select 
 -- SELECT * FROM claimed;
+
+-- /*
+SELECT SUM(sub_contractvalue), sub_officeid, ofc_branchname, sub_status
+FROM claimed
+WHERE ofc_branchname IN (
+'Appleton - WI'
+,'Burlington - VT'
+,'Des Moines - IA'
+,'Evansville - IN'
+,'Fort Wayne - IN'
+,'Iowa City - IA'
+,'Kennewick - WA'
+,'Knoxville - TN'
+,'Pensacola - FL'
+,'Portland - ME'
+,'Reno - NV'
+,'Sioux Falls - SD'
+,'South Bend - IN'
+,'Spokane - WA'
+,'Springfield - MA'
+,'Wichita - KS'
+,'Willamette Valley - OR'
+) AND touch_first_contact >= '2026-01-01'
+GROUP BY sub_status
+-- , ofc_branchname
+;
+-- */
 
 /* Finding unclassified sources
 SELECT MAX(touch_first_contact), touch_source, normalized_source, paid_type FROM claimed
@@ -691,27 +718,6 @@ DROP TEMPORARY TABLE stage_cust_touches;
 DROP TEMPORARY TABLE stage_first_sub;
 DROP TEMPORARY TABLE stage_orig_attributed;
 -- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
