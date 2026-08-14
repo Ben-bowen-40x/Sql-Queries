@@ -77,12 +77,12 @@ sheet_first AS (
       contact_number_clean AS sh_phone10,
       CONVERT_TZ(touch_utc,'+00:00','America/Los_Angeles') AS sh_contact_pacific,
       CASE 
-			WHEN `source` = 'Lab' 			then 'Bark' 
-			WHEN `source` = 'Pan' 			then 'PestNet'
-			WHEN `source` = 'Leased' 		then 'Google LSA Text'
-			WHEN `source` = 'Libacion' 	then 'Local Biz'
-			WHEN `source` = 'Calli' 		then 'Consumer Affairs'
-			WHEN `source` = 'Lather' 		then 'Lavin'
+			WHEN `source` = 'Lab' 			THEN 'Bark' 
+			WHEN `source` = 'Pan' 			THEN 'PestNet'
+			WHEN `source` = 'Leased' 		THEN 'Google LSA Text'
+			WHEN `source` = 'Libacion' 	THEN 'Local Biz'
+			WHEN `source` = 'Calli' 		THEN 'Consumer Affairs'
+			WHEN `source` = 'Lather' 		THEN 'Lavin'
 			ELSE `source` 
 		END AS sh_source
     FROM dwh_internetmarketingdb.roi_sheet
