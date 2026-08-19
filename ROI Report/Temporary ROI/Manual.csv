@@ -25,7 +25,7 @@ year,month,source,status,total_sales,total_contract_value
 2024,07,Pan,new_acquisition,10,8968.55
 2024,08,Leased,new_acquisition,25,18793.36
 2024,08,Pan,new_acquisition,10,8731.38
-2024,09,Leased,new_acquisition,30,25174.33
+2024,09,Leased,new_acquisition,31,26274.33
 2024,09,Pan,new_acquisition,4,3549.00
 2024,10,Leased,new_acquisition,25,21676.10
 2024,10,Pan,winback,8,5244.00
@@ -55,7 +55,7 @@ year,month,source,status,total_sales,total_contract_value
 2025,08,Leased,new_acquisition,61,45603.00
 2025,08,Libacion,new_acquisition,16,12555.00
 2025,09,Calli,new_acquisition,22,16599.00
-2025,09,Leased,new_acquisition,30,24382.99
+2025,09,Leased,new_acquisition,31,25767.99
 2025,09,Libacion,new_acquisition,8,7420.00
 2025,09,Pan,new_acquisition,2,1589.00
 2025,10,Calli,new_acquisition,30,41106.00
@@ -67,7 +67,7 @@ year,month,source,status,total_sales,total_contract_value
 2025,11,Libacion,new_acquisition,2,2125.00
 2025,11,Pan,new_acquisition,2,1735.00
 2025,12,Calli,new_acquisition,19,16124.00
-2025,12,Leased,new_acquisition,2,1373.00
+2025,12,Leased,upgrade,3,2830.00
 2025,12,Libacion,new_acquisition,2,1705.00
 2025,12,Pan,new_acquisition,1,930.00
 2026,01,Calli,new_acquisition,17,12637.00
@@ -84,15 +84,15 @@ year,month,source,status,total_sales,total_contract_value
 2026,03,Libacion,new_acquisition,4,5036.25
 2026,03,Pan,new_acquisition,1,883.00
 2026,04,Calli,new_acquisition,29,26944.00
-2026,04,Leased,new_acquisition,74,65163.88
+2026,04,Leased,new_acquisition,78,68923.88
 2026,04,Libacion,new_acquisition,7,6017.00
 2026,05,Calli,new_acquisition,23,25760.00
 2026,05,Lab,winback,1,150.00
-2026,05,Leased,new_acquisition,62,49474.00
+2026,05,Leased,new_acquisition,63,50482.00
 2026,06,Calli,upgrade,33,43060.00
 2026,06,Lab,new_acquisition,3,1965.00
-2026,06,Leased,new_acquisition,40,32668.00
-2026,07,Calli,new_acquisition,32,27236.00
+2026,06,Leased,new_acquisition,41,33469.00
+2026,07,Calli,new_acquisition,33,27881.00
 2026,07,Lab,new_acquisition,1,753.00
-2026,08,Calli,new_acquisition,2,1906.00
+2026,08,Calli,new_acquisition,3,2181.00
 2026,08,Lab,new_acquisition,1,899.00
