@@ -5,17 +5,6 @@
 -- The roi_sheet inclusions are marked clearly with comments
 
 -- As of 2026-07-20, the roi_sheet version will not work unless the existing roi_sheet is updated
-/* This is just a sample create table statement for reference => not a suggestion, 
-	just shorthand for the shape needed for the roi_sheet version of this query to work
-	
-CREATE TABLE dwh_internetmarketingdb.roi_sheet (
-  source                VARCHAR(100)  NOT NULL,
-  contact_number_clean  VARCHAR(10)   NOT NULL,
-  touch_utc             DATETIME      NOT NULL,
-  INDEX idx_phone (contact_number_clean),
-  INDEX idx_phone_time (contact_number_clean, touch_utc)
-);
-*/
 
 -- ===================================================================
 -- Configuration: File-wide variable declarations
@@ -32,8 +21,7 @@ SET @salesforce_timezone := 'America/Denver';
 
 -- ===================================================================
 -- STEP 1: Materialize all touches joined to customers, WITH INDEX.
--- This is the expensive build (~40-60s) but it happens exactly once,
--- and the index makes every downstream lookup a seek instead of a scan.
+-- This is the expensive build (~40-60s) but it happens exactly once, and the index makes every downstream lookup a seek instead of a scan.
 -- ===================================================================
 DROP TEMPORARY TABLE IF EXISTS stage_cust_touches;
 
@@ -59,7 +47,7 @@ cand_phone_list AS (
 ),
 
 --   ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ ROI_SHEET CTE — START ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
--- /* Adds roi_sheet data to union
+-- /* Adds roi_sheet data to union 
 -- TOUCH CHANNEL 4: offline data via roi_sheet (fed by LeadPipe export).
 -- touch_utc is UTC by contract with the feed; converted to Pacific like all channels.
 -- Outcome columns in roi_sheet (contract_value, initial_status) are legacy — never read them here.
@@ -317,7 +305,7 @@ FROM dwh_reportsdb.subscription s
 WHERE s.customerid IN (SELECT DISTINCT customerid
                        FROM dwh_reportsdb.subscription
                        WHERE dateaddeddate >= @population_epoch AND initialstatus = 1)
-GROUP BY s.customerid;
+GROUP BY s.customerid; 
 
 
 -- ===================================================================
@@ -369,7 +357,7 @@ all_subs AS (
     AND s.customerid IN (SELECT customerid FROM cand_customers)
 ),
 
--- Reported population: subscriptions from [year] or later where status=1.
+-- Reported population: subscriptions from [year] or later where status=1.GBP
 candidate_subs AS (
 	SELECT 
 		s.subscriptionid 							AS sub_id,
@@ -500,9 +488,9 @@ claimed AS (
       WHEN st.touch_source = 'website' 																THEN 'Website'
       WHEN st.touch_source = 'Direct' 																	THEN 'Direct'
       WHEN st.touch_source IN ('GMB','GMB ','GMB - Glen Ellyn, IL 60137',
-			'Google My Business','GMB Post','GMB - Gurnee, IL 60031',
-			'North Chicago GMB','GMB - Brownsville','GMB - Newport News',
-			'Google Business Profile - Website Visitor',
+			'GMB -  Glen Ellyn, IL 60137','Google My Business','GMB Post',
+			'GMB - Gurnee, IL 60031','North Chicago GMB','GMB - Brownsville',
+			'GMB - Newport News','Google Business Profile - Website Visitor',
 			'Google Business Profile - Static Number') 												THEN 'GBP'
       WHEN st.touch_source IN ('facebook paid','General Meta Ads') 							THEN 'Meta Ads'
       WHEN st.touch_source IN ('Facebook video','Facebook Ads','facebook') 				THEN 'Facebook Organic'
@@ -522,14 +510,15 @@ claimed AS (
       WHEN st.touch_source = 'Bing Organic' 															THEN 'Microsoft Organic'
       WHEN st.touch_source IN ('bing','BING Paid','Bing Call Extensions') 					THEN 'Microsoft Ads'
       WHEN LOWER(st.touch_source) LIKE '%service%direct%' 										THEN 'Service Direct'
---       *************************** 2026-08-12 Remove leadferno normalization into Google Ads or Microsoft Ads ***************************************
+--       *************************** 2026-08-12 Remove leadferno-Google Ads/Microsoft normalization ***************************************
 --       WHEN st.touch_source LIKE '%Google Ads Leadferno%' 										THEN 'Google Ads'
 --       WHEN st.touch_source LIKE '%Microsoft Ads Leadferno%' 									THEN 'Microsoft Ads'
---       *************************** 2026-08-12 Remove leadferno normalization into Google Ads or Microsoft Ads ***************************************
+--       *************************** 2026-08-12 Remove leadferno-Google Ads/Microsoft normalization ***************************************
       WHEN st.touch_source = 'Leadferno' 																THEN 'Leadferno'
       WHEN st.touch_source LIKE '%Google Ads Form%' 												THEN 'Google Ads'
       WHEN st.touch_source LIKE '%Microsoft Ads Form%' 											THEN 'Microsoft Ads'
       WHEN st.touch_source = 'Contact Form' 															THEN 'Contact Form'
+      WHEN st.touch_source LIKE '%flow%bri%e%'														THEN 'Flow Bridge'
       WHEN st.touch_source LIKE 'Form%' 																THEN st.touch_source
       ELSE st.touch_source
     END AS normalized_source,
@@ -625,7 +614,7 @@ claimed AS (
 -- Prod select 
 SELECT * FROM claimed;
 
-/*
+/* FDS branch search
 SELECT SUM(sub_contractvalue), sub_officeid, ofc_branchname, sub_status
 FROM claimed
 WHERE ofc_branchname IN (
@@ -660,28 +649,12 @@ GROUP BY touch_source;
 -- */
 
 /* Looking for sources
-SELECT SUM(sub_contractvalue), touch_source, normalized_source
+SELECT YEAR(touch_first_contact), MONTH(touch_first_contact), SUM(sub_contractvalue), touch_source, normalized_source
 FROM claimed 
-GROUP BY touch_source
+WHERE touch_first_contact >= '2026-01-01'
+GROUP BY touch_source, MONTH(touch_first_contact)
+ORDER BY MONTH(touch_first_contact), normalized_source
 ;
--- */
-
-/* Leadferno Google Ads select -- must not survive beyond testing
-SELECT 
-	CASE WHEN `ctm_location` LIKE '%gclid=%' THEN SUBSTRING_INDEX(SUBSTRING_INDEX(`ctm_location`, 'gclid=', -1), '&', 1)
-	END AS `Google Click ID`,
-	'Leadferno Sale Values' AS `Conversion Name`,
-	CONCAT(
-		DATE_FORMAT(
-			CONVERT_TZ(touch_first_contact, 'America/Los_Angeles', 'America/New_York'),
-			'%Y-%m-%dT%H:%i:%s'
-		),
-	  '-0500'
-	) AS `Conversion Time`,
-	sub_contractvalue AS `Conversion Value`,
-	'USD' AS `Conversion Currency`
-FROM claimed
-WHERE touch_medium = 'leadferno' AND `ctm_location` LIKE '%gclid=%';
 -- */
 
 /* Aggregates -- must not survive beyond testing
@@ -700,14 +673,6 @@ ORDER BY
 	touch_year, 
 -- 	touch_month, 
 	sub_status; 
--- */
-
-/* expect exactly ONE row: Microsoft Organic / Non-Paid -- must not survive beyond testing
-SELECT normalized_source, paid_type, COUNT(*)
-FROM claimed
-WHERE touch_source = 'Bing Organic'
-GROUP BY 1, 2;
-
 -- */
 
 -- /* Temporary tables do not need to stay through the end of the session, especially when handed off
