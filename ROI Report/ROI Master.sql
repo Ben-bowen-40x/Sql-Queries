@@ -552,9 +552,9 @@ claimed AS (
       )                                                                                THEN 'Paid'
       WHEN LOWER(st.touch_source) LIKE '%service%direct%'
                OR st.touch_source LIKE '%leadferno%'
-               OR st.touch_source LIKE '%Google Ad%Form%'
-               OR st.touch_source LIKE '%Microsoft Ad%Form%'
-               OR st.touch_source LIKE '%biz%'
+               OR st.touch_source LIKE '%Google%Ad%Form%'
+               OR st.touch_source LIKE '%Microsoft%Ad%Form%'
+               OR st.touch_source LIKE '%local%biz%'
                OR st.touch_source LIKE '%flow%bri%e%'
                                                                                        THEN 'Paid'
       WHEN st.touch_source IN (
